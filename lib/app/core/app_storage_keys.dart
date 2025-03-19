@@ -9,6 +9,7 @@ abstract class AppStorageKey {
   static const String credentials = "credentials";
   static const String userData = "user_data";
   static const String userId = "user_id";
+  static const String userType = "user_type";
   static const String isSubscribe = "is_subscribe";
   static String firstTimeOnApp = "first_time";
   static const String languageCode = "languageCode";

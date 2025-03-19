@@ -50,7 +50,7 @@ class GuestMode extends StatelessWidget {
           SizedBox(height: Dimensions.PADDING_SIZE_EXTRA_LARGE.h),
           CustomButton(
             text: getTranslated("login"),
-            onTap: () => CustomNavigator.push(Routes.login),
+            onTap: () => CustomNavigator.push(Routes.login, clean: true),
           ),
         ],
       ),

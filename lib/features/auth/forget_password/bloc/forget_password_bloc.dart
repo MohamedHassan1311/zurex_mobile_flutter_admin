@@ -2,8 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rxdart/rxdart.dart';
-
 import '../../../../app/core/app_core.dart';
 import '../../../../app/core/app_event.dart';
 import '../../../../app/core/app_notification.dart';
@@ -23,20 +21,12 @@ class ForgetPasswordBloc extends Bloc<AppEvent, AppState> {
   }
 
   final formKey = GlobalKey<FormState>();
-  final FocusNode emailNode = FocusNode();
-
-  TextEditingController mailTEC = TextEditingController();
+  final FocusNode phoneNode = FocusNode();
 
   TextEditingController phoneTEC = TextEditingController();
 
-  final country = BehaviorSubject<String?>();
-  Function(String?) get updateCountry => country.sink.add;
-  Stream<String?> get countryStream => country.stream.asBroadcastStream();
-
   clear() {
-    mailTEC.clear();
     phoneTEC.clear();
-    updateCountry(null);
   }
 
   Future<void> onClick(Click event, Emitter<AppState> emit) async {
@@ -44,9 +34,7 @@ class ForgetPasswordBloc extends Bloc<AppEvent, AppState> {
       emit(Loading());
 
       Map<String, dynamic> data = {
-        "email": mailTEC.text.trim(),
-        // "phone": phoneTEC.text.trim(),
-        // "country_code": (country.valueOrNull ?? "sa").toLowerCase(),
+        "phone": phoneTEC.text.trim(),
         "user_type": event.arguments as String
       };
       Either<ServerFailure, Response> response =
@@ -64,9 +52,8 @@ class ForgetPasswordBloc extends Bloc<AppEvent, AppState> {
         CustomNavigator.push(Routes.verification,
             replace: true,
             arguments: VerificationModel(
-                email: mailTEC.text.trim(),
-                // phone: phoneTEC.text.trim(),
-                // countryCode: (country.valueOrNull ?? "sa").toLowerCase(),
+                userType: event.arguments as String,
+                phone: phoneTEC.text.trim(),
                 fromRegister: false));
         clear();
         emit(Done());

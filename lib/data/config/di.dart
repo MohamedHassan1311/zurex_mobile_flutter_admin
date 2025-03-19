@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zurex_admin/features/auth/register/repo/register_repo.dart';
 import '../../app/theme/theme_provider/theme_provider.dart';
 import '../../features/auth/activation_account/repo/activation_account_repo.dart';
 import '../../features/auth/deactivate_account/repo/deactivate_account_repo.dart';
@@ -12,7 +11,6 @@ import '../../features/auth/login/repo/login_repo.dart';
 import '../../features/auth/logout/bloc/logout_bloc.dart';
 import '../../features/auth/logout/repo/logout_repo.dart';
 import '../../features/auth/reset_password/repo/reset_password_repo.dart';
-import '../../features/auth/social_media_login/repo/social_media_repo.dart';
 import '../../features/auth/verification/repo/verification_repo.dart';
 import '../../features/cancel_order/repo/cancel_order_repo.dart';
 import '../../features/chat/repo/chat_repo.dart';
@@ -27,8 +25,6 @@ import '../../features/orders/repo/orders_repo.dart';
 import '../../features/who_us/repo/who_us_repo.dart';
 import '../../main_blocs/country_states_bloc.dart';
 import '../../main_repos/country_states_repo.dart';
-import '../../features/home/bloc/home_ads_bloc.dart';
-import '../../features/home/repo/home_repo.dart';
 import '../../features/language/bloc/language_bloc.dart';
 import '../../features/language/repo/language_repo.dart';
 import '../../features/maps/repo/maps_repo.dart';
@@ -39,7 +35,6 @@ import '../../features/setting/bloc/setting_bloc.dart';
 import '../../features/setting/repo/setting_repo.dart';
 import '../../features/contact_with_us/repo/contact_with_us_repo.dart';
 import '../../helpers/pickers/repo/picker_helper_repo.dart';
-import '../../helpers/social_media_login_helper.dart';
 import '../../main_blocs/user_bloc.dart';
 import '../../main_page/bloc/dashboard_bloc.dart';
 import '../../main_repos/download_repo.dart';
@@ -63,7 +58,6 @@ Future<void> init() async {
         loggingInterceptor: sl(),
         sharedPreferences: sl(),
       ));
-  sl.registerLazySingleton(() => SocialMediaLoginHelper());
   sl.registerLazySingleton(() => InternetConnection(connectivity: sl()));
 
   /// Repository
@@ -97,9 +91,6 @@ Future<void> init() async {
       () => LoginRepo(sharedPreferences: sl(), dioClient: sl()));
 
   sl.registerLazySingleton(
-      () => RegisterRepo(sharedPreferences: sl(), dioClient: sl()));
-
-  sl.registerLazySingleton(
       () => VerificationRepo(sharedPreferences: sl(), dioClient: sl()));
 
   sl.registerLazySingleton(
@@ -125,12 +116,6 @@ Future<void> init() async {
 
   sl.registerLazySingleton(
       () => MapsRepo(sharedPreferences: sl(), dioClient: sl()));
-
-  sl.registerLazySingleton(() => SocialMediaRepo(
-      sharedPreferences: sl(), dioClient: sl(), socialMediaLoginHelper: sl()));
-
-  sl.registerLazySingleton(
-      () => HomeRepo(sharedPreferences: sl(), dioClient: sl()));
 
   sl.registerLazySingleton(
       () => DeactivateAccountRepo(sharedPreferences: sl(), dioClient: sl()));
@@ -164,10 +149,7 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SettingBloc(repo: sl()));
   sl.registerLazySingleton(() => DashboardBloc());
   sl.registerLazySingleton(() => ProfileBloc(repo: sl()));
-  sl.registerLazySingleton(() => UserBloc(repo: sl()));
-  sl.registerLazySingleton(
-      () => HomeAdsBloc(repo: sl(), internetConnection: sl()));
-  sl.registerLazySingleton(
+  sl.registerLazySingleton(() => UserBloc(repo: sl()));sl.registerLazySingleton(
       () => OrdersBloc(repo: sl(), internetConnection: sl()));
   sl.registerLazySingleton(() => ChatsBloc(repo: sl()));
 

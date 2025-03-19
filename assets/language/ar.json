@@ -687,5 +687,7 @@
   "for_more_details": "لمعرفة المزيد",
   "there_is_no_products_match_your_car_segments": "لا توجد منتجات تتوافق مع فئات سيارتك",
   "if_you_want_show_all_products_in_this_category_press_refresh": "إذا كنت ترغب في عرض جميع المنتجات في هذه الفئة، اضغط على تحديث",
-  "min_purchase_validation": "لا يمكنك إكمال الطلب، الحد الأدنى لقيمة الشراء هو"
+  "min_purchase_validation": "لا يمكنك إكمال الطلب، الحد الأدنى لقيمة الشراء هو",
+  "driver": "سائق",
+  "admin": "مدير"
 }

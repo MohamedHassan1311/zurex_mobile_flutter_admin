@@ -8,7 +8,6 @@ import 'package:zurex_admin/main_blocs/user_bloc.dart';
 import '../../app/core/app_event.dart';
 import '../../features/auth/logout/bloc/logout_bloc.dart';
 import '../../features/chats/bloc/chats_bloc.dart';
-import '../../features/home/bloc/home_ads_bloc.dart';
 import '../../features/language/bloc/language_bloc.dart';
 import '../../features/profile/bloc/profile_bloc.dart';
 import '../../features/setting/bloc/setting_bloc.dart';
@@ -22,7 +21,6 @@ abstract class ProviderList {
     BlocProvider<SettingBloc>(create: (_) => di.sl<SettingBloc>()),
     BlocProvider<ProfileBloc>(create: (_) => di.sl<ProfileBloc>()),
     BlocProvider<UserBloc>(create: (_) => di.sl<UserBloc>()),
-    BlocProvider<HomeAdsBloc>(create: (_) => di.sl<HomeAdsBloc>()),
     ///Orders
     BlocProvider<OrdersBloc>(create: (_) => di.sl<OrdersBloc>()),
     ///Chats

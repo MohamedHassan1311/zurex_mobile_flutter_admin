@@ -1,24 +1,18 @@
 class VerificationModel {
-  String? email;
   String? code;
   String? phone;
-  String? countryCode;
-  bool fromRegister, withMail, fromComplete;
+  String? userType;
+  bool fromRegister;
   VerificationModel({
-    this.email,
     this.code,
     this.phone,
-    this.countryCode,
-    this.fromComplete = false,
+    this.userType,
     this.fromRegister = true,
-    this.withMail = false,
   });
-  bool isEmpty() => email == "";
 
   Map<String, dynamic> toJson({bool withCode = true}) => {
-        if (withMail) "email": email,
-        if (!withMail) "phone_number": phone,
-        // if (!withMail) "country_code": countryCode,
+        "phone_number": phone,
+        "user_type": userType,
         if (withCode) "otp": code,
       };
 }

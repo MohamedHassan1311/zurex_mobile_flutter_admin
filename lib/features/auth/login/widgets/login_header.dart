@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zurex_admin/app/core/extensions.dart';
 import 'package:zurex_admin/components/custom_images.dart';
 import '../../../../app/core/dimensions.dart';
@@ -6,6 +7,9 @@ import '../../../../app/core/images.dart';
 import '../../../../app/core/styles.dart';
 import '../../../../app/core/text_styles.dart';
 import '../../../../app/localization/language_constant.dart';
+import '../../../../main_blocs/user_bloc.dart';
+import '../bloc/login_bloc.dart';
+import 'choose_user_type.dart';
 
 class LoginHeader extends StatelessWidget {
   const LoginHeader({super.key});
@@ -35,6 +39,14 @@ class LoginHeader extends StatelessWidget {
               .copyWith(fontSize: 16, color: Styles.DETAILS_COLOR),
         ),
         SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT.h),
+        StreamBuilder<UserType>(
+            stream: context.read<LoginBloc>().userTypeStream,
+            builder: (context, snapshot) {
+              return ChooseUserType(
+                type: context.read<LoginBloc>().userType.value,
+                onChange: context.read<LoginBloc>().updateUserType,
+              );
+            }),
       ],
     );
   }

@@ -8,13 +8,17 @@ import 'package:zurex_admin/app/core/dimensions.dart';
 import 'package:zurex_admin/components/animated_widget.dart';
 import '../../../../app/core/app_event.dart';
 import '../../../../app/core/styles.dart';
+import '../../../../app/core/svg_images.dart';
 import '../../../../app/core/text_styles.dart';
 import '../../../../app/core/validation.dart';
 import '../../../../app/localization/language_constant.dart';
 import '../../../../components/custom_button.dart';
 import '../../../../components/custom_text_form_field.dart';
+import '../../../../navigation/custom_navigation.dart';
+import '../../../../navigation/routes.dart';
 import '../bloc/login_bloc.dart';
 import 'login_header.dart';
+import 'remember_me.dart';
 
 class LoginBody extends StatelessWidget {
   const LoginBody({super.key});
@@ -37,6 +41,8 @@ class LoginBody extends StatelessWidget {
                         ///Phone
                         CustomTextField(
                           controller: context.read<LoginBloc>().phoneTEC,
+                          focusNode: context.read<LoginBloc>().phoneNode,
+                          nextFocus: context.read<LoginBloc>().passwordNode,
                           autofillHints: const [
                             AutofillHints.telephoneNumber,
                             AutofillHints.username,
@@ -80,6 +86,65 @@ class LoginBody extends StatelessWidget {
                           ),
                         ),
 
+                        ///Password
+                        CustomTextField(
+                          autofillHints: const [AutofillHints.password],
+                          controller: context.read<LoginBloc>().passwordTEC,
+                          focusNode: context.read<LoginBloc>().passwordNode,
+                          keyboardAction: TextInputAction.done,
+                          label: getTranslated("password"),
+                          hint: getTranslated("enter_your_password"),
+                          inputType: TextInputType.visiblePassword,
+                          validate: Validations.password,
+                          isPassword: true,
+                          pSvgIcon: SvgImages.lockIcon,
+                        ),
+
+                        ///Forget Password && Remember me
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: Dimensions.paddingSizeExtraSmall.h,
+                              horizontal: Dimensions.paddingSizeExtraSmall.w),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              StreamBuilder<bool?>(
+                                stream: context
+                                    .read<LoginBloc>()
+                                    .rememberMeStream,
+                                builder: (_, snapshot) {
+                                  return RememberMe(
+                                    check: snapshot.data ?? false,
+                                    onChange: (v) => context
+                                        .read<LoginBloc>()
+                                        .updateRememberMe(v),
+                                  );
+                                },
+                              ),
+                              InkWell(
+                                onTap: () {
+                                  context.read<LoginBloc>().clear();
+                                  CustomNavigator.push(Routes.forgetPassword,
+                                      arguments: context
+                                          .read<LoginBloc>()
+                                          .userType
+                                          .valueOrNull
+                                          ?.name);
+                                },
+                                child: Text(
+                                  getTranslated("forget_password"),
+                                  style: AppTextStyles.w500.copyWith(
+                                    color: Styles.PRIMARY_COLOR,
+                                    fontSize: 13,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Styles.PRIMARY_COLOR,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
                         ///Sign in
                         Padding(
                           padding: EdgeInsets.symmetric(
@@ -100,26 +165,6 @@ class LoginBody extends StatelessWidget {
                               isLoading: state is Loading),
                         ),
 
-                        // ///Sign up if don't have account
-                        // RichText(
-                        //   textAlign: TextAlign.center,
-                        //   text: TextSpan(
-                        //       text: getTranslated("do_not_have_acc"),
-                        //       style: AppTextStyles.w400.copyWith(
-                        //           fontSize: 14, color: Styles.DETAILS_COLOR),
-                        //       children: [
-                        //         TextSpan(
-                        //             text: " ${getTranslated("signup")}",
-                        //             style: AppTextStyles.w600.copyWith(
-                        //                 fontSize: 16,
-                        //                 color: Styles.PRIMARY_COLOR,
-                        //                 decoration: TextDecoration.underline),
-                        //             recognizer: TapGestureRecognizer()
-                        //               ..onTap = () => CustomNavigator.push(
-                        //                   Routes.register)),
-                        //       ]),
-                        // ),
-
                         ///Guest Mode
                         GestureDetector(
                           onTap: () => context.read<LoginBloc>().add(Add()),
@@ -129,140 +174,13 @@ class LoginBody extends StatelessWidget {
                             padding: EdgeInsets.symmetric(
                                 horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
                                 vertical: Dimensions.paddingSizeMini.h),
-
                             child: Text(
                               getTranslated("login_as_a_guest"),
-
                               style: AppTextStyles.w500
                                   .copyWith(fontSize: 14, color: Styles.TITLE),
                             ),
                           ),
                         ),
-
-
-                        /* Padding(
-                          padding: EdgeInsets.only(
-                            left: Dimensions.PADDING_SIZE_DEFAULT.w,
-                            right: Dimensions.PADDING_SIZE_DEFAULT.w,
-                            top: Dimensions.PADDING_SIZE_DEFAULT.h,
-                            bottom: Dimensions.PADDING_SIZE_SMALL.h,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                      child: Divider(
-                                    color: Styles.DETAILS_COLOR,
-                                    height: 12.h,
-                                  )),
-                                  Text(
-                                    "  ${getTranslated("or")}  ",
-                                    style: AppTextStyles.w500.copyWith(
-                                        fontSize: 14,
-                                        color: Styles.DETAILS_COLOR),
-                                  ),
-                                  Expanded(
-                                      child: Divider(
-                                    color: Styles.DETAILS_COLOR,
-                                    height: 12.h,
-                                  )),
-                                ],
-                              ),
-                              SizedBox(height: 8.h),
-                            ],
-                          ),
-                        ),
-
-                         if (Platform.isIOS)
-                          BlocProvider(
-                            create: (context) =>
-                                SocialMediaBloc(repo: sl<SocialMediaRepo>()),
-                            child: BlocBuilder<SocialMediaBloc, AppState>(
-                              builder: (context, state) {
-                                return CustomButton(
-                                  text:
-                                      "${getTranslated("continue_with")} Apple",
-                                  svgIcon: SvgImages.apple,
-                                  backgroundColor: Styles.FILL_COLOR,
-                                  textColor: Styles.TITLE,
-                                  withBorderColor: true,
-                                  borderColor: Styles.LIGHT_BORDER_COLOR,
-                                  onTap: () {
-                                    context.read<SocialMediaBloc>().add(Click(
-                                          arguments: {
-                                            "provider":
-                                                SocialMediaProvider.apple
-                                          },
-                                        ));
-                                  },
-                                  isLoading: state is Loading,
-                                );
-                              },
-                            ),
-                          ),
-
-                        ///Login With Google
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.PADDING_SIZE_SMALL.h),
-                          child: BlocProvider(
-                            create: (context) =>
-                                SocialMediaBloc(repo: sl<SocialMediaRepo>()),
-                            child: BlocBuilder<SocialMediaBloc, AppState>(
-                              builder: (context, state) {
-                                return CustomButton(
-                                  text:
-                                      "${getTranslated("continue_with")} Google",
-                                  svgIcon: SvgImages.google,
-                                  backgroundColor: Styles.FILL_COLOR,
-                                  textColor: Styles.TITLE,
-                                  withBorderColor: true,
-                                  borderColor: Styles.LIGHT_BORDER_COLOR,
-                                  onTap: () {
-                                    context.read<SocialMediaBloc>().add(Click(
-                                          arguments: {
-                                            "provider":
-                                                SocialMediaProvider.google
-                                          },
-                                        ));
-                                  },
-                                  isLoading: state is Loading,
-                                );
-                              },
-                            ),
-                          ),
-                        ),
-
-
-
-
-                        ///Login With Facebook
-                        BlocProvider(
-                          create: (context) =>
-                              SocialMediaBloc(repo: sl<SocialMediaRepo>()),
-                          child: BlocBuilder<SocialMediaBloc, AppState>(
-                            builder: (context, state) {
-                              return CustomButton(
-                                text:
-                                    "${getTranslated("continue_with")} Facebook",
-                                svgIcon: SvgImages.faceBook,
-                                backgroundColor: Colors.white,
-                                textColor: Styles.TITLE,
-                                withBorderColor: true,
-                                borderColor: Styles.LIGHT_BORDER_COLOR,
-                                onTap: () {
-                                  context.read<SocialMediaBloc>().add(Click(
-                                      arguments: SocialMediaProvider.facebook));
-                                },
-                                isLoading: state is Loading,
-                              );
-                            },
-                          ),
-                        ),*/
                       ],
                     ),
                   )),

@@ -18,7 +18,6 @@ import '../main_page/page/dashboard.dart';
 import '../features/profile/page/my_profile.dart';
 import '../features/auth/forget_password/page/forget_password.dart';
 import '../features/auth/login/page/login.dart';
-import '../features/auth/register/page/register.dart';
 import '../features/auth/reset_password/page/reset_password.dart';
 import '../features/auth/verification/model/verification_model.dart';
 import '../features/auth/verification/page/verification.dart';
@@ -43,9 +42,6 @@ abstract class CustomNavigator {
         return _pageRoute(const Splash());
       case Routes.login:
         return _pageRoute(Login());
-
-      case Routes.register:
-        return _pageRoute(const Register());
 
       case Routes.forgetPassword:
         return _pageRoute(

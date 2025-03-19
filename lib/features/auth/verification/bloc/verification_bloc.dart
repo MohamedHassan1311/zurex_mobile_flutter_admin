@@ -8,9 +8,7 @@ import '../../../../app/core/app_event.dart';
 import '../../../../app/core/app_notification.dart';
 import '../../../../app/core/app_state.dart';
 import '../../../../app/core/styles.dart';
-import '../../../../app/localization/language_constant.dart';
 import '../../../../data/error/failures.dart';
-import '../../../../main_blocs/user_bloc.dart';
 import '../../../../navigation/custom_navigation.dart';
 import '../../../../navigation/routes.dart';
 import '../model/verification_model.dart';
@@ -48,18 +46,12 @@ class VerificationBloc extends Bloc<AppEvent, AppState> {
       }, (success) {
         AppCore.showSnackBar(
           notification: AppNotification(
-            message: getTranslated("logged_in_successfully"),
+            message: success.data["message"],
             backgroundColor: Styles.ACTIVE,
             borderColor: Styles.ACTIVE,
           ),
         );
-        if (data.fromComplete) {
-          CustomNavigator.push(Routes.editProfile,
-              clean: true, arguments: true);
-        } else {
-          CustomNavigator.push(Routes.dashboard, clean: true, arguments: 0);
-        }
-        UserBloc.instance.add(Click());
+        CustomNavigator.push(Routes.resetPassword, arguments: data.userType);
 
         clear();
         emit(Done());

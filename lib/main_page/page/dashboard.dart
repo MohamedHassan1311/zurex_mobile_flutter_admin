@@ -12,7 +12,6 @@ import 'package:zurex_admin/main_models/search_engine.dart';
 import '../../app/core/app_event.dart';
 import '../../data/config/di.dart';
 import '../../data/internet_connection/internet_connection.dart';
-import '../../features/home/bloc/home_ads_bloc.dart';
 import '../../features/orders/bloc/orders_bloc.dart';
 import '../../features/orders/page/orders_page.dart';
 import '../../features/profile/bloc/profile_bloc.dart';
@@ -58,7 +57,6 @@ class _DashBoardState extends State<DashBoard> {
     sl<UserBloc>().add(Click());
     if (UserBloc.instance.isLogin) {
       sl<ProfileBloc>().add(Get());
-      sl<HomeAdsBloc>().add(Click());
       sl<OrdersBloc>().add(Click(arguments: SearchEngine()));
     }
   }

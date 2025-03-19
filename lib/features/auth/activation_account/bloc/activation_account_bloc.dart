@@ -37,7 +37,6 @@ class ActivationAccountBloc extends Bloc<AppEvent, AppState> {
             arguments: VerificationModel(
               phone: event.arguments as String,
               fromRegister: false,
-              fromComplete: false,
             ),
             replace: true);
         emit(Done());

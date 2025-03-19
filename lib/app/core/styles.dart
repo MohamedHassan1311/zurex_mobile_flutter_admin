@@ -34,7 +34,7 @@ abstract class Styles {
   static const Color SUBTITLE = Color(0xff44506A);
   static const Color DETAILS_COLOR = Color(0xff6c7a97);
   static const Color HINT_COLOR = Color(0xff7E8AA3);
-  static const Color BORDER_COLOR = Color(0xffDFE2E8);
+  static const Color BORDER_COLOR = Color(0xff7E8AA3);
 
   // static const Color BORDER_COLOR = Color(0xffDFE2E8);
 

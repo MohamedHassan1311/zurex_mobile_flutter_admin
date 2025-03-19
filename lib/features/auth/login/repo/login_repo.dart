@@ -17,6 +17,7 @@ class LoginRepo extends BaseRepo {
     if (!kDebugMode) {
       subscribeToTopic(id: "${json["id"]}", userType: json["user_type"]);
     }
+    saveUserToken(json["token"]);
     sharedPreferences.setString(AppStorageKey.userId, json["id"].toString());
     sharedPreferences.setString(AppStorageKey.userData, jsonEncode(json));
     sharedPreferences.setBool(AppStorageKey.isLogin, true);
@@ -32,7 +33,9 @@ class LoginRepo extends BaseRepo {
     FirebaseMessaging.instance
         .subscribeToTopic(EndPoints.specificTopic(id))
         .then((v) async {
-      await sharedPreferences.setBool(AppStorageKey.isSubscribe, true);
+      FirebaseMessaging.instance.subscribeToTopic(userType).then((v) async {
+        await sharedPreferences.setBool(AppStorageKey.isSubscribe, true);
+      });
     });
   }
 
@@ -55,12 +58,16 @@ class LoginRepo extends BaseRepo {
   }
 
   Future<Either<ServerFailure, Response>> logIn(
-      Map<String, dynamic> data) async {
+      {required Map<String, dynamic> data, required String userType}) async {
     try {
-      Response response =
-          await dioClient.post(uri: EndPoints.logIn, data: data);
+      Response response = await dioClient.post(
+          uri: EndPoints.logIn, data: FormData.fromMap(data));
 
-      if (response.statusCode== 200) {
+      if (response.statusCode == 200) {
+        if (response.data['data'] != null &&
+            response.data['data']["token"] != null) {
+          saveUserData(response.data["data"]);
+        }
         return Right(response);
       } else {
         return left(ServerFailure(response.data['message']));

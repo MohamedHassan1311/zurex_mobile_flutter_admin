@@ -63,11 +63,6 @@ class VerificationRepo extends BaseRepo {
       Response response =
           await dioClient.post(uri: EndPoints.verifyOtp, data: model.toJson());
       if (response.statusCode == 200) {
-        if (response.data['data']["token"] != null) {
-          saveUserToken(response.data["data"]["token"]);
-          saveUserData(response.data["data"]["user"]);
-        }
-
         return Right(response);
       } else {
         return left(ServerFailure(response.data['message']));

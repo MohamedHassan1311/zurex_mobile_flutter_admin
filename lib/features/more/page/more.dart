@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:share_plus/share_plus.dart';
 import 'package:zurex_admin/app/core/dimensions.dart';
 import 'package:zurex_admin/app/localization/language_constant.dart';
 import 'package:zurex_admin/components/custom_app_bar.dart';
@@ -11,12 +8,10 @@ import 'package:zurex_admin/components/animated_widget.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/core/styles.dart';
 import '../../../app/core/svg_images.dart';
-import '../../../components/custom_simple_dialog.dart';
 import '../../../data/config/di.dart';
 import '../../../main_blocs/user_bloc.dart';
 import '../../../navigation/custom_navigation.dart';
 import '../../../navigation/routes.dart';
-import '../../auth/deactivate_account/view/deactivate_account.dart';
 import '../../auth/logout/view/logout_button.dart';
 import '../../language/bloc/language_bloc.dart';
 import '../../language/page/language_button.dart';
@@ -24,7 +19,6 @@ import '../../notifications/bloc/turn_notification_bloc.dart';
 import '../../notifications/repo/notifications_repo.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../widgets/more_button.dart';
-import '../widgets/more_card.dart';
 import '../widgets/profile_card.dart';
 
 class More extends StatefulWidget {
@@ -70,43 +64,6 @@ class _MoreState extends State<More> {
                         builder: (context, state) {
                           return ListAnimator(
                             data: [
-                              if (UserBloc.instance.isLogin)
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        Dimensions.PADDING_SIZE_DEFAULT.w,
-                                    vertical: Dimensions.PADDING_SIZE_DEFAULT.h,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                          child: MoreCard(
-                                        title: getTranslated("wallet",
-                                            context: context),
-                                        subTitle: getTranslated("balance",
-                                            context: context),
-                                        value:
-                                            "${sl<UserBloc>().user?.balance ?? 0}",
-                                        icon: SvgImages.money,
-                                        color: Styles.GREEN,
-                                      )),
-                                      SizedBox(width: 12.w),
-                                      Expanded(
-                                          child: MoreCard(
-                                        title: getTranslated("support_services",
-                                            context: context),
-                                        subTitle: getTranslated("request",
-                                            context: context),
-                                        value:
-                                            "${sl<UserBloc>().user?.balance ?? 0}",
-                                        icon: SvgImages.request,
-                                        color: Color(0xFF00A7AD),
-                                        onTap: () {},
-                                      )),
-                                    ],
-                                  ),
-                                ),
-
                               ///Notification && Turn Notification
                               if (UserBloc.instance.isLogin)
                                 BlocProvider(
@@ -204,39 +161,6 @@ class _MoreState extends State<More> {
                                 onTap: () => CustomNavigator.push(Routes.faqs),
                               ),
 
-                              // ///Tips && Articles
-                              // MoreButton(
-                              //   title: getTranslated("tips_and_articles",
-                              //       context: context),
-                              //   icon: SvgImages.tips,
-                              //   onTap: () => CustomNavigator.push(Routes.tips),
-                              // ),
-
-                              ///Share
-                              MoreButton(
-                                title: getTranslated("share", context: context),
-                                icon: SvgImages.share,
-                                iconColor: Styles.GREEN,
-                                withBottomBorder: UserBloc.instance.isLogin,
-                                onTap: () => Share.share(Platform.isIOS
-                                    ? "https://apps.apple.com/eg/app/blue-art/id6670496496"
-                                    : "Zurex"),
-                              ),
-
-                              ///Delete Account
-                              if (UserBloc.instance.isLogin)
-                                MoreButton(
-                                    title: getTranslated("deactivate_account",
-                                        context: context),
-                                    icon: SvgImages.trash,
-                                    iconColor: Styles.ERORR_COLOR,
-                                    withBottomBorder: false,
-                                    onTap: () =>
-                                        CustomSimpleDialog.parentSimpleDialog(
-                                          canDismiss: false,
-                                          withContentPadding: false,
-                                          customWidget: DeactivateAccount(),
-                                        )),
 
                               const LogOutButton(),
                             ],

@@ -689,5 +689,7 @@
   "for_more_details": "For More Details",
   "there_is_no_products_match_your_car_segments": "There's no products match your car segments",
   "if_you_want_show_all_products_in_this_category_press_refresh": "If you want show all products in this category, press refresh",
-  "min_purchase_validation": "You can't complete the order, the minimum purchase value is"
+  "min_purchase_validation": "You can't complete the order, the minimum purchase value is",
+  "driver": "Driver",
+  "admin": "Admin"
 }

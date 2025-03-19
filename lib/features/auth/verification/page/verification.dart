@@ -57,9 +57,7 @@ class _VerificationState extends State<Verification> {
                                 height: 70.h)),
                       ),
                       Text(
-                        getTranslated(widget.model.withMail
-                            ? "verify_mail"
-                            : "verify_phone"),
+                        getTranslated("verify_phone"),
                         style: AppTextStyles.w600.copyWith(
                           fontSize: 24,
                         ),
@@ -74,8 +72,7 @@ class _VerificationState extends State<Verification> {
                                   fontSize: 14, color: Styles.DETAILS_COLOR),
                               children: [
                                 TextSpan(
-                                  text:
-                                      " ${widget.model.withMail ? widget.model.email : widget.model.phone} ",
+                                  text: " ${widget.model.phone} ",
                                   style: AppTextStyles.w500.copyWith(
                                     fontSize: 14,
                                     color: Styles.DETAILS_COLOR,

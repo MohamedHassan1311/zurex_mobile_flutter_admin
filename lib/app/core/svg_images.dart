@@ -123,18 +123,11 @@ class SvgImages {
   static const String bank = 'assets/svgs/bank.svg';
   static const String withdraw = 'assets/svgs/withdraw.svg';
   static const String deposit = 'assets/svgs/deposit.svg';
-  static const String reels = 'assets/svgs/reels.svg';
-  static const String talent = 'assets/svgs/talent.svg';
-  static const String company = 'assets/svgs/company.svg';
   static const String desc = 'assets/svgs/desc.svg';
   static const String ticket = 'assets/svgs/ticket.svg';
   static const String coupons = 'assets/svgs/coupons.svg';
-  static const String tags = 'assets/svgs/tags.svg';
-  static const String carType = 'assets/svgs/car_type.svg';
-  static const String carModel = 'assets/svgs/car_model.svg';
-  static const String addCar = 'assets/svgs/add_car.svg';
-  static const String cart = 'assets/svgs/cart.svg';
   static const String saudiRiyalSymbol = 'assets/svgs/saudi_riyal_symbol.svg';
   static const String deliveryDate = 'assets/svgs/delivery_date.svg';
+  static const String driver = 'assets/svgs/out_for_delivery.svg';
   static orderStatus(status) => 'assets/svgs/$status.svg';
 }

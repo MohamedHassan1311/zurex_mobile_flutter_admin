@@ -14,7 +14,9 @@ import 'package:zurex_admin/main_blocs/user_bloc.dart';
 import 'package:zurex_admin/navigation/custom_navigation.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/core/text_styles.dart';
+import '../../../components/custom_bottom_sheet.dart';
 import '../../../data/config/di.dart';
+import '../../../main_widgets/guest_mode.dart';
 import '../../../main_widgets/profile_image_widget.dart';
 import '../../../navigation/routes.dart';
 import '../../maps/models/location_model.dart';
@@ -43,7 +45,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           child: SafeArea(
             child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ///Profile Image Widget
@@ -122,6 +124,22 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                     ],
                   ),
                 )),
+                customContainerSvgIcon(
+                    onTap: () {
+                      if (UserBloc.instance.isLogin) {
+                        CustomNavigator.push(Routes.notifications);
+                      } else {
+                        CustomBottomSheet.show(widget: const GuestMode());
+                      }
+                    },
+                    width: 40.w,
+                    height: 40.w,
+                    radius: 100.w,
+                    padding: 10.w,
+                    backGround: Styles.PRIMARY_COLOR.withOpacity(0.08),
+                    borderColor: Styles.PRIMARY_COLOR.withOpacity(0.08),
+                    color: Styles.PRIMARY_COLOR,
+                    imageName: SvgImages.notification),
               ],
             ),
           ),
@@ -133,5 +151,4 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize =>
       Size(CustomNavigator.navigatorState.currentContext!.width, 120.h);
-
 }
