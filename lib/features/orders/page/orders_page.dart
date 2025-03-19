@@ -1,11 +1,10 @@
-import 'package:zurex/components/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zurex/main_blocs/user_bloc.dart';
 import 'package:zurex/main_widgets/guest_mode.dart';
-import '../../../../../app/localization/language_constant.dart';
 import '../../../app/core/app_state.dart';
 import '../../../data/config/di.dart';
+import '../widgets/main_app_bar.dart';
 import '../widgets/orders_body.dart';
 import '../widgets/orders_header.dart';
 
@@ -15,10 +14,7 @@ class OrdersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: getTranslated("orders"),
-        withBack: false,
-      ),
+      appBar: MainAppBar(),
       body: SafeArea(
         child: BlocBuilder<UserBloc, AppState>(
           builder: (context, state) {

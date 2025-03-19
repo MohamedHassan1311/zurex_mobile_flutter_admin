@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:zurex/app/core/extensions.dart';
 import 'package:zurex/components/custom_images.dart';
 import '../../../../app/core/dimensions.dart';
 import '../../../../app/core/images.dart';
@@ -14,6 +15,7 @@ class LoginHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        SizedBox(height: context.toPadding + Dimensions.PADDING_SIZE_DEFAULT.h),
         Center(
           child: Padding(
               padding: EdgeInsets.symmetric(

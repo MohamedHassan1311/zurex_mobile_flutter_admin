@@ -34,17 +34,15 @@ class SplashBloc extends Bloc<AppEvent, AppState> {
           await repo.guestMode();
         }
       }
-      CustomNavigator.push(Routes.dashboard, clean: true, arguments: 0);
-
 
       // if (repo.isFirstTime) {
       //   CustomNavigator.push(Routes.onBoarding, clean: true);
       // } else
-      //   if (!repo.isLogin) {
-      //   CustomNavigator.push(Routes.login, clean: true);
-      // } else {
-      //   CustomNavigator.push(Routes.dashboard, clean: true, arguments: 0);
-      // }
+      if (!repo.isLogin) {
+        CustomNavigator.push(Routes.login, clean: true);
+      } else {
+        CustomNavigator.push(Routes.dashboard, clean: true, arguments: 0);
+      }
       repo.setFirstTime();
     });
   }

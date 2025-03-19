@@ -3,7 +3,6 @@ import 'dart:developer';
 
 import 'package:app_links/app_links.dart';
 import 'package:zurex/app/core/app_state.dart';
-import 'package:zurex/features/home/page/home.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:zurex/features/more/page/more.dart';
@@ -96,12 +95,8 @@ class _DashBoardState extends State<DashBoard> {
   Widget fragment(int index) {
     switch (index) {
       case 0:
-        return const Home();
-      case 1:
-        return const SizedBox();
-      case 2:
         return const OrdersPage();
-      case 3:
+      case 1:
         return const More();
       default:
         return SizedBox();

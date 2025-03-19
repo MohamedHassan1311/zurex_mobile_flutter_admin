@@ -1,7 +1,6 @@
 import 'package:zurex/app/core/dimensions.dart';
 import 'package:zurex/app/core/extensions.dart';
 import 'package:zurex/app/core/images.dart';
-import 'package:zurex/app/core/svg_images.dart';
 import 'package:zurex/app/localization/language_constant.dart';
 import 'package:zurex/components/animated_widget.dart';
 import 'package:zurex/components/custom_button.dart';
@@ -29,10 +28,10 @@ class GuestMode extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   vertical: Dimensions.PADDING_SIZE_EXTRA_LARGE.h),
               child: customContainerImage(
-                imageName: Images.logo,
-                width: context.width * 0.6,
-                height: context.width * 0.3.h,
-              ),
+                  imageName: Images.logo,
+                  width: context.width * 0.6,
+                  height: context.width * 0.3.h,
+                  backGroundColor: Colors.transparent),
             ),
           ),
           Center(

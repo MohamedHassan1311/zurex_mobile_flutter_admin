@@ -35,8 +35,8 @@ class NavBar extends StatelessWidget {
               children: [
                 Expanded(
                   child: BottomNavBarItem(
-                      label: getTranslated("home", context: context),
-                      svgIcon: SvgImages.homeIcon,
+                      label: getTranslated("orders", context: context),
+                      svgIcon: SvgImages.orders,
                       isSelected: (snapshot.data ?? 0) == 0,
                       onTap: () {
                         DashboardBloc.instance.updateSelectIndex(0);
@@ -44,30 +44,11 @@ class NavBar extends StatelessWidget {
                 ),
                 Expanded(
                   child: BottomNavBarItem(
-                    label: getTranslated("my_cars", context: context),
-                    svgIcon: SvgImages.car,
+                    label: getTranslated("more", context: context),
+                    svgIcon: SvgImages.setting,
                     isSelected: (snapshot.data ?? 0) == 1,
                     onTap: () {
                       DashboardBloc.instance.updateSelectIndex(1);
-                    },
-                  ),
-                ),
-                Expanded(
-                  child: BottomNavBarItem(
-                      label: getTranslated("orders", context: context),
-                      svgIcon: SvgImages.orders,
-                      isSelected: (snapshot.data ?? 0) == 2,
-                      onTap: () {
-                        DashboardBloc.instance.updateSelectIndex(2);
-                      }),
-                ),
-                Expanded(
-                  child: BottomNavBarItem(
-                    label: getTranslated("more", context: context),
-                    svgIcon: SvgImages.setting,
-                    isSelected: (snapshot.data ?? 0) == 3,
-                    onTap: () {
-                      DashboardBloc.instance.updateSelectIndex(3);
                     },
                   ),
                 ),

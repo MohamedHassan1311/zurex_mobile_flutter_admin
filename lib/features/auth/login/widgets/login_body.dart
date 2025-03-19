@@ -1,6 +1,5 @@
 import 'package:country_codes/country_codes.dart';
 import 'package:country_flags/country_flags.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,8 +13,6 @@ import '../../../../app/core/validation.dart';
 import '../../../../app/localization/language_constant.dart';
 import '../../../../components/custom_button.dart';
 import '../../../../components/custom_text_form_field.dart';
-import '../../../../navigation/custom_navigation.dart';
-import '../../../../navigation/routes.dart';
 import '../bloc/login_bloc.dart';
 import 'login_header.dart';
 
@@ -103,25 +100,25 @@ class LoginBody extends StatelessWidget {
                               isLoading: state is Loading),
                         ),
 
-                        ///Sign up if don't have account
-                        RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                              text: getTranslated("do_not_have_acc"),
-                              style: AppTextStyles.w400.copyWith(
-                                  fontSize: 14, color: Styles.DETAILS_COLOR),
-                              children: [
-                                TextSpan(
-                                    text: " ${getTranslated("signup")}",
-                                    style: AppTextStyles.w600.copyWith(
-                                        fontSize: 16,
-                                        color: Styles.PRIMARY_COLOR,
-                                        decoration: TextDecoration.underline),
-                                    recognizer: TapGestureRecognizer()
-                                      ..onTap = () => CustomNavigator.push(
-                                          Routes.register)),
-                              ]),
-                        ),
+                        // ///Sign up if don't have account
+                        // RichText(
+                        //   textAlign: TextAlign.center,
+                        //   text: TextSpan(
+                        //       text: getTranslated("do_not_have_acc"),
+                        //       style: AppTextStyles.w400.copyWith(
+                        //           fontSize: 14, color: Styles.DETAILS_COLOR),
+                        //       children: [
+                        //         TextSpan(
+                        //             text: " ${getTranslated("signup")}",
+                        //             style: AppTextStyles.w600.copyWith(
+                        //                 fontSize: 16,
+                        //                 color: Styles.PRIMARY_COLOR,
+                        //                 decoration: TextDecoration.underline),
+                        //             recognizer: TapGestureRecognizer()
+                        //               ..onTap = () => CustomNavigator.push(
+                        //                   Routes.register)),
+                        //       ]),
+                        // ),
 
                         ///Guest Mode
                         GestureDetector(
