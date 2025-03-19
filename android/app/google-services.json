@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "387928468630",
+    "project_id": "zurex-1ec7a",
+    "storage_bucket": "zurex-1ec7a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387928468630:android:820d599d99c4ad8d4566b7",
+        "android_client_info": {
+          "package_name": "com.intelligentSolutions.zurexAdmin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyDmu1Vy2JaTSZ-Xcgdtv00P-oam-4cMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387928468630:android:716a45e1c0bd27084566b7",
+        "android_client_info": {
+          "package_name": "com.intelligentsolutionss.zurex"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyDmu1Vy2JaTSZ-Xcgdtv00P-oam-4cMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
