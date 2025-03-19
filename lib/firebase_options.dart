@@ -53,16 +53,16 @@ class DefaultFirebaseOptions {
     apiKey: 'AIzaSyCyDmu1Vy2JaTSZ-Xcgdtv00P-oam-4cMg',
     appId: '1:387928468630:android:820d599d99c4ad8d4566b7',
     messagingSenderId: '387928468630',
-    projectId: 'zurex-1ec7a',
-    storageBucket: 'zurex-1ec7a.firebasestorage.app',
+    projectId: 'zurex_admin-1ec7a',
+    storageBucket: 'zurex_admin-1ec7a.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyCtbdOr4arb7aEbxhOF1nvAGh3gOTvakKI',
     appId: '1:387928468630:ios:c4c38cf351db15df4566b7',
     messagingSenderId: '387928468630',
-    projectId: 'zurex-1ec7a',
-    storageBucket: 'zurex-1ec7a.firebasestorage.app',
+    projectId: 'zurex_admin-1ec7a',
+    storageBucket: 'zurex_admin-1ec7a.firebasestorage.app',
     iosBundleId: 'com.intelligentSolutions.zurexAdmin',
   );
 }

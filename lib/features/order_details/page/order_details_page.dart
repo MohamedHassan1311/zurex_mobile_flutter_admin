@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/app/core/extensions.dart';
-import 'package:zurex/app/localization/language_constant.dart';
-import 'package:zurex/components/custom_app_bar.dart';
-import 'package:zurex/components/shimmer/custom_shimmer.dart';
-import 'package:zurex/features/order_details/bloc/order_details_bloc.dart';
-import 'package:zurex/features/order_details/model/order_details_model.dart';
-import 'package:zurex/features/order_details/repo/order_details_repo.dart';
-import 'package:zurex/main_widgets/bill_details.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
+import 'package:zurex_admin/app/localization/language_constant.dart';
+import 'package:zurex_admin/components/custom_app_bar.dart';
+import 'package:zurex_admin/components/shimmer/custom_shimmer.dart';
+import 'package:zurex_admin/features/order_details/bloc/order_details_bloc.dart';
+import 'package:zurex_admin/features/order_details/model/order_details_model.dart';
+import 'package:zurex_admin/features/order_details/repo/order_details_repo.dart';
+import 'package:zurex_admin/main_widgets/bill_details.dart';
 
 import '../../../app/core/app_event.dart';
 import '../../../app/core/app_state.dart';

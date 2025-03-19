@@ -1,9 +1,9 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/app/core/dimensions.dart';
-import 'package:zurex/app/core/extensions.dart';
-import 'package:zurex/helpers/pickers/view/image_picker_helper.dart';
+import 'package:zurex_admin/app/core/dimensions.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
+import 'package:zurex_admin/helpers/pickers/view/image_picker_helper.dart';
 
 import '../../../app/core/styles.dart';
 import '../../../app/core/svg_images.dart';

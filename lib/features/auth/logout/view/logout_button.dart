@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:zurex/app/core/app_state.dart';
-import 'package:zurex/navigation/custom_navigation.dart';
-import 'package:zurex/navigation/routes.dart';
+import 'package:zurex_admin/app/core/app_state.dart';
+import 'package:zurex_admin/navigation/custom_navigation.dart';
+import 'package:zurex_admin/navigation/routes.dart';
 import '../../../../app/core/app_event.dart';
 import '../../../../app/core/dimensions.dart';
 import '../../../../app/core/styles.dart';

@@ -1,10 +1,10 @@
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
-import 'package:zurex/app/core/dimensions.dart';
-import 'package:zurex/app/core/extensions.dart';
-import 'package:zurex/app/core/svg_images.dart';
-import 'package:zurex/components/custom_images.dart';
-import 'package:zurex/features/order_details/model/order_details_model.dart';
+import 'package:zurex_admin/app/core/dimensions.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
+import 'package:zurex_admin/app/core/svg_images.dart';
+import 'package:zurex_admin/components/custom_images.dart';
+import 'package:zurex_admin/features/order_details/model/order_details_model.dart';
 
 import '../../../app/core/styles.dart';
 

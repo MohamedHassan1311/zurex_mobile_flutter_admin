@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:zurex/app/core/app_core.dart';
+import 'package:zurex_admin/app/core/app_core.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';

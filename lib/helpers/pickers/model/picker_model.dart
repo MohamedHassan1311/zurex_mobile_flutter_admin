@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:zurex/data/config/mapper.dart';
+import 'package:zurex_admin/data/config/mapper.dart';
 
 class PickerModel extends SingleMapper {
   File? file;

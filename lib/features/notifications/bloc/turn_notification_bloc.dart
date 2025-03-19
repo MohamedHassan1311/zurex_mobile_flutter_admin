@@ -1,5 +1,5 @@
-import 'package:zurex/components/loading_dialog.dart';
-import 'package:zurex/navigation/custom_navigation.dart';
+import 'package:zurex_admin/components/loading_dialog.dart';
+import 'package:zurex_admin/navigation/custom_navigation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/core/app_core.dart';
 import '../../../../app/core/app_event.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:zurex/app/core/extensions.dart';
-import 'package:zurex/components/custom_images.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
+import 'package:zurex_admin/components/custom_images.dart';
 import '../../../../app/core/dimensions.dart';
 import '../../../../app/core/images.dart';
 import '../../../../app/core/styles.dart';

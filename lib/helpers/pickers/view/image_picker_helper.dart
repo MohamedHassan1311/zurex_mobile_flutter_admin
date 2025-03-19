@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'package:zurex/app/core/app_core.dart';
-import 'package:zurex/app/localization/language_constant.dart';
+import 'package:zurex_admin/app/core/app_core.dart';
+import 'package:zurex_admin/app/localization/language_constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';

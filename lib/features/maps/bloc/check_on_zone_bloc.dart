@@ -4,8 +4,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/features/maps/models/location_model.dart';
-import 'package:zurex/features/maps/repo/maps_repo.dart';
+import 'package:zurex_admin/features/maps/models/location_model.dart';
+import 'package:zurex_admin/features/maps/repo/maps_repo.dart';
 
 import '../../../app/core/app_core.dart';
 import '../../../app/core/app_event.dart';

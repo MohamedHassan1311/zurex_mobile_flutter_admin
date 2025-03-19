@@ -1,6 +1,6 @@
-import 'package:zurex/app/core/dimensions.dart';
-import 'package:zurex/app/core/extensions.dart';
-import 'package:zurex/components/custom_network_image.dart';
+import 'package:zurex_admin/app/core/dimensions.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
+import 'package:zurex_admin/components/custom_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../app/core/styles.dart';

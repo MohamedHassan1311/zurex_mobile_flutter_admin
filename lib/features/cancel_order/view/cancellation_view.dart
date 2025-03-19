@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/app/core/extensions.dart';
-import 'package:zurex/components/shimmer/custom_shimmer.dart';
-import 'package:zurex/main_models/custom_field_model.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
+import 'package:zurex_admin/components/shimmer/custom_shimmer.dart';
+import 'package:zurex_admin/main_models/custom_field_model.dart';
 
 import '../../../app/core/app_event.dart';
 import '../../../app/core/app_state.dart';

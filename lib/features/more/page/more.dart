@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:share_plus/share_plus.dart';
-import 'package:zurex/app/core/dimensions.dart';
-import 'package:zurex/app/localization/language_constant.dart';
-import 'package:zurex/components/custom_app_bar.dart';
+import 'package:zurex_admin/app/core/dimensions.dart';
+import 'package:zurex_admin/app/localization/language_constant.dart';
+import 'package:zurex_admin/components/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/app/core/app_state.dart';
-import 'package:zurex/components/animated_widget.dart';
+import 'package:zurex_admin/app/core/app_state.dart';
+import 'package:zurex_admin/components/animated_widget.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/core/styles.dart';
 import '../../../app/core/svg_images.dart';

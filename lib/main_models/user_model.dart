@@ -1,4 +1,4 @@
-import 'package:zurex/data/config/mapper.dart';
+import 'package:zurex_admin/data/config/mapper.dart';
 
 class UserModel extends SingleMapper {
   int? id;

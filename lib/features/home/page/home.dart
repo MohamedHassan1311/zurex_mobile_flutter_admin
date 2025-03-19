@@ -1,5 +1,5 @@
-import 'package:zurex/app/core/app_state.dart';
-import 'package:zurex/components/animated_widget.dart';
+import 'package:zurex_admin/app/core/app_state.dart';
+import 'package:zurex_admin/components/animated_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../main_blocs/user_bloc.dart';

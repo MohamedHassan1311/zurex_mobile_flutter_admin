@@ -1,11 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/app/core/app_state.dart';
-import 'package:zurex/app/core/dimensions.dart';
-import 'package:zurex/app/core/extensions.dart';
-import 'package:zurex/components/shimmer/custom_shimmer.dart';
-import 'package:zurex/features/home/model/ads_model.dart';
+import 'package:zurex_admin/app/core/app_state.dart';
+import 'package:zurex_admin/app/core/dimensions.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
+import 'package:zurex_admin/components/shimmer/custom_shimmer.dart';
+import 'package:zurex_admin/features/home/model/ads_model.dart';
 
 import '../../../app/core/styles.dart';
 import '../../../components/custom_network_image.dart';

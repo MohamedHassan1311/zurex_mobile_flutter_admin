@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:zurex/main_models/user_model.dart';
+import 'package:zurex_admin/main_models/user_model.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';

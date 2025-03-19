@@ -1,4 +1,4 @@
-import 'package:zurex/data/config/mapper.dart';
+import 'package:zurex_admin/data/config/mapper.dart';
 
 class LocationModel extends SingleMapper {
   int? addressId;

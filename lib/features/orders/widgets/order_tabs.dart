@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/features/orders/bloc/orders_bloc.dart';
-import 'package:zurex/main_models/search_engine.dart';
+import 'package:zurex_admin/features/orders/bloc/orders_bloc.dart';
+import 'package:zurex_admin/main_models/search_engine.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/core/app_state.dart';
 import '../../../app/core/dimensions.dart';

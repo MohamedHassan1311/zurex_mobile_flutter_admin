@@ -1,9 +1,9 @@
-import 'package:zurex/app/core/dimensions.dart';
-import 'package:zurex/app/core/extensions.dart';
-import 'package:zurex/app/core/images.dart';
-import 'package:zurex/app/localization/language_constant.dart';
-import 'package:zurex/components/animated_widget.dart';
-import 'package:zurex/components/custom_button.dart';
+import 'package:zurex_admin/app/core/dimensions.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
+import 'package:zurex_admin/app/core/images.dart';
+import 'package:zurex_admin/app/localization/language_constant.dart';
+import 'package:zurex_admin/components/animated_widget.dart';
+import 'package:zurex_admin/components/custom_button.dart';
 import 'package:flutter/material.dart';
 import '../app/core/styles.dart';
 import '../app/core/text_styles.dart';

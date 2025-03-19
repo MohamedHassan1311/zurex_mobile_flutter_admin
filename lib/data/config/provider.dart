@@ -1,9 +1,9 @@
-import 'package:zurex/data/config/di.dart' as di;
+import 'package:zurex_admin/data/config/di.dart' as di;
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
-import 'package:zurex/features/orders/bloc/orders_bloc.dart';
+import 'package:zurex_admin/features/orders/bloc/orders_bloc.dart';
 
 
-import 'package:zurex/main_blocs/user_bloc.dart';
+import 'package:zurex_admin/main_blocs/user_bloc.dart';
 
 import '../../app/core/app_event.dart';
 import '../../features/auth/logout/bloc/logout_bloc.dart';

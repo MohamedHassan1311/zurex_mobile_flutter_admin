@@ -3,8 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:zurex/components/custom_simple_dialog.dart';
-import 'package:zurex/features/auth/verification/model/verification_model.dart';
+import 'package:zurex_admin/components/custom_simple_dialog.dart';
+import 'package:zurex_admin/features/auth/verification/model/verification_model.dart';
 
 import '../../../../app/core/app_core.dart';
 import '../../../../app/core/app_event.dart';

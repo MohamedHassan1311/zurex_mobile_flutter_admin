@@ -1,8 +1,8 @@
 {
   "project_info": {
     "project_number": "387928468630",
-    "project_id": "zurex-1ec7a",
-    "storage_bucket": "zurex-1ec7a.firebasestorage.app"
+    "project_id": "zurex_admin-1ec7a",
+    "storage_bucket": "zurex_admin-1ec7a.firebasestorage.app"
   },
   "client": [
     {
@@ -28,7 +28,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:387928468630:android:716a45e1c0bd27084566b7",
         "android_client_info": {
-          "package_name": "com.intelligentsolutionss.zurex"
+          "package_name": "com.intelligentsolutionss.zurex_admin"
         }
       },
       "oauth_client": [],

@@ -4,11 +4,11 @@
 // import 'package:flutter/material.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
 // import 'package:record_platform_interface/src/types/audio_encoder.dart';
-// import 'package:zurex/app/core/app_state.dart';
-// import 'package:zurex/features/chat/bloc/chat_bloc.dart';
-// import 'package:zurex/features/chat/repo/chat_repo.dart';
-// import 'package:zurex/features/chat/bloc/upload_chat_file_bloc.dart';
-// import 'package:zurex/helpers/permissions.dart';
+// import 'package:zurex_admin/app/core/app_state.dart';
+// import 'package:zurex_admin/features/chat/bloc/chat_bloc.dart';
+// import 'package:zurex_admin/features/chat/repo/chat_repo.dart';
+// import 'package:zurex_admin/features/chat/bloc/upload_chat_file_bloc.dart';
+// import 'package:zurex_admin/helpers/permissions.dart';
 // import 'package:path_provider/path_provider.dart';
 // import 'package:permission_handler/permission_handler.dart';
 // import 'package:record/record.dart';

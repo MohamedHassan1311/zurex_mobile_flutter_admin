@@ -1,10 +1,10 @@
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/app/core/app_state.dart';
-import 'package:zurex/app/core/extensions.dart';
+import 'package:zurex_admin/app/core/app_state.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:zurex/features/splash/repo/splash_repo.dart';
+import 'package:zurex_admin/features/splash/repo/splash_repo.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/core/images.dart';
 import '../../../data/config/di.dart';

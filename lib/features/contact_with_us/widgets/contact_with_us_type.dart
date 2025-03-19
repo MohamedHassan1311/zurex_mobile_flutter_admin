@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/app/core/dimensions.dart';
-import 'package:zurex/app/core/styles.dart';
-import 'package:zurex/app/core/text_styles.dart';
-import 'package:zurex/app/core/validation.dart';
-import 'package:zurex/app/localization/language_constant.dart';
-import 'package:zurex/components/custom_text_form_field.dart';
+import 'package:zurex_admin/app/core/dimensions.dart';
+import 'package:zurex_admin/app/core/styles.dart';
+import 'package:zurex_admin/app/core/text_styles.dart';
+import 'package:zurex_admin/app/core/validation.dart';
+import 'package:zurex_admin/app/localization/language_constant.dart';
+import 'package:zurex_admin/components/custom_text_form_field.dart';
 
 import '../../../app/core/svg_images.dart';
 import '../bloc/contact_with_us_bloc.dart';

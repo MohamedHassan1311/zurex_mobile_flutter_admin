@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex/app/core/extensions.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
 
 import '../../../app/core/app_event.dart';
 import '../../../app/core/app_state.dart';

@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:zurex/main_repos/base_repo.dart';
+import 'package:zurex_admin/main_repos/base_repo.dart';
 import '../../../app/core/app_storage_keys.dart';
 
 class LocalizationRepo extends BaseRepo {

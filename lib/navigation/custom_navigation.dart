@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:zurex/features/edit_profile/page/edit_profile_page.dart';
-import 'package:zurex/features/maps/models/location_model.dart';
-import 'package:zurex/features/order_details/page/order_details_page.dart';
+import 'package:zurex_admin/features/edit_profile/page/edit_profile_page.dart';
+import 'package:zurex_admin/features/maps/models/location_model.dart';
+import 'package:zurex_admin/features/order_details/page/order_details_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../features/chat/page/chat_page.dart';

@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zurex/features/auth/register/repo/register_repo.dart';
+import 'package:zurex_admin/features/auth/register/repo/register_repo.dart';
 import '../../app/theme/theme_provider/theme_provider.dart';
 import '../../features/auth/activation_account/repo/activation_account_repo.dart';
 import '../../features/auth/deactivate_account/repo/deactivate_account_repo.dart';

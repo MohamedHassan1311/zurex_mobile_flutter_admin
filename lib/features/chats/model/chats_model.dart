@@ -1,5 +1,5 @@
-import 'package:zurex/data/config/mapper.dart';
-import 'package:zurex/features/chat/model/message_model.dart';
+import 'package:zurex_admin/data/config/mapper.dart';
+import 'package:zurex_admin/features/chat/model/message_model.dart';
 
 import '../../../main_models/meta.dart';
 

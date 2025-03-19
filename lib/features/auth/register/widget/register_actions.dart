@@ -1,5 +1,5 @@
-import 'package:zurex/app/core/app_state.dart';
-import 'package:zurex/app/core/dimensions.dart';
+import 'package:zurex_admin/app/core/app_state.dart';
+import 'package:zurex_admin/app/core/dimensions.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
