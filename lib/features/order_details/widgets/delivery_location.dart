@@ -26,11 +26,15 @@ class DeliveryLocation extends StatelessWidget {
           Routes.previewLocation,
           arguments: LocationModel(
             latitude: address?.latitude,
-            longitude: address?.latitude,
+            longitude: address?.longitude,
             onChange: (v) => CustomNavigator.pop(),
           ),
         );
       },
+      hoverColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      splashColor: Colors.transparent,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: Dimensions.paddingSizeMini.h),
         padding: EdgeInsets.symmetric(
@@ -128,12 +132,16 @@ class DeliveryLocation extends StatelessWidget {
               ],
             ),
             InkWell(
+              hoverColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              focusColor: Colors.transparent,
+              splashColor: Colors.transparent,
               onTap: () {
                 CustomNavigator.push(
                   Routes.previewLocation,
                   arguments: LocationModel(
                     latitude: address?.latitude,
-                    longitude: address?.latitude,
+                    longitude: address?.longitude,
                     onChange: (v) => CustomNavigator.pop(),
                   ),
                 );

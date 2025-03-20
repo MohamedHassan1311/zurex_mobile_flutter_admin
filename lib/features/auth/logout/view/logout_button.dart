@@ -22,6 +22,10 @@ class LogOutButton extends StatelessWidget {
     return BlocBuilder<LogoutBloc, AppState>(
       builder: (context, state) {
         return InkWell(
+          hoverColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          focusColor: Colors.transparent,
+          splashColor: Colors.transparent,
           onTap: () {
             if (sl<LogoutBloc>().isLogin) {
               sl<LogoutBloc>().add(Click());
