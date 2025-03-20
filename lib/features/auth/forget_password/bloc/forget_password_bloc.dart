@@ -34,7 +34,7 @@ class ForgetPasswordBloc extends Bloc<AppEvent, AppState> {
       emit(Loading());
 
       Map<String, dynamic> data = {
-        "phone": phoneTEC.text.trim(),
+        "phone_number": phoneTEC.text.trim(),
         "type": event.arguments as String
       };
       Either<ServerFailure, Response> response =
@@ -50,7 +50,6 @@ class ForgetPasswordBloc extends Bloc<AppEvent, AppState> {
         emit(Error());
       }, (success) {
         CustomNavigator.push(Routes.verification,
-            replace: true,
             arguments: VerificationModel(
                 userType: event.arguments as String,
                 phone: phoneTEC.text.trim(),

@@ -10,40 +10,18 @@ class EndPoints {
   static specificTopic(id) => '$id';
 
   ///Auth
-  static const String socialMediaAuth = 'social-login';
   static const String forgetPassword = 'forgot-password';
   static const String resetPassword = 'reset-password';
   static const String changePassword = 'change-password';
-  static const String register = 'register';
   static const String logIn = 'login';
   static const String resend = 'resend-otp';
-  static const String verifyOtp = 'verify-otp';
+  static const String verifyOtp = 'verify-forgot-password';
   static const String suspendAccount = 'suspend-account';
   static const String reactivateAccount = 'reactivate-account';
 
   ///User Profile
   static const String editProfile = 'update-profile';
   static const String profile = 'me';
-  static const String bankInfo = 'bank_info';
-
-  ///Home
-  static const String banners = 'banners';
-
-  ///Expertises
-  static const String myCars = 'user-cars';
-  static carDetails(id) => 'user-cars/$id';
-  static deleteCar(id) => 'user-cars/$id';
-  static const String carType = 'car-types';
-  static const String carModel = 'car-models';
-  static const String carYear = 'year';
-
-  static const String addCar = 'car-data';
-  static const String addCarInfo = 'car-data-info';
-
-  ///Categories && Products
-  static const String categories = 'product-categories';
-  static const String products = 'products';
-  static productDetails(id) => 'products/$id';
 
   ///Chats
   static const String createChat = 'chats';
@@ -58,27 +36,11 @@ class EndPoints {
   static readNotification(id) => 'notifications/$id';
   static deleteNotification(id) => 'notifications/$id';
 
-  ///Cart
-  static const String cart = 'get-cart';
-  static const String addToCart = 'add-to-cart';
-  static const String updateCart = 'update-cart';
-  static const String removeFromCart = 'update-cart';
-  static const String emptyCart = 'empty-cart';
-  static const checkOut = 'check-out';
-  static const applyCoupon = 'cart/apply-coupon';
-  static const orderSchedule = 'delivery-times/get-delivery-time';
-  static const checkOnZone = 'zones/checkIfUserExistInZone';
-  static const paymentMethod = 'payment-types';
-
   ///Orders
   static const String orders = 'orders';
   static orderDetails(id) => 'orders/$id';
   static const String cancelReasons = 'cancel-reason';
   static changeOrderStatus(id) => 'orders/$id/changeOrderStatus';
-
-  ///Transactions
-  static const String transactions = 'transactions';
-  static const String sendFeedback = 'feedbacks';
 
   ///Setting
   static const String settings = 'settings';

@@ -33,7 +33,7 @@ class ChangePasswordBloc extends Bloc<AppEvent, AppState> {
     try {
       emit(Loading());
       Map<String, dynamic> data = {
-        "old_password": currentPasswordTEC.text.trim(),
+        "current_password": currentPasswordTEC.text.trim(),
         "password": newPasswordTEC.text.trim(),
         "type": UserBloc.instance.user?.type,
       };

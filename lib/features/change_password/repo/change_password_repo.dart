@@ -12,7 +12,8 @@ class ChangePasswordRepo extends BaseRepo {
   Future<Either<ServerFailure, Response>> changePassword(data) async {
     try {
       Response response = await dioClient.post(
-          uri: EndPoints.changePassword, data: FormData.fromMap(data));
+          uri: EndPoints.changePassword,
+          data: FormData.fromMap(data));
 
       if (response.statusCode == 200) {
         return Right(response);

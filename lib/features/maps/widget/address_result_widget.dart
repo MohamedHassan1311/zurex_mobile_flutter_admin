@@ -6,15 +6,10 @@ import 'package:zurex_admin/features/maps/models/location_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex_admin/features/maps/repo/maps_repo.dart';
-
-import '../../../app/core/app_event.dart';
 import '../../../app/core/styles.dart';
 import '../../../app/core/text_styles.dart';
 import '../../../app/localization/language_constant.dart';
 import '../../../components/custom_button.dart';
-import '../../../data/config/di.dart';
-import '../bloc/check_on_zone_bloc.dart';
 
 class AddressResultWidget extends StatelessWidget {
   const AddressResultWidget({super.key, this.onChange});
@@ -74,24 +69,12 @@ class AddressResultWidget extends StatelessWidget {
                       Padding(
                         padding: EdgeInsets.symmetric(
                             vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
-                        child: BlocProvider(
-                          create: (context) =>
-                              CheckOnZoneBloc(repo: sl<MapsRepo>()),
-                          child: BlocBuilder<CheckOnZoneBloc, AppState>(
-                            builder: (context, state) {
-                              return CustomButton(
-                                text: getTranslated("confirm"),
-                                isLoading: state is Loading,
-                                onTap: () {
-                                  model.onChange = onChange;
-
-                                  context.read<CheckOnZoneBloc>().add(
-                                        Click(arguments: model),
-                                      );
-                                },
-                              );
-                            },
-                          ),
+                        child: CustomButton(
+                          text: getTranslated("confirm"),
+                          isLoading: state is Loading,
+                          onTap: () {
+                            model.onChange = onChange;
+                          },
                         ),
                       )
                     ],

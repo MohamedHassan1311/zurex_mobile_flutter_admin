@@ -51,7 +51,7 @@ class VerificationBloc extends Bloc<AppEvent, AppState> {
             borderColor: Styles.ACTIVE,
           ),
         );
-        CustomNavigator.push(Routes.resetPassword, arguments: data.userType);
+        CustomNavigator.push(Routes.resetPassword, arguments: data);
 
         clear();
         emit(Done());

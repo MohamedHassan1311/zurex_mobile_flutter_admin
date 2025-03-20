@@ -6,7 +6,6 @@ import '../../../app/core/app_strings.dart';
 import '../../../data/api/end_points.dart';
 import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
-import '../models/location_model.dart';
 
 class MapsRepo extends BaseRepo {
   MapsRepo({required super.sharedPreferences, required super.dioClient});
@@ -46,23 +45,4 @@ class MapsRepo extends BaseRepo {
     }
   }
 
-  Future<Either<ServerFailure, Response>> checkOnZone(
-      LocationModel data) async {
-    try {
-      Response response = await dioClient.post(
-        uri: EndPoints.checkOnZone,
-        data: {
-          "lat": data.latitude,
-          "lng": data.longitude,
-        },
-      );
-      if (response.statusCode == 200) {
-        return Right(response);
-      } else {
-        return left(ServerFailure(response.data['message']));
-      }
-    } catch (error) {
-      return left(ApiErrorHandler.getServerFailure(error));
-    }
-  }
 }

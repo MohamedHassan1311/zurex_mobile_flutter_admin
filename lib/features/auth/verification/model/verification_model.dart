@@ -11,7 +11,7 @@ class VerificationModel {
   });
 
   Map<String, dynamic> toJson({bool withCode = true}) => {
-        "phone": phone,
+        "phone_number": phone,
         "type": userType,
         if (withCode) "otp": code,
       };

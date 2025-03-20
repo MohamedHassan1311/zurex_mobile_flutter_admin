@@ -1,4 +1,5 @@
 import 'package:zurex_admin/data/config/mapper.dart';
+import 'package:zurex_admin/main_models/custom_field_model.dart';
 
 class UserModel extends SingleMapper {
   int? id;
@@ -9,6 +10,7 @@ class UserModel extends SingleMapper {
   String? email;
   String? type;
   double? balance;
+  CustomFieldModel? team;
 
   UserModel({
     this.id,
@@ -19,6 +21,7 @@ class UserModel extends SingleMapper {
     this.phone,
     this.email,
     this.type,
+    this.team,
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
@@ -27,6 +30,8 @@ class UserModel extends SingleMapper {
     balance = json['balance'] != null
         ? double.parse(json["balance"]?.toString() ?? "0")
         : null;
+    team =
+        json['team'] != null ? CustomFieldModel.fromJson(json["team"]) : null;
     profileImage = json['profile_image'];
     countryCode = json['country_code'];
     phone = json['phone_number'];
@@ -44,6 +49,7 @@ class UserModel extends SingleMapper {
     data['phone_number'] = phone;
     data['email'] = email;
     data['type'] = type;
+    data['team'] = team?.toJson();
 
     return data;
   }
