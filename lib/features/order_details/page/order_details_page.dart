@@ -21,7 +21,6 @@ import '../widgets/delivery_location.dart';
 import '../widgets/order_current_status.dart';
 import '../widgets/order_details_actions.dart';
 import '../widgets/order_products.dart';
-import '../widgets/order_status_list.dart';
 
 class OrderDetailsPage extends StatelessWidget {
   const OrderDetailsPage({super.key, required this.id});
@@ -61,7 +60,7 @@ class OrderDetailsPage extends StatelessWidget {
                                 orderNum: model.orderNum,
                                 status: model.status,
                               ),
-                              OrderStatusList(list: model.statuses ?? []),
+                              // OrderStatusList(list: model.statuses ?? []),
                               OrderProducts(items: model.products ?? []),
                               DeliveryDate(
                                 date: model.deliveryDate,
@@ -114,29 +113,6 @@ class OrderDetailsPage extends StatelessWidget {
                             height: 60.h,
                             width: context.width,
                             radius: 16.w,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.paddingSizeMini.h),
-                          child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
-                              children: List.generate(
-                                  5,
-                                  (i) => Row(
-                                        children: [
-                                          CustomShimmerCircleImage(
-                                            diameter: 50.w,
-                                          ),
-                                          if (i != 4)
-                                            CustomShimmerContainer(
-                                              height: 4.h,
-                                              width: 40.w,
-                                            )
-                                        ],
-                                      )),
-                            ),
                           ),
                         ),
                         Padding(

@@ -60,13 +60,14 @@ class LoginBloc extends Bloc<AppEvent, AppState> {
   Future<void> onClick(Click event, Emitter<AppState> emit) async {
     try {
       emit(Loading());
+
       Map<String, dynamic> data = {
         "phone_number": phoneTEC.text.trim(),
         "password": passwordTEC.text.trim(),
+        "type": userType.valueOrNull?.name,
       };
 
-      Either<ServerFailure, Response> response =
-          await repo.logIn(data: data, userType: userType.valueOrNull!.name);
+      Either<ServerFailure, Response> response = await repo.logIn(data: data);
 
       response.fold((fail) {
         if (fail.statusCode == 406) {
@@ -85,15 +86,15 @@ class LoginBloc extends Bloc<AppEvent, AppState> {
         }
 
         emit(Error());
-      }, (success) async {
+      }, (success) {
         if (rememberMe.valueOrNull == true) {
-          await repo.saveCredentials(data);
+          repo.saveCredentials(data);
         } else {
-          await repo.forgetCredentials();
+          repo.forgetCredentials();
         }
-        CustomNavigator.push(Routes.dashboard, clean: true, arguments: 0);
         clear();
         emit(Done());
+        CustomNavigator.push(Routes.dashboard, clean: true, arguments: 0);
       });
     } catch (e) {
       AppCore.showSnackBar(
@@ -111,8 +112,8 @@ class LoginBloc extends Bloc<AppEvent, AppState> {
     Map<String, dynamic>? data = repo.getCredentials();
     if (data != null) {
       passwordTEC.text = data["password"];
-      phoneTEC.text = data["phone"];
-      updateRememberMe(data["phone"] != "" && data["password"] != null);
+      phoneTEC.text = data["phone_number"];
+      updateRememberMe(data["phone_number"] != "" && data["password"] != null);
       emit(Done());
     }
   }

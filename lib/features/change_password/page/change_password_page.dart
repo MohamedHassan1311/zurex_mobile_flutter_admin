@@ -15,14 +15,14 @@ import '../../../app/core/app_event.dart';
 import '../bloc/change_password_bloc.dart';
 import '../repo/change_password_repo.dart';
 
-class ChangePassword extends StatefulWidget {
-  const ChangePassword({super.key});
+class ChangePasswordPage extends StatefulWidget {
+  const ChangePasswordPage({super.key});
 
   @override
-  State<ChangePassword> createState() => _ChangePasswordState();
+  State<ChangePasswordPage> createState() => _ChangePasswordPageState();
 }
 
-class _ChangePasswordState extends State<ChangePassword> {
+class _ChangePasswordPageState extends State<ChangePasswordPage> {
   final _formKey = GlobalKey<FormState>();
   final FocusNode currentPasswordNode = FocusNode();
   final FocusNode passwordNode = FocusNode();

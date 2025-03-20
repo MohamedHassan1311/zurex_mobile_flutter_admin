@@ -120,6 +120,15 @@ class _MoreState extends State<More> {
                               ///Language
                               const LanguageButton(),
 
+                              ///Change Password
+                              MoreButton(
+                                title: getTranslated("change_password",
+                                    context: context),
+                                icon: SvgImages.lockIcon,
+                                onTap: () =>
+                                    CustomNavigator.push(Routes.changePassword),
+                              ),
+
                               ///Who us
                               MoreButton(
                                 title:
@@ -160,7 +169,6 @@ class _MoreState extends State<More> {
                                 icon: SvgImages.faqs,
                                 onTap: () => CustomNavigator.push(Routes.faqs),
                               ),
-
 
                               const LogOutButton(),
                             ],

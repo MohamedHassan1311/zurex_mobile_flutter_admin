@@ -23,6 +23,7 @@ class Routes {
   static const videoPreview = "VIDEO_PREVIEW";
   static const chat = "CHAT";
   static const pickLocation = "PICK_LOCATION";
+  static const previewLocation = "PREVIEW_LOCATION";
   static const inAppWebView = "IN_APP_WEB_VIEW";
   static const orders = "ORDERS";
   static const orderDetails = "ORDER_DETAILS";

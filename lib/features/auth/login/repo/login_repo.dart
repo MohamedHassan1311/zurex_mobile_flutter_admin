@@ -58,7 +58,7 @@ class LoginRepo extends BaseRepo {
   }
 
   Future<Either<ServerFailure, Response>> logIn(
-      {required Map<String, dynamic> data, required String userType}) async {
+      {required Map<String, dynamic> data}) async {
     try {
       Response response = await dioClient.post(
           uri: EndPoints.logIn, data: FormData.fromMap(data));

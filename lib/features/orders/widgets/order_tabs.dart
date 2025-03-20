@@ -17,7 +17,7 @@ class OrderTabs extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<OrdersBloc, AppState>(
       builder: (context, state) {
-        return StreamBuilder<OrderStatus>(
+        return StreamBuilder<OrderMainStatus>(
             stream: sl<OrdersBloc>().selectTabStream,
             builder: (context, snapshot) {
               return Container(
@@ -33,7 +33,7 @@ class OrderTabs extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     mainAxisSize: MainAxisSize.min,
                     children: List.generate(
-                      OrderStatus.values.length,
+                      OrderMainStatus.values.length,
                       (i) => Expanded(
                         child: _TabButton(
                           onSelect: (v) {
@@ -43,7 +43,7 @@ class OrderTabs extends StatelessWidget {
                                   .add(Click(arguments: SearchEngine()));
                             }
                           },
-                          orderStatus: OrderStatus.values[i],
+                          orderStatus: OrderMainStatus.values[i],
                           isSelect: snapshot.data?.index == i,
                         ),
                       ),
@@ -59,9 +59,9 @@ class _TabButton extends StatelessWidget {
   const _TabButton(
       {required this.orderStatus, this.isSelect = false, this.onSelect});
 
-  final OrderStatus orderStatus;
+  final OrderMainStatus orderStatus;
   final bool isSelect;
-  final Function(OrderStatus)? onSelect;
+  final Function(OrderMainStatus)? onSelect;
 
   @override
   Widget build(BuildContext context) {

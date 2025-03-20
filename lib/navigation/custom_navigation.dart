@@ -10,6 +10,7 @@ import '../features/contact_with_us/page/contact_with_us_page.dart';
 import '../features/faqs/page/faqs_page.dart';
 import '../features/in_app_web_view/in_app_web_view_page.dart';
 import '../features/maps/page/pick_map_page.dart';
+import '../features/maps/page/preview_location_page.dart';
 import '../features/notifications/page/notifications_page.dart';
 import '../features/who_us/page/who_us_page.dart';
 import '../main.dart';
@@ -53,7 +54,7 @@ abstract class CustomNavigator {
         ));
 
       case Routes.changePassword:
-        return _pageRoute(const ChangePassword());
+        return _pageRoute(const ChangePasswordPage());
 
       case Routes.verification:
         return _pageRoute(
@@ -84,14 +85,16 @@ abstract class CustomNavigator {
       case Routes.chat:
         return _pageRoute(ChatPage(data: settings.arguments as Map));
 
-
       case Routes.pickLocation:
         return _pageRoute(
             PickMapPage(data: settings.arguments as LocationModel));
 
+      case Routes.previewLocation:
+        return _pageRoute(
+            PreviewLocationPage(location: settings.arguments as LocationModel));
+
       case Routes.inAppWebView:
         return _pageRoute(InAppViewPage(url: settings.arguments as String));
-
 
       case Routes.contactWithUs:
         return _pageRoute(const ContactWithUsPage());

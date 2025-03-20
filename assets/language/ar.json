@@ -689,5 +689,6 @@
   "if_you_want_show_all_products_in_this_category_press_refresh": "إذا كنت ترغب في عرض جميع المنتجات في هذه الفئة، اضغط على تحديث",
   "min_purchase_validation": "لا يمكنك إكمال الطلب، الحد الأدنى لقيمة الشراء هو",
   "driver": "سائق",
-  "admin": "مدير"
+  "admin": "مدير",
+  "see_details": "عرض التفاصيل"
 }

@@ -7,6 +7,7 @@ class UserModel extends SingleMapper {
   String? countryCode;
   String? phone;
   String? email;
+  String? type;
   double? balance;
 
   UserModel({
@@ -17,6 +18,7 @@ class UserModel extends SingleMapper {
     this.countryCode,
     this.phone,
     this.email,
+    this.type,
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
@@ -29,6 +31,7 @@ class UserModel extends SingleMapper {
     countryCode = json['country_code'];
     phone = json['phone_number'];
     email = json['email'];
+    type = json['type'];
   }
 
   @override
@@ -40,6 +43,7 @@ class UserModel extends SingleMapper {
     data['profile_image'] = profileImage;
     data['phone_number'] = phone;
     data['email'] = email;
+    data['type'] = type;
 
     return data;
   }

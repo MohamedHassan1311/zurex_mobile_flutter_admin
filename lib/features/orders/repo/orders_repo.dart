@@ -17,7 +17,7 @@ class OrdersRepo extends BaseRepo {
         queryParameters: {
           "page": data.currentPage! + 1,
           "limit": data.limit,
-          "me": true,
+          "deliveryByMe": true,
         }..addAll(data.data),
       );
       if (response.statusCode == 200) {

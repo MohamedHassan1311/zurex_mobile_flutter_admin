@@ -150,5 +150,5 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      Size(CustomNavigator.navigatorState.currentContext!.width, 120.h);
+      Size(CustomNavigator.navigatorState.currentContext!.width, 100.h);
 }

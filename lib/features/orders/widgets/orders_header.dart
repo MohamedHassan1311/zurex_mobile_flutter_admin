@@ -41,34 +41,10 @@ class _OrdersHeaderState extends State<OrdersHeader> {
               padding: EdgeInsets.only(
                 left: Dimensions.PADDING_SIZE_DEFAULT.w,
                 right: Dimensions.PADDING_SIZE_DEFAULT.w,
-                top: Dimensions.PADDING_SIZE_DEFAULT.h,
+                top: Dimensions.paddingSizeExtraSmall.h,
                 bottom: Dimensions.paddingSizeExtraSmall.h,
               ),
-              child: Column(
-                children: [
-                  OrderTabs(),
-                  // SizedBox(height: 6.h),
-                  // CustomTextField(
-                  //   hint: getTranslated("search_by_order_id"),
-                  //   controller: sl<OrdersBloc>().searchTEC,
-                  //   pSvgIcon: SvgImages.search,
-                  //   withLabel: false,
-                  //   onChanged: (v) {
-                  //     if (timer != null) if (timer!.isActive) timer!.cancel();
-                  //     timer = Timer(
-                  //       const Duration(milliseconds: 400),
-                  //       () {
-                  //         sl<OrdersBloc>()
-                  //             .add(Click(arguments: SearchEngine()));
-                  //       },
-                  //     );
-                  //   },
-                  //   onSubmit: (v) {
-                  //     sl<OrdersBloc>().add(Click(arguments: SearchEngine()));
-                  //   },
-                  // ),
-                ],
-              ),
+              child:  OrderTabs(),
             ),
           );
         },

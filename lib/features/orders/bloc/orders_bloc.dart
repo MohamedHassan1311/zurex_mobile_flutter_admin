@@ -6,6 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:zurex_admin/features/order_details/model/order_details_model.dart';
 
 import '../../../../../app/core/app_core.dart';
 import '../../../../../app/core/app_event.dart';
@@ -24,7 +25,7 @@ class OrdersBloc extends HydratedBloc<AppEvent, AppState> {
 
   OrdersBloc({required this.repo, required this.internetConnection})
       : super(Start()) {
-    updateSelectTab(OrderStatus.current);
+    updateSelectTab(OrderMainStatus.current);
     searchTEC = TextEditingController();
     controller = ScrollController();
     customScroll(controller);
@@ -37,9 +38,9 @@ class OrdersBloc extends HydratedBloc<AppEvent, AppState> {
   late SearchEngine _engine;
   List<OrderModel>? _model;
 
-  final selectTab = BehaviorSubject<OrderStatus>();
-  Function(OrderStatus) get updateSelectTab => selectTab.sink.add;
-  Stream<OrderStatus> get selectTabStream =>
+  final selectTab = BehaviorSubject<OrderMainStatus>();
+  Function(OrderMainStatus) get updateSelectTab => selectTab.sink.add;
+  Stream<OrderMainStatus> get selectTabStream =>
       selectTab.stream.asBroadcastStream();
 
   final goingDown = BehaviorSubject<bool>();
@@ -75,7 +76,9 @@ class OrdersBloc extends HydratedBloc<AppEvent, AppState> {
           emit(Done(data: _model, loading: true));
         }
         _engine.data = {
-          "status": selectTab.value.name,
+          "status": selectTab.value.name == OrderMainStatus.current.name
+              ? OrderStatus.out_for_delivery.name
+              : selectTab.value.name,
           // if (searchTEC?.text.trim() != "") "keyword": searchTEC?.text.trim(),
         };
 
@@ -153,4 +156,4 @@ class OrdersBloc extends HydratedBloc<AppEvent, AppState> {
   Map<String, dynamic>? toJson(AppState? state) => state?.toJson();
 }
 
-enum OrderStatus { current, completed, canceled }
+enum OrderMainStatus { current, completed, canceled }

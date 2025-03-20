@@ -43,7 +43,7 @@ class VerificationRepo extends BaseRepo {
       VerificationModel model) async {
     try {
       Response response = await dioClient.post(
-        uri: EndPoints.resend,
+        uri: EndPoints.forgetPassword,
         data: model.toJson(withCode: false),
       );
 
