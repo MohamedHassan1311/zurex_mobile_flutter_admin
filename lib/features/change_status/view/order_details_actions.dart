@@ -5,6 +5,7 @@ import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:zurex_admin/app/core/app_state.dart';
 import 'package:zurex_admin/app/core/text_styles.dart';
 import 'package:zurex_admin/features/change_status/repo/change_status_repo.dart';
+import 'package:zurex_admin/features/order_details/bloc/order_details_bloc.dart';
 import 'package:zurex_admin/features/order_details/model/order_details_model.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/core/dimensions.dart';
@@ -64,7 +65,11 @@ class OrderDetailsActions extends StatelessWidget {
                               Click(
                                 arguments: {
                                   "id": id,
-                                  "status": OrderStatus.delivered.name
+                                  "status": OrderStatus.delivered.name,
+                                  "onSuccess": (v) =>
+                                      context.read<OrderDetailsBloc>().add(
+                                            Update(arguments: v),
+                                          )
                                 },
                               ),
                             );

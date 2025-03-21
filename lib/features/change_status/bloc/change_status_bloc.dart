@@ -29,13 +29,15 @@ class ChangeStatusBloc extends Bloc<AppEvent, AppState> {
           await repo.changeStatus(event.arguments as Map<String, dynamic>);
 
       CustomNavigator.pop();
+
       response.fold((fail) {
         AppCore.showToast(fail.error);
         emit(Error());
       }, (success) {
-        OrderDetailsModel model =
-            OrderDetailsModel.fromJson(success.data["data"]);
+        OrderDetailsModel model = OrderDetailsModel.fromJson(success.data["data"]);
+
         (event.arguments as Map)["onSuccess"].call(model);
+
         sl<OrdersBloc>().add(Click(arguments: SearchEngine(isUpdate: true)));
 
         AppCore.showToast(getTranslated("your_order_updated_successfully"));

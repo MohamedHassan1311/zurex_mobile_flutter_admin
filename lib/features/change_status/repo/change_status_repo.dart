@@ -9,11 +9,12 @@ class ChangeStatusRepo extends BaseRepo {
   ChangeStatusRepo(
       {required super.dioClient, required super.sharedPreferences});
 
-  Future<Either<ServerFailure, Response>> changeStatus(body) async {
+  Future<Either<ServerFailure, Response>> changeStatus(
+      Map<String, dynamic> body) async {
     try {
       Response response = await dioClient.put(
           uri: EndPoints.changeOrderStatus(body["id"]),
-          data: FormData.fromMap(body));
+          data: {"status": body["status"]});
       if (response.statusCode == 200) {
         return Right(response);
       } else {
