@@ -1,6 +1,6 @@
 {
   "login_header": "Welcome \uD83D\uDC4B\uD83C\uDFFB",
-  "login_description": "Best auto parts and latest accessories with us",
+  "login_description": "Because you are the best driver, choosing us is the best decision.",
   "signup_header": "Sign Up with Us",
   "signup_description": "Choose whether you are an artist (talented) or an organization/company looking for talent.",
   "more_header" : "Log in to save your data",
@@ -541,8 +541,7 @@
   "optional": "optional",
   "enter_notes": "Enter Notes...",
   "links": "Links to the most important businesses",
-  "your_order_cancelled_successfully": "Your Order has been cancelled successfully",
-  "oops_select_cancel_reason": "Oops, you must select a reason to cancel your request",
+  "your_order_updated_successfully": "Your Order has been updates successfully",
   "back_off": "Back Off",
   "cancel_order": "Cancel Order",
   "receipt_details": "Receipt Details",
@@ -691,5 +690,6 @@
   "if_you_want_show_all_products_in_this_category_press_refresh": "If you want show all products in this category, press refresh",
   "min_purchase_validation": "You can't complete the order, the minimum purchase value is",
   "driver": "Driver",
-  "admin": "Admin"
+  "admin": "Admin",
+  "delivered": "Delivered"
 }

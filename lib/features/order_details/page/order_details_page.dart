@@ -19,8 +19,9 @@ import '../../../data/config/di.dart';
 import '../widgets/delivery_date.dart';
 import '../widgets/delivery_location.dart';
 import '../widgets/order_current_status.dart';
-import '../widgets/order_details_actions.dart';
+import '../../change_status/view/order_details_actions.dart';
 import '../widgets/order_products.dart';
+import '../widgets/order_user_card.dart';
 
 class OrderDetailsPage extends StatelessWidget {
   const OrderDetailsPage({super.key, required this.id});
@@ -42,11 +43,9 @@ class OrderDetailsPage extends StatelessWidget {
               child: BlocBuilder<OrderDetailsBloc, AppState>(
                 builder: (context, state) {
                   if (state is Done) {
-                    OrderDetailsModel model =
-                        state.model as OrderDetailsModel;
+                    OrderDetailsModel model = state.model as OrderDetailsModel;
                     return Column(
                       children: [
-
                         ///Order Body
                         Expanded(
                           child: ListAnimator(
@@ -60,6 +59,7 @@ class OrderDetailsPage extends StatelessWidget {
                                 orderNum: model.orderNum,
                                 status: model.status,
                               ),
+                              OrderUserCard(user: model.user),
                               // OrderStatusList(list: model.statuses ?? []),
                               OrderProducts(items: model.products ?? []),
                               DeliveryDate(
@@ -74,8 +74,7 @@ class OrderDetailsPage extends StatelessWidget {
                                   bill: model.bill,
                                   decoration: BoxDecoration(
                                       color: Styles.WHITE_COLOR,
-                                      borderRadius:
-                                          BorderRadius.circular(16.w),
+                                      borderRadius: BorderRadius.circular(16.w),
                                       border: Border.all(
                                         color: Styles.LIGHT_BORDER_COLOR,
                                       )),
@@ -88,14 +87,8 @@ class OrderDetailsPage extends StatelessWidget {
                         ),
 
                         ///Order Actions
-                        OrderDetailsActions(
-                            id: id,
-                            canCancel: (model.statusCode !=
-                                    OrderStatus.cancelled.name &&
-                                model.statusCode !=
-                                    OrderStatus.delivered.name),
-                            canRate: model.statusCode ==
-                                OrderStatus.delivered.name),
+                          OrderDetailsActions(
+                              id: id, status: model.statusCode ?? ""),
                       ],
                     );
                   }
@@ -111,6 +104,15 @@ class OrderDetailsPage extends StatelessWidget {
                               vertical: Dimensions.paddingSizeMini.h),
                           child: CustomShimmerContainer(
                             height: 60.h,
+                            width: context.width,
+                            radius: 16.w,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: Dimensions.paddingSizeMini.h),
+                          child: CustomShimmerContainer(
+                            height: 150.h,
                             width: context.width,
                             radius: 16.w,
                           ),

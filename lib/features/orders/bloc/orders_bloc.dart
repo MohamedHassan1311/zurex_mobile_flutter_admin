@@ -156,4 +156,4 @@ class OrdersBloc extends HydratedBloc<AppEvent, AppState> {
   Map<String, dynamic>? toJson(AppState? state) => state?.toJson();
 }
 
-enum OrderMainStatus { current, completed, canceled }
+enum OrderMainStatus { current, completed }

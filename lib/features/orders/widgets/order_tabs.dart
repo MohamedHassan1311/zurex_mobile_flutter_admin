@@ -79,14 +79,14 @@ class _TabButton extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeMini.w),
         padding: EdgeInsets.symmetric(
             horizontal: Dimensions.paddingSizeMini.w,
-            vertical: Dimensions.paddingSizeMini.h),
+            vertical: Dimensions.paddingSizeExtraSmall.h),
         child: Text(
           getTranslated(orderStatus.name),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
           style: AppTextStyles.w600.copyWith(
-              fontSize: 14,
+              fontSize: 16,
               color: isSelect ? Styles.WHITE_COLOR : Styles.HEADER),
         ),
       ),

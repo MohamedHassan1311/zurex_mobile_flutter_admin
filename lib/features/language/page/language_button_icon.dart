@@ -43,41 +43,50 @@ class _LanguageButtonIconState extends State<LanguageButtonIcon> {
                   LanguageBloc.instance.add(Update());
                 });
           },
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(4),
-                child: customImageIcon(
-                  imageName: LanguageBloc
-                          .instance
-                          .languages[
-                              LanguageBloc.instance.selectIndex.valueOrNull ??
-                                  0]
-                          .icon ??
-                      "",
-                  height: 18.h,
-                  width: 24.w,
-                ),
-              ),
-              Flexible(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w),
-                  child: Text(
-                    LanguageBloc
+          child: Container(
+            padding: EdgeInsets.symmetric(
+                horizontal: Dimensions.paddingSizeMini.w, vertical: 4.h),
+            decoration: BoxDecoration(
+              color: Styles.WHITE_COLOR,
+              borderRadius: BorderRadius.circular(8.w),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(4),
+                  child: customImageIcon(
+                    imageName: LanguageBloc
                             .instance
                             .languages[
                                 LanguageBloc.instance.selectIndex.valueOrNull ??
                                     0]
-                            .name ??
+                            .icon ??
                         "",
-                    style: AppTextStyles.w400
-                        .copyWith(fontSize: 12, color: Styles.WHITE_COLOR),
+                    height: 18.h,
+                    width: 24.w,
                   ),
                 ),
-              ),
-            ],
+                Flexible(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.w),
+                    child: Text(
+                      LanguageBloc
+                              .instance
+                              .languages[LanguageBloc
+                                      .instance.selectIndex.valueOrNull ??
+                                  0]
+                              .name ??
+                          "",
+                      style: AppTextStyles.w600
+                          .copyWith(fontSize: 14,
+                          color: Styles.PRIMARY_COLOR),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },

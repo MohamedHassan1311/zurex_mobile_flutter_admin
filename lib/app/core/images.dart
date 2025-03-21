@@ -1,7 +1,7 @@
 class Images {
   static const String logo = 'assets/logo.png';
   static const String splash = 'assets/logo_splach.gif';
-  static const String carSplash = 'assets/car_splash.png';
+  static const String motorSplash = 'assets/images/motor_splash.png';
   static const String onBoarding1 = 'assets/images/on_boarding_1.png';
   static const String onBoarding2 = 'assets/images/on_boarding_2.png';
   static const String onBoarding3 = 'assets/images/on_boarding_3.png';

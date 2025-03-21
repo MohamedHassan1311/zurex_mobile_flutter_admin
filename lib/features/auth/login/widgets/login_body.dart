@@ -47,8 +47,9 @@ class LoginBody extends StatelessWidget {
                             AutofillHints.telephoneNumber,
                             AutofillHints.username,
                           ],
-                          label: getTranslated("phone"),
-                          hint: getTranslated("enter_your_phone"),
+                          label: getTranslated("phone", context: context),
+                          hint: getTranslated("enter_your_phone",
+                              context: context),
                           inputType: TextInputType.phone,
                           validate: Validations.phone,
                           // pSvgIcon: SvgImages.phoneCallIcon,
@@ -92,8 +93,9 @@ class LoginBody extends StatelessWidget {
                           controller: context.read<LoginBloc>().passwordTEC,
                           focusNode: context.read<LoginBloc>().passwordNode,
                           keyboardAction: TextInputAction.done,
-                          label: getTranslated("password"),
-                          hint: getTranslated("enter_your_password"),
+                          label: getTranslated("password", context: context),
+                          hint: getTranslated("enter_your_password",
+                              context: context),
                           inputType: TextInputType.visiblePassword,
                           validate: Validations.password,
                           isPassword: true,
@@ -109,9 +111,8 @@ class LoginBody extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               StreamBuilder<bool?>(
-                                stream: context
-                                    .read<LoginBloc>()
-                                    .rememberMeStream,
+                                stream:
+                                    context.read<LoginBloc>().rememberMeStream,
                                 builder: (_, snapshot) {
                                   return RememberMe(
                                     check: snapshot.data ?? false,
@@ -132,7 +133,8 @@ class LoginBody extends StatelessWidget {
                                           ?.name);
                                 },
                                 child: Text(
-                                  getTranslated("forget_password"),
+                                  getTranslated("forget_password",
+                                      context: context),
                                   style: AppTextStyles.w500.copyWith(
                                     color: Styles.PRIMARY_COLOR,
                                     fontSize: 13,
@@ -151,7 +153,7 @@ class LoginBody extends StatelessWidget {
                             vertical: Dimensions.PADDING_SIZE_DEFAULT.h,
                           ),
                           child: CustomButton(
-                              text: getTranslated("login"),
+                              text: getTranslated("login", context: context),
                               onTap: () {
                                 if (context
                                     .read<LoginBloc>()
@@ -175,7 +177,8 @@ class LoginBody extends StatelessWidget {
                                 horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
                                 vertical: Dimensions.paddingSizeMini.h),
                             child: Text(
-                              getTranslated("login_as_a_guest"),
+                              getTranslated("login_as_a_guest",
+                                  context: context),
                               style: AppTextStyles.w500
                                   .copyWith(fontSize: 14, color: Styles.TITLE),
                             ),

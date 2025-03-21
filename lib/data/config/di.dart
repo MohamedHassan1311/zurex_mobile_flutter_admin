@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:zurex_admin/features/change_status/repo/change_status_repo.dart';
 import '../../app/theme/theme_provider/theme_provider.dart';
 import '../../features/auth/activation_account/repo/activation_account_repo.dart';
 import '../../features/auth/deactivate_account/repo/deactivate_account_repo.dart';
@@ -12,7 +13,6 @@ import '../../features/auth/logout/bloc/logout_bloc.dart';
 import '../../features/auth/logout/repo/logout_repo.dart';
 import '../../features/auth/reset_password/repo/reset_password_repo.dart';
 import '../../features/auth/verification/repo/verification_repo.dart';
-import '../../features/cancel_order/repo/cancel_order_repo.dart';
 import '../../features/chat/repo/chat_repo.dart';
 import '../../features/chats/bloc/chats_bloc.dart';
 import '../../features/chats/repo/chats_repo.dart';
@@ -139,7 +139,7 @@ Future<void> init() async {
       () => OrderDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
 
   sl.registerLazySingleton(
-      () => CancelOrderRepo(sharedPreferences: sl(), dioClient: sl()));
+      () => ChangeStatusRepo(sharedPreferences: sl(), dioClient: sl()));
 
 
   //provider

@@ -1,4 +1,5 @@
 import 'package:zurex_admin/main_models/custom_field_model.dart';
+import 'package:zurex_admin/main_models/user_model.dart';
 
 import '../../../app/localization/language_constant.dart';
 import '../../../data/config/mapper.dart';
@@ -14,7 +15,9 @@ class OrderDetailsModel extends SingleMapper {
   List<StatusModel>? statuses;
   String? status, statusCode;
   AddressModel? address;
+  UserModel? user;
   DateTime? createdAt;
+
   OrderDetailsModel({
     this.id,
     this.orderNum,
@@ -26,6 +29,7 @@ class OrderDetailsModel extends SingleMapper {
     this.address,
     this.status,
     this.statusCode,
+    this.user,
     this.createdAt,
   });
 
@@ -37,6 +41,7 @@ class OrderDetailsModel extends SingleMapper {
         "status": status,
         "delivery_date": deliveryDate,
         "delivery_time": deliveryTime?.toJson(),
+        "user": user?.toJson(),
         "bill": bill?.toJson(),
         "address": address?.toJson(),
         "status_list": statuses != null
@@ -57,6 +62,7 @@ class OrderDetailsModel extends SingleMapper {
     deliveryTime = json['delivery_time'] != null
         ? CustomFieldModel.fromJson(json['delivery_time'])
         : null;
+    user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
     bill = json['bill'] != null ? BillModel.fromJson(json['bill']) : null;
     address =
         json['address'] != null ? AddressModel.fromJson(json['address']) : null;

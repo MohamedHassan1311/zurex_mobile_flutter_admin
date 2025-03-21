@@ -105,6 +105,9 @@ dependencies:
   video_player: ^2.9.2
   country_state_city: ^0.1.6
   easy_stepper: ^0.8.5+1
+  flutter_swipe_button: ^2.1.1+1
+
+
 dependency_overrides:
   js: ^0.7.1
 

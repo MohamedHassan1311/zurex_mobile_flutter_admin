@@ -43,7 +43,7 @@ class _SplashState extends State<Splash> with WidgetsBindingObserver {
               Center(
                 child: Image.asset(
                   Images.splash,
-                  width: context.width ,
+                  width: context.width,
                 ).animate().then(delay: 200.ms).shimmer(),
               ),
               Positioned(
@@ -62,16 +62,17 @@ class _SplashState extends State<Splash> with WidgetsBindingObserver {
                 ),
               ),
               Positioned(
-                  right: -100,
-                  bottom: 10,
-                  child: Image.asset(
-                    Images.carSplash,
-                    width: context.width * .85,
-                  )
-                      .animate()
-                      .slide()
-                      .then(delay: 200.ms)
-                      .scale(duration: 1500.ms)),
+                right: 0,
+                bottom: 10,
+                child: Image.asset(
+                  Images.motorSplash,
+                  width: context.width * .85,
+                )
+                    .animate()
+                    .slideX(begin: 1.0, end: 0.0, duration: 1200.ms)
+                    .then(delay: 200.ms)
+                    .shimmer(),
+              ),
             ],
           ));
         },

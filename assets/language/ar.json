@@ -1,6 +1,6 @@
 {
   "login_header": "\uD83D\uDC4B\uD83C\uDFFB مرحبا بك",
-  "login_description": "أفضل قطع غيار السيارات وأحدث الإكسسوارات معنا",
+  "login_description": "لأنك أفضل سائق اختيارك إلينا هو القرار الأمثل.",
   "signup_header": "سجل معنا",
   "signup_description": "اختر ما كنت فنانًا (موهوبًا) أو مؤسسة/شركة تبحث عن المواهب.",
   "more_header": "قم بتسجيل الدخول لحفظ بياناتك",
@@ -538,7 +538,7 @@
   "notes_optional": "ملاحظات (اختياري)",
   "optional": "اختياري",
   "enter_notes": "أدخل الملاحظات...",
-  "your_order_cancelled_successfully": "تم إلغاء طلبك بنجاح",
+  "your_order_updated_successfully": "تم تحديث طلبك بنجاح",
   "oops_select_cancel_reason": "عذرًا، يجب عليك اختيار سبب لإلغاء طلبك",
   "back_off": "تراجع",
   "cancel_order": "الغاء الطلب",
@@ -690,5 +690,6 @@
   "min_purchase_validation": "لا يمكنك إكمال الطلب، الحد الأدنى لقيمة الشراء هو",
   "driver": "سائق",
   "admin": "مدير",
-  "see_details": "عرض التفاصيل"
+  "see_details": "عرض التفاصيل",
+  "delivered": "تم التوصيل"
 }
