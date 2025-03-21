@@ -64,6 +64,15 @@ class _MoreState extends State<More> {
                         builder: (context, state) {
                           return ListAnimator(
                             data: [
+                              ///Edit Profile
+                              MoreButton(
+                                title: getTranslated("edit_profile",
+                                    context: context),
+                                icon: SvgImages.edit,
+                                onTap: () =>
+                                    CustomNavigator.push(Routes.editProfile),
+                              ),
+
                               ///Notification && Turn Notification
                               if (UserBloc.instance.isLogin)
                                 BlocProvider(

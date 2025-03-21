@@ -70,12 +70,12 @@ class ProfileCard extends StatelessWidget {
                     //   ),
                     // ),
                     SizedBox(width: 12.w),
-                    if (sl<UserBloc>().isLogin)
-                      customImageIconSVG(
-                          imageName: SvgImages.edit,
-                          width: 16.w,
-                          height: 16.h,
-                          onTap: () => CustomNavigator.push(Routes.editProfile))
+                    // if (sl<UserBloc>().isLogin)
+                    //   customImageIconSVG(
+                    //       imageName: SvgImages.edit,
+                    //       width: 16.w,
+                    //       height: 16.h,
+                    //       onTap: () => CustomNavigator.push(Routes.editProfile))
                   ],
                 ),
                 SizedBox(height: 8.h),
