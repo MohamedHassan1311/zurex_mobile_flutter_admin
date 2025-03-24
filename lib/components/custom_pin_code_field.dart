@@ -29,6 +29,7 @@ class CustomPinCodeField extends StatelessWidget {
       autoDisposeControllers: false,
       autoDismissKeyboard: true,
       enableActiveFill: true,
+      autoFocus: true,
       controller: controller,
       enablePinAutofill: true,
       keyboardType: TextInputType.number,
@@ -60,6 +61,7 @@ class CustomPinCodeField extends StatelessWidget {
       onChanged: (v) {
         onChanged?.call(v);
       },
+      onCompleted: onSave,
       errorTextSpace: (context.width - (5 * 50.w)) / 4,
     );
   }

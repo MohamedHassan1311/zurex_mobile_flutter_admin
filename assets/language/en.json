@@ -231,6 +231,7 @@
   "add": "Add",
   "language": "Language",
   "select_language": "Select Language",
+  "push_notification": "Push Notification",
   "notifications": "Notifications",
   "no_notifications": "There's no Notifications",
   "something_went_wrong": "Oops! Something went wrong, Try Again!",

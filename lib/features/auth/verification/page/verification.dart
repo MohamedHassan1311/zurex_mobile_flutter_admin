@@ -100,6 +100,9 @@ class _VerificationState extends State<Verification> {
                                   validation: Validations.code,
                                   controller:
                                       context.read<VerificationBloc>().codeTEC,
+                                  onSave: (v) => context
+                                      .read<VerificationBloc>()
+                                      .add(Click(arguments: widget.model)),
                                 ),
                               ),
                               Padding(

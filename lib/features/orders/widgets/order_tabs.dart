@@ -26,7 +26,7 @@ class OrderTabs extends StatelessWidget {
                     vertical: Dimensions.paddingSizeExtraSmall.h,
                   ),
                   decoration: BoxDecoration(
-                      color: Styles.SMOKED_WHITE_COLOR,
+                      color: Styles.FILL_COLOR,
                       borderRadius: BorderRadius.circular(12.w)),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,

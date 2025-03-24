@@ -20,6 +20,7 @@ import '../../notifications/repo/notifications_repo.dart';
 import '../../profile/bloc/profile_bloc.dart';
 import '../widgets/more_button.dart';
 import '../widgets/profile_card.dart';
+import '../widgets/turn_button.dart';
 
 class More extends StatefulWidget {
   const More({super.key});
@@ -64,68 +65,53 @@ class _MoreState extends State<More> {
                         builder: (context, state) {
                           return ListAnimator(
                             data: [
-                              ///Edit Profile
-                              MoreButton(
-                                title: getTranslated("edit_profile",
-                                    context: context),
-                                icon: SvgImages.edit,
-                                onTap: () =>
-                                    CustomNavigator.push(Routes.editProfile),
-                              ),
 
-                              ///Notification && Turn Notification
-                              if (UserBloc.instance.isLogin)
+                              ///Buttons
+                              if (UserBloc.instance.isLogin) ...[
+                                ///Edit Profile
+                                MoreButton(
+                                  title: getTranslated("edit_profile",
+                                      context: context),
+                                  icon: SvgImages.edit,
+                                  onTap: () =>
+                                      CustomNavigator.push(Routes.editProfile),
+                                ),
+
+                                ///Notifications
+                                MoreButton(
+                                  title: getTranslated("notifications",
+                                      context: context),
+                                  icon: SvgImages.notification,
+                                  onTap: () => CustomNavigator.push(
+                                      Routes.notifications),
+                                ),
+
+                                ///Turn Notifications
                                 BlocProvider(
                                   create: (context) => TurnNotificationsBloc(
                                       repo: sl<NotificationsRepo>()),
                                   child: BlocBuilder<TurnNotificationsBloc,
                                       AppState>(
                                     builder: (context, state) {
-                                      return MoreButton(
-                                        title: getTranslated("notifications",
+                                      return TurnButton(
+                                        title: getTranslated(
+                                            "push_notification",
                                             context: context),
                                         icon: SvgImages.notification,
-                                        action: SizedBox(
-                                          height: 10,
-                                          child: Switch(
-                                            value: context
-                                                .read<TurnNotificationsBloc>()
-                                                .isTurnOn,
-                                            inactiveThumbColor:
-                                                Styles.WHITE_COLOR,
-                                            inactiveTrackColor:
-                                                Styles.BORDER_COLOR,
-                                            onChanged: (v) {
-                                              context
-                                                  .read<TurnNotificationsBloc>()
-                                                  .add(Turn());
-                                            },
-                                            trackOutlineColor:
-                                                WidgetStateProperty.resolveWith<
-                                                        Color?>(
-                                                    (Set<WidgetState> states) {
-                                              return context
-                                                      .read<
-                                                          TurnNotificationsBloc>()
-                                                      .isTurnOn
-                                                  ? Styles.PRIMARY_COLOR
-                                                  : Styles.BORDER_COLOR;
-                                            }),
-                                            trackOutlineWidth:
-                                                WidgetStateProperty.resolveWith<
-                                                        double?>(
-                                                    (Set<WidgetState> states) {
-                                              return 1.0;
-                                            }),
-                                          ),
-                                        ),
-                                        onTap: () => CustomNavigator.push(
-                                            Routes.notifications),
+                                        bing: context
+                                            .read<TurnNotificationsBloc>()
+                                            .isTurnOn,
+                                        onTap: () {
+                                          context
+                                              .read<TurnNotificationsBloc>()
+                                              .add(Turn());
+                                        },
+                                        isLoading: state is Loading,
                                       );
                                     },
                                   ),
                                 ),
-
+                              ],
                               ///Language
                               const LanguageButton(),
 

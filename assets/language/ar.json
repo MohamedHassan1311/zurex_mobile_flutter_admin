@@ -224,6 +224,7 @@
   "your_feedback_ratting_sent_successfully": "تهانينا، تم إرسال تعليقك وتقييمك بنجاح",
   "language": "اللغة",
   "select_language": "اختر اللغة",
+  "push_notification": "ارسال الاشعارات",
   "notifications": "الاشعارات",
   "no_notifications": "لا يوجد اشعارات",
   "something_went_wrong": "عفوًا! حدث خطأ ما حاول مرة أخرى!",

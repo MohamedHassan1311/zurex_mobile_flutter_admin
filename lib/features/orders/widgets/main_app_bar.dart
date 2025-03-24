@@ -15,6 +15,7 @@ import 'package:zurex_admin/navigation/custom_navigation.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/core/text_styles.dart';
 import '../../../components/custom_bottom_sheet.dart';
+import '../../../components/marquee_widget.dart';
 import '../../../data/config/di.dart';
 import '../../../main_widgets/guest_mode.dart';
 import '../../../main_widgets/profile_image_widget.dart';
@@ -94,13 +95,15 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                                       imageName: SvgImages.location),
                                   SizedBox(width: 8.w),
                                   Expanded(
-                                    child: Text(
-                                      model.address ?? "",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: AppTextStyles.w400.copyWith(
-                                          fontSize: 14,
-                                          color: Styles.DETAILS_COLOR),
+                                    child: MarqueeWidget(
+                                      child: Text(
+                                        model.address ?? "",
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: AppTextStyles.w400.copyWith(
+                                            fontSize: 14,
+                                            color: Styles.DETAILS_COLOR),
+                                      ),
                                     ),
                                   ),
                                 ],

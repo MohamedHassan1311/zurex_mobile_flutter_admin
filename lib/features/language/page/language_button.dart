@@ -31,12 +31,12 @@ class _LanguageButtonState extends State<LanguageButton> {
     return BlocBuilder<LanguageBloc, AppState>(
       builder: (context, state) {
         return Container(
+          height: 55.h,
           decoration: const BoxDecoration(
               color: Styles.WHITE_COLOR,
               border:
-                  Border(bottom: BorderSide(color: Styles.LIGHT_BORDER_COLOR))),
+              Border(bottom: BorderSide(color: Styles.LIGHT_BORDER_COLOR))),
           padding: EdgeInsets.symmetric(
-              vertical: Dimensions.PADDING_SIZE_SMALL.h,
               horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
