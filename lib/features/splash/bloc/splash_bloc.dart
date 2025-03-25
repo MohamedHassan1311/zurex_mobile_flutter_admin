@@ -30,9 +30,9 @@ class SplashBloc extends Bloc<AppEvent, AppState> {
       if (repo.isLogin) {
         UserBloc.instance.add(Click());
       } else {
-        if (!kDebugMode) {
+        // if (!kDebugMode) {
           await repo.guestMode();
-        }
+        // }
       }
 
       if (!repo.isLogin) {

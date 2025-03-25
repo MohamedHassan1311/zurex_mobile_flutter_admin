@@ -15,10 +15,9 @@ class LoginRepo extends BaseRepo {
 
   saveUserData(json) {
     if (!kDebugMode) {
-      subscribeToTopic(id: "${json["id"]}", userType: json["user_type"]);
+      subscribeToTopic(id: "${json["id"]}", userType: json["type"]);
     }
-    saveUserToken(json["token"]);
-    sharedPreferences.setString(AppStorageKey.userId, json["id"].toString());
+    sharedPreferences.setString(AppStorageKey.userId, "${json["id"]}");
     sharedPreferences.setString(AppStorageKey.userData, jsonEncode(json));
     sharedPreferences.setBool(AppStorageKey.isLogin, true);
   }
@@ -65,8 +64,10 @@ class LoginRepo extends BaseRepo {
 
       if (response.statusCode == 200) {
         if (response.data['data'] != null &&
+            response.data['data']["user"] != null &&
             response.data['data']["token"] != null) {
-          saveUserData(response.data["data"]);
+          saveUserData(response.data["data"]["user"]);
+          saveUserToken(response.data['data']["token"]);
         }
         return Right(response);
       } else {

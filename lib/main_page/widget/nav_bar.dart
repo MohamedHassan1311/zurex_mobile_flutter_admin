@@ -16,7 +16,7 @@ class NavBar extends StatelessWidget {
       builder: (context, snapshot) {
         return Container(
           width: context.width,
-          padding: EdgeInsets.symmetric(horizontal: 8.w),
+          padding: EdgeInsets.only(left: 8.w, right: 8.w, bottom: 4.h),
           decoration: BoxDecoration(
             color: Styles.WHITE_COLOR,
             boxShadow: [
