@@ -171,11 +171,11 @@ class AppCore {
         style: AppTextStyles.w400.copyWith(fontSize: 11, color: Styles.ACTIVE),
       ),
       height: 70.h,
-      width: CustomNavigator.navigatorState!.currentContext!.width - 60.w,
+      width: CustomNavigator.navigatorState.currentContext!.width - 60.w,
       layoutOrientation: TextDirection.ltr,
-      animationType: animationType ?? AnimationType.fromTop,
+      animationType: animationType ?? AnimationType.slideInFromTop,
       position: position ?? MotionToastPosition.top,
-    ).show(CustomNavigator.navigatorState!.currentContext!);
+    ).show(CustomNavigator.navigatorState.currentContext!);
   }
 
   errorMotionToast(msg,
@@ -192,11 +192,11 @@ class AppCore {
             AppTextStyles.w400.copyWith(fontSize: 11, color: Styles.IN_ACTIVE),
       ),
       height: 70.h,
-      width: CustomNavigator.navigatorState!.currentContext!.width - 60.w,
+      width: CustomNavigator.navigatorState.currentContext!.width - 60.w,
       layoutOrientation: TextDirection.ltr,
-      animationType: animationType ?? AnimationType.fromTop,
+      animationType: animationType ?? AnimationType.slideInFromTop,
       position: position ?? MotionToastPosition.top,
-    ).show(CustomNavigator.navigatorState!.currentContext!);
+    ).show(CustomNavigator.navigatorState.currentContext!);
   }
 
   static bool scrollListener(

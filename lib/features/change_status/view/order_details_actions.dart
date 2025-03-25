@@ -35,7 +35,7 @@ class OrderDetailsActions extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-                      vertical: Dimensions.paddingSizeMini.w,
+                      vertical: Dimensions.paddingSizeExtraSmall.w,
                     ),
                     child: SwipeButton(
                       thumbPadding: EdgeInsets.all(4.w),

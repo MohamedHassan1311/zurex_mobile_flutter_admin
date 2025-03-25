@@ -35,9 +35,6 @@ class SplashBloc extends Bloc<AppEvent, AppState> {
         }
       }
 
-      // if (repo.isFirstTime) {
-      //   CustomNavigator.push(Routes.onBoarding, clean: true);
-      // } else
       if (!repo.isLogin) {
         CustomNavigator.push(Routes.login, clean: true);
       } else {
