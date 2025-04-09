@@ -61,7 +61,6 @@ abstract class CheckOnTheVersion {
                   child: Text(getTranslated("update_now")),
                   onPressed: () async {
                     await launchUrl(Uri(path: appStoreUrl));
-                    CustomNavigator.pop();
                   }),
               CupertinoDialogAction(
                   child: Text(getTranslated("later")),
