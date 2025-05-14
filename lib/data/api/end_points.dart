@@ -1,13 +1,17 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class EndPoints {
-  static String domain = dotenv.env['DOMAIN_DEV'] ?? "";
-  static String baseUrl = dotenv.env['BASE_URL_DEV'] ?? "";
+  static const bool isProductionEnv = true;
+  static String domain =
+      dotenv.env['DOMAIN_${isProductionEnv ? "PRO" : "DEV"}'] ?? "";
+  static String baseUrl =
+      dotenv.env['BASE_URL_${isProductionEnv ? "PRO" : "DEV"}'] ?? "";
   static String apiKey = dotenv.env['API_KEY'] ?? "";
   static chatPort(id) => '${dotenv.env['CHAT_PORT']}$id';
   static String googleMapsBaseUrl = dotenv.env['GOOGLE_MAPS_BASE_URL'] ?? "";
-  static const String generalTopic = 'zurex';
-  static specificTopic(id) => '$id';
+  static const String generalTopic = isProductionEnv ? 'zurex' : 't_zurex';
+  static const String userTypeTopic = isProductionEnv ? 'user' : 't_user';
+  static specificTopic(id) => isProductionEnv ? '$id' : 't_$id';
 
   ///Auth
   static const String forgetPassword = 'forgot-password';

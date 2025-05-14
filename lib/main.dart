@@ -45,9 +45,8 @@ Future<void> main() async {
   // );
 
   // if (!kDebugMode) {
-    await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform);
-    await FirebaseNotifications.setUpFirebase();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await FirebaseNotifications.setUpFirebase();
   // }
 
   await dotenv.load(fileName: ".env");

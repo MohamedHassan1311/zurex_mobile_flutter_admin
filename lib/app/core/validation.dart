@@ -21,9 +21,9 @@ class Validations {
   }
 
   static String? password(String? password) {
-    RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
-    if (!regex.hasMatch(password ?? "")) {
-      // if (password?.trim() == null || password!.isEmpty) {
+    // RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$');
+    // if (!regex.hasMatch(password ?? "")) {
+    if (password?.trim() == null || password!.length < 6) {
       return getTranslated("please_enter_valid_password");
     } else {
       return null;
@@ -31,9 +31,9 @@ class Validations {
   }
 
   static String? firstPassword(String? password) {
-    RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$');
-    if (!regex.hasMatch(password ?? "")) {
-      // if (password?.trim() == null || password!.isEmpty) {
+    // RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$');
+    // if (!regex.hasMatch(password ?? "")) {
+    if (password?.trim() == null || password!.length < 6) {
       return getTranslated("please_enter_valid_password");
     } else {
       return null;
@@ -43,7 +43,7 @@ class Validations {
   static String? confirmPassword(String? password, String? confirmPassword) {
     if (confirmPassword == null || confirmPassword.isEmpty) {
       return getTranslated("please_enter_valid_confirm_password");
-    } else if (confirmPassword.length < 8) {
+    } else if (confirmPassword.length < 6) {
       return getTranslated("please_enter_valid_password");
     } else if (password != null) {
       if (password != confirmPassword) {
@@ -56,7 +56,7 @@ class Validations {
   static String? newPassword(String? currentPassword, String? newPassword) {
     if (newPassword == null || newPassword.isEmpty) {
       return getTranslated("please_enter_valid_new_password");
-    } else if (newPassword.length < 8) {
+    } else if (newPassword.length < 6) {
       return getTranslated("password_length_validation");
     } else if (currentPassword != null) {
       if (currentPassword == newPassword) {
@@ -69,7 +69,7 @@ class Validations {
   static String? confirmNewPassword(String? password, String? confirmPassword) {
     if (confirmPassword == null || confirmPassword.isEmpty) {
       return getTranslated("please_enter_valid_confirm_password");
-    } else if (confirmPassword.length < 8) {
+    } else if (confirmPassword.length < 6) {
       return getTranslated("password_length_validation");
     } else if (password != null) {
       if (password != confirmPassword) {

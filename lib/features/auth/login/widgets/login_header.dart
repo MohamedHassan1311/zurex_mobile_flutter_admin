@@ -28,17 +28,17 @@ class LoginHeader extends StatelessWidget {
                   imageName: Images.logo, width: 220.w, height: 70.h)),
         ),
         Text(
-          getTranslated("login_header",context: context),
+          getTranslated("login_header", context: context),
           style: AppTextStyles.w800
               .copyWith(fontSize: 32, color: Styles.PRIMARY_COLOR),
         ),
         SizedBox(height: Dimensions.paddingSizeMini.h),
         Text(
-          getTranslated("login_description",context: context),
+          getTranslated("login_description", context: context),
           style: AppTextStyles.w400
               .copyWith(fontSize: 16, color: Styles.DETAILS_COLOR),
         ),
-        SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT.h),
+        // SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT.h),
         // StreamBuilder<UserType>(
         //     stream: context.read<LoginBloc>().userTypeStream,
         //     builder: (context, snapshot) {

@@ -32,7 +32,9 @@ class LoginRepo extends BaseRepo {
     FirebaseMessaging.instance
         .subscribeToTopic(EndPoints.specificTopic(id))
         .then((v) async {
-      FirebaseMessaging.instance.subscribeToTopic(userType).then((v) async {
+      FirebaseMessaging.instance
+          .subscribeToTopic("${EndPoints.isProductionEnv ? "" : "t_"}$userType")
+          .then((v) async {
         await sharedPreferences.setBool(AppStorageKey.isSubscribe, true);
       });
     });

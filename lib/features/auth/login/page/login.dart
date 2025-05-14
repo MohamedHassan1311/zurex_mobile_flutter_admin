@@ -10,7 +10,6 @@ import '../../../../data/config/di.dart';
 import '../../../../main_widgets/text_of_agree_terms.dart';
 import '../bloc/login_bloc.dart';
 import '../repo/login_repo.dart';
-import '../widgets/choose_user_type.dart';
 import '../widgets/login_body.dart';
 
 class Login extends StatelessWidget {
