@@ -3,7 +3,7 @@ import 'package:zurex_admin/features/language/bloc/language_bloc.dart';
 import '../../data/config/di.dart';
 
 class AppStrings {
-  static const String appName = 'Zurex Admin';
+  static const String appName = 'Zurex Business';
   static const String appStoreId = '13313131';
   static const String googleApiKey = 'AIzaSyA2xA7d84QkR0_0OPjdDRLfu--YbjJkSa8';
   static const String defaultAddress = 'البحرين ، المنامة';

@@ -1,4 +1,4 @@
-package com.intelligentSolutions.zurexAdmin
+package com.zurex.business
 
 import io.flutter.embedding.android.FlutterActivity
 import android.os.Bundle

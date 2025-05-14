@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.intelligentSolutions.zurexAdmin">
+    package="com.zurex.business">
 
     <!-- Connection Permission -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -53,7 +53,7 @@
     </queries>
 
     <application
-        android:label="Zurex Admin"
+        android:label="Zurex Business"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true"
