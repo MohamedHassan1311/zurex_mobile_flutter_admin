@@ -60,7 +60,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyATWvEbJJSQmcepqH7UsiOMzC5hEGh5Oto',
-    appId: '1:31992218561:ios:e8c1198bf341c83c562540',
+    appId: '1:31992218561:ios:7d41c443353f3086562540',
     messagingSenderId: '31992218561',
     projectId: 'aczurex-d4b61',
     databaseURL: 'https://aczurex-d4b61-default-rtdb.firebaseio.com',
