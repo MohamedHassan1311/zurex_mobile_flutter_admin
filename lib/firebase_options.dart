@@ -50,7 +50,7 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCQ0pFmslNymOWFWNbbt8Y2uwhxs2TuRAE',
+    apiKey: 'AIzaSyAtZGFC5hkbM-FarMr2VC4THYE7zNizrgg',
     appId: '1:31992218561:android:b81cb5f0e5e65e44562540',
     messagingSenderId: '31992218561',
     projectId: 'aczurex-d4b61',
@@ -60,13 +60,14 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyATWvEbJJSQmcepqH7UsiOMzC5hEGh5Oto',
-    appId: '1:31992218561:ios:0d70d1fc8f8a8a4e562540',
+    appId: '1:31992218561:ios:7d41c443353f3086562540',
     messagingSenderId: '31992218561',
     projectId: 'aczurex-d4b61',
     databaseURL: 'https://aczurex-d4b61-default-rtdb.firebaseio.com',
     storageBucket: 'aczurex-d4b61.appspot.com',
     androidClientId: '31992218561-320o21vs2l5jrpc887fs3fm18j7m70pe.apps.googleusercontent.com',
-    iosClientId: '31992218561-74lubcq2q27ilp4kpr0scf7snua8r8lj.apps.googleusercontent.com',
-    iosBundleId: 'com.zurex.business',
+    iosClientId: '31992218561-8lbkf5oa2bfs8ee4ajbf3hmm3bi24c6l.apps.googleusercontent.com',
+    iosBundleId: 'com.zurex.busines',
   );
+
 }
