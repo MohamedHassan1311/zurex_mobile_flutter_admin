@@ -38,15 +38,15 @@ class LoginHeader extends StatelessWidget {
           style: AppTextStyles.w400
               .copyWith(fontSize: 16, color: Styles.DETAILS_COLOR),
         ),
-        // SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT.h),
-        // StreamBuilder<UserType>(
-        //     stream: context.read<LoginBloc>().userTypeStream,
-        //     builder: (context, snapshot) {
-        //       return ChooseUserType(
-        //         type: context.read<LoginBloc>().userType.value,
-        //         onChange: context.read<LoginBloc>().updateUserType,
-        //       );
-        //     }),
+        SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT.h),
+        StreamBuilder<UserType>(
+            stream: context.read<LoginBloc>().userTypeStream,
+            builder: (context, snapshot) {
+              return ChooseUserType(
+                type: context.read<LoginBloc>().userType.value,
+                onChange: context.read<LoginBloc>().updateUserType,
+              );
+            }),
       ],
     );
   }

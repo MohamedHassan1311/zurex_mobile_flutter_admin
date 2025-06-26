@@ -6,6 +6,7 @@ import 'package:zurex_admin/app/core/app_state.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:zurex_admin/features/more/page/more.dart';
+import 'package:zurex_admin/features/teams/bloc/teams_bloc.dart';
 import 'package:zurex_admin/main_blocs/user_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zurex_admin/main_models/search_engine.dart';
@@ -15,6 +16,7 @@ import '../../data/internet_connection/internet_connection.dart';
 import '../../features/orders/bloc/orders_bloc.dart';
 import '../../features/orders/page/orders_page.dart';
 import '../../features/profile/bloc/profile_bloc.dart';
+import '../../features/teams/page/teams_page.dart';
 import '../../helpers/check_on_the_version.dart';
 import '../../navigation/custom_navigation.dart';
 import '../bloc/dashboard_bloc.dart';
@@ -57,6 +59,7 @@ class _DashBoardState extends State<DashBoard> {
     sl<UserBloc>().add(Click());
     if (UserBloc.instance.isLogin) {
       sl<ProfileBloc>().add(Get());
+      sl<TeamsBloc>().add(Click(arguments: SearchEngine()));
       sl<OrdersBloc>().add(Click(arguments: SearchEngine()));
     }
   }
@@ -94,7 +97,11 @@ class _DashBoardState extends State<DashBoard> {
     switch (index) {
       case 0:
         return const OrdersPage();
+
       case 1:
+        return const TeamsPage();
+
+      case 2:
         return const More();
       default:
         return SizedBox();

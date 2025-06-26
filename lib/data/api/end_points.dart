@@ -1,7 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class EndPoints {
-  static const bool isProductionEnv = true;
+  static const bool isProductionEnv = false;
   static String domain =
       dotenv.env['DOMAIN_${isProductionEnv ? "PRO" : "DEV"}'] ?? "";
   static String baseUrl =
@@ -45,6 +45,11 @@ class EndPoints {
   static orderDetails(id) => 'orders/$id';
   static const String cancelReasons = 'cancel-reason';
   static changeOrderStatus(id) => 'orders/$id/changeOrderStatus';
+
+  ///Teams
+  static const String teams = 'teams';
+  static teamDetails(id) => 'teams/$id';
+
 
   ///Setting
   static const String settings = 'settings';
