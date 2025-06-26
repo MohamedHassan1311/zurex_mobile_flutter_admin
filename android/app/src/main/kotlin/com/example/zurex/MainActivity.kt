@@ -1,4 +1,4 @@
-package com.zurex.business
+package com.zurex.busines
 
 import io.flutter.embedding.android.FlutterActivity
 import android.os.Bundle

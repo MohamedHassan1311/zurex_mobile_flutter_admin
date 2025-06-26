@@ -159,8 +159,7 @@ class AppCore {
         fontSize: 16.0);
   }
 
-  successMotionToast(msg,
-      {MotionToastPosition? position, AnimationType? animationType}) {
+  successMotionToast(msg, {Alignment? position, AnimationType? animationType}) {
     return MotionToast.success(
       title: Text(
         getTranslated("success"),
@@ -174,12 +173,11 @@ class AppCore {
       width: CustomNavigator.navigatorState.currentContext!.width - 60.w,
       layoutOrientation: TextDirection.ltr,
       animationType: animationType ?? AnimationType.slideInFromTop,
-      position: position ?? MotionToastPosition.top,
+      toastAlignment: position ?? Alignment.topCenter,
     ).show(CustomNavigator.navigatorState.currentContext!);
   }
 
-  errorMotionToast(msg,
-      {MotionToastPosition? position, AnimationType? animationType}) {
+  errorMotionToast(msg, {Alignment? position, AnimationType? animationType}) {
     return MotionToast.error(
       title: Text(
         getTranslated("error"),
@@ -195,7 +193,7 @@ class AppCore {
       width: CustomNavigator.navigatorState.currentContext!.width - 60.w,
       layoutOrientation: TextDirection.ltr,
       animationType: animationType ?? AnimationType.slideInFromTop,
-      position: position ?? MotionToastPosition.top,
+      toastAlignment: position ?? Alignment.topCenter,
     ).show(CustomNavigator.navigatorState.currentContext!);
   }
 

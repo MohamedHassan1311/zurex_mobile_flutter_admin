@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAtZGFC5hkbM-FarMr2VC4THYE7zNizrgg',
-    appId: '1:31992218561:android:b81cb5f0e5e65e44562540',
+    appId: '1:31992218561:android:758681c1585e8180562540',
     messagingSenderId: '31992218561',
     projectId: 'aczurex-d4b61',
     databaseURL: 'https://aczurex-d4b61-default-rtdb.firebaseio.com',
@@ -60,7 +60,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyATWvEbJJSQmcepqH7UsiOMzC5hEGh5Oto',
-    appId: '1:31992218561:ios:7d41c443353f3086562540',
+    appId: '1:31992218561:ios:7c5df88f18d70c1e562540',
     messagingSenderId: '31992218561',
     projectId: 'aczurex-d4b61',
     databaseURL: 'https://aczurex-d4b61-default-rtdb.firebaseio.com',
@@ -69,5 +69,4 @@ class DefaultFirebaseOptions {
     iosClientId: '31992218561-8lbkf5oa2bfs8ee4ajbf3hmm3bi24c6l.apps.googleusercontent.com',
     iosBundleId: 'com.zurex.busines',
   );
-
 }

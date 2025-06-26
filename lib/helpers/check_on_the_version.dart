@@ -24,7 +24,7 @@ abstract class CheckOnTheVersion {
 
   static Future<String> getLiveVersionIOS() async {
     final response = await http.get(Uri.parse(
-        'https://itunes.apple.com/lookup?bundleId=com.zurex.business'));
+        'https://itunes.apple.com/lookup?bundleId=com.zurex.busines'));
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       log("===> IOS data $data");
