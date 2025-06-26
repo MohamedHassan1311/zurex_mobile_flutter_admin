@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:31992218561:ios:7d41c443353f3086562540</string>
+	<string>1:31992218561:ios:7c5df88f18d70c1e562540</string>
 	<key>DATABASE_URL</key>
 	<string>https://aczurex-d4b61-default-rtdb.firebaseio.com</string>
 </dict>

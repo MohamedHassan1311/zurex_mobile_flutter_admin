@@ -181,9 +181,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:31992218561:android:b81cb5f0e5e65e44562540",
+        "mobilesdk_app_id": "1:31992218561:android:758681c1585e8180562540",
         "android_client_info": {
-          "package_name": "com.zurex.business"
+          "package_name": "com.zurex.busines"
         }
       },
       "oauth_client": [
