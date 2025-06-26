@@ -693,5 +693,6 @@
   "admin": "مدير",
   "see_details": "عرض التفاصيل",
   "delivered": "تم التوصيل",
-    "teams": "الفرق"
+    "teams": "الفرق",
+    "team_details": "تفاصيل الفريق"
 }

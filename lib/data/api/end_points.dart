@@ -1,7 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class EndPoints {
-  static const bool isProductionEnv = true;
+  static const bool isProductionEnv = false;
   static String domain =
       dotenv.env['DOMAIN_${isProductionEnv ? "PRO" : "DEV"}'] ?? "";
   static String baseUrl =

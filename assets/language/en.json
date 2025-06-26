@@ -693,5 +693,6 @@
   "driver": "Driver",
   "admin": "Admin",
   "delivered": "Delivered",
-    "teams": "Teams"
+    "teams": "Teams",
+    "team_details": "Team Details"
 }

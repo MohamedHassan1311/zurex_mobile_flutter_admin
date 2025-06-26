@@ -18,7 +18,6 @@ import '../../../data/config/di.dart';
 
 class TeamDetailsPage extends StatelessWidget {
   const TeamDetailsPage({super.key, required this.id});
-
   final int id;
 
   @override
