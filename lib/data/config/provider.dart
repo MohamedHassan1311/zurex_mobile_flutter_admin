@@ -1,6 +1,7 @@
 import 'package:zurex_admin/data/config/di.dart' as di;
 import 'package:flutter_bloc/flutter_bloc.dart' show BlocProvider;
 import 'package:zurex_admin/features/orders/bloc/orders_bloc.dart';
+import 'package:zurex_admin/features/teams/bloc/teams_bloc.dart';
 
 
 import 'package:zurex_admin/main_blocs/user_bloc.dart';
@@ -23,6 +24,8 @@ abstract class ProviderList {
     BlocProvider<UserBloc>(create: (_) => di.sl<UserBloc>()),
     ///Orders
     BlocProvider<OrdersBloc>(create: (_) => di.sl<OrdersBloc>()),
+    ///Orders
+    BlocProvider<TeamsBloc>(create: (_) => di.sl<TeamsBloc>()),
     ///Chats
     BlocProvider<ChatsBloc>(create: (_) => di.sl<ChatsBloc>()),
 

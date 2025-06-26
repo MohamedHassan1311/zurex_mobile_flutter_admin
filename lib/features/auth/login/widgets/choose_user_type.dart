@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
 import '../../../../app/core/dimensions.dart';
 import '../../../../app/core/styles.dart';
 import '../../../../app/core/svg_images.dart';
@@ -14,59 +15,56 @@ class ChooseUserType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
-      decoration: BoxDecoration(
-          border: Border.all(color: Styles.LIGHT_BORDER_COLOR),
-          color: Styles.FILL_COLOR,
-          borderRadius: BorderRadius.circular(8)),
-      child: Row(
-        children: List.generate(
-          UserType.values.length,
-          (i) => Expanded(
-            child: InkWell(
-              onTap: () => onChange.call(UserType.values[i]),
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                    horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-                    vertical: Dimensions.PADDING_SIZE_SMALL.h),
-                decoration: BoxDecoration(
-                  color: UserType.values[i].index == type.index
-                      ? Styles.PRIMARY_COLOR
-                      : Styles.FILL_COLOR,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    customImageIconSVG(
-                        imageName: UserType.values[i] == UserType.driver
-                            ? SvgImages.driver
-                            : SvgImages.user,
-                        width: 20.w,
-                        height: 20.w,
-                        color: UserType.values[i].index == type.index
-                            ? Styles.WHITE_COLOR
-                            : Styles.DISABLED),
-                    SizedBox(width: 12.w),
-                    Flexible(
-                      child: Text(
-                        getTranslated(UserType.values[i].name),
-                        maxLines: 1,
-                        style: AppTextStyles.w600.copyWith(
-                          fontSize: 14,
-                          color: UserType.values[i].index == type.index
-                              ? Styles.WHITE_COLOR
-                              : Styles.DISABLED,
-                        ),
+    return SizedBox(
+      width: context.width,
+      child: CupertinoSlidingSegmentedControl<UserType>(
+        groupValue: type,
+        onValueChanged: (UserType? value) {
+          if (value != null) {
+            onChange.call(value);
+          }
+        },
+        thumbColor: Styles.PRIMARY_COLOR,
+        backgroundColor: Styles.FILL_COLOR,
+        children: Map.fromIterable(
+          UserType.values,
+          key: (item) => item as UserType,
+          value: (item) {
+            final userType = item as UserType;
+            final isSelected = userType == type;
+
+            return Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+                  vertical: Dimensions.PADDING_SIZE_SMALL.h),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  customImageIconSVG(
+                    imageName: userType == UserType.driver
+                        ? SvgImages.driver
+                        : SvgImages.user,
+                    width: 20.w,
+                    height: 20.w,
+                    color: isSelected ? Styles.WHITE_COLOR : Styles.DISABLED,
+                  ),
+                  SizedBox(width: 12.w),
+                  Flexible(
+                    child: Text(
+                      getTranslated(userType.name),
+                      maxLines: 1,
+                      style: AppTextStyles.w600.copyWith(
+                        fontSize: 14,
+                        color:
+                            isSelected ? Styles.WHITE_COLOR : Styles.DISABLED,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );

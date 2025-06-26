@@ -46,6 +46,11 @@ class EndPoints {
   static const String cancelReasons = 'cancel-reason';
   static changeOrderStatus(id) => 'orders/$id/changeOrderStatus';
 
+  ///Teams
+  static const String teams = 'teams';
+  static teamDetails(id) => 'teams/$id';
+
+
   ///Setting
   static const String settings = 'settings';
   static const String faqs = 'faqs';

@@ -104,23 +104,27 @@ class LoginBody extends StatelessWidget {
 
                         ///Forget Password && Remember me
                         Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.paddingSizeExtraSmall.h,
-                              horizontal: Dimensions.paddingSizeExtraSmall.w),
+                          padding: EdgeInsetsDirectional.only(
+                              top: Dimensions.paddingSizeMini.h,
+                              bottom: Dimensions.paddingSizeMini.h,
+                              end: Dimensions.paddingSizeMini.w),
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              StreamBuilder<bool?>(
-                                stream:
-                                    context.read<LoginBloc>().rememberMeStream,
-                                builder: (_, snapshot) {
-                                  return RememberMe(
-                                    check: snapshot.data ?? false,
-                                    onChange: (v) => context
-                                        .read<LoginBloc>()
-                                        .updateRememberMe(v),
-                                  );
-                                },
+                              Expanded(
+                                child: StreamBuilder<bool?>(
+                                  stream: context
+                                      .read<LoginBloc>()
+                                      .rememberMeStream,
+                                  builder: (_, snapshot) {
+                                    return RememberMe(
+                                      check: snapshot.data ?? false,
+                                      onChange: (v) => context
+                                          .read<LoginBloc>()
+                                          .updateRememberMe(v),
+                                    );
+                                  },
+                                ),
                               ),
                               InkWell(
                                 onTap: () {

@@ -27,4 +27,5 @@ class Routes {
   static const inAppWebView = "IN_APP_WEB_VIEW";
   static const orders = "ORDERS";
   static const orderDetails = "ORDER_DETAILS";
+  static const teamDetails = "TEAM_DETAILS";
 }

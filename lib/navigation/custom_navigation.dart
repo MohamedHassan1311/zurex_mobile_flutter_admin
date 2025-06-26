@@ -12,6 +12,7 @@ import '../features/in_app_web_view/in_app_web_view_page.dart';
 import '../features/maps/page/pick_map_page.dart';
 import '../features/maps/page/preview_location_page.dart';
 import '../features/notifications/page/notifications_page.dart';
+import '../features/team_details/page/team_details_page.dart';
 import '../features/who_us/page/who_us_page.dart';
 import '../main.dart';
 import 'routes.dart';
@@ -78,6 +79,10 @@ abstract class CustomNavigator {
 
       case Routes.orderDetails:
         return _pageRoute(OrderDetailsPage(id: settings.arguments as int));
+
+
+      case Routes.teamDetails:
+        return _pageRoute(TeamDetailsPage(id: settings.arguments as int));
 
       case Routes.videoPreview:
         return _pageRoute(VideoPreviewPage(data: settings.arguments as Map));

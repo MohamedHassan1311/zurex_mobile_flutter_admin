@@ -21,7 +21,7 @@ class NavBar extends StatelessWidget {
             color: Styles.WHITE_COLOR,
             boxShadow: [
               BoxShadow(
-                  color: Colors.black.withOpacity(0.06),
+                  color: Colors.black.withValues(alpha: 0.06),
                   offset: const Offset(0, -1),
                   spreadRadius: 1,
                   blurRadius: 10)
@@ -44,11 +44,20 @@ class NavBar extends StatelessWidget {
                 ),
                 Expanded(
                   child: BottomNavBarItem(
+                      label: getTranslated("teams", context: context),
+                      svgIcon: SvgImages.users,
+                      isSelected: (snapshot.data ?? 0) == 1,
+                      onTap: () {
+                        DashboardBloc.instance.updateSelectIndex(1);
+                      }),
+                ),
+                Expanded(
+                  child: BottomNavBarItem(
                     label: getTranslated("more", context: context),
                     svgIcon: SvgImages.setting,
-                    isSelected: (snapshot.data ?? 0) == 1,
+                    isSelected: (snapshot.data ?? 0) == 2,
                     onTap: () {
-                      DashboardBloc.instance.updateSelectIndex(1);
+                      DashboardBloc.instance.updateSelectIndex(2);
                     },
                   ),
                 ),

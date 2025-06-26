@@ -22,6 +22,9 @@ import '../../features/faqs/repo/faqs_repo.dart';
 import '../../features/order_details/repo/order_details_repo.dart';
 import '../../features/orders/bloc/orders_bloc.dart';
 import '../../features/orders/repo/orders_repo.dart';
+import '../../features/team_details/repo/team_details_repo.dart';
+import '../../features/teams/bloc/teams_bloc.dart';
+import '../../features/teams/repo/teams_repo.dart';
 import '../../features/who_us/repo/who_us_repo.dart';
 import '../../main_blocs/country_states_bloc.dart';
 import '../../main_repos/country_states_repo.dart';
@@ -141,6 +144,11 @@ Future<void> init() async {
   sl.registerLazySingleton(
       () => ChangeStatusRepo(sharedPreferences: sl(), dioClient: sl()));
 
+  sl.registerLazySingleton(
+      () => TeamsRepo(sharedPreferences: sl(), dioClient: sl()));
+
+  sl.registerLazySingleton(
+      () => TeamDetailsRepo(sharedPreferences: sl(), dioClient: sl()));
 
   //provider
   sl.registerLazySingleton(() => LanguageBloc(repo: sl()));
@@ -149,8 +157,9 @@ Future<void> init() async {
   sl.registerLazySingleton(() => SettingBloc(repo: sl()));
   sl.registerLazySingleton(() => DashboardBloc());
   sl.registerLazySingleton(() => ProfileBloc(repo: sl()));
-  sl.registerLazySingleton(() => UserBloc(repo: sl()));sl.registerLazySingleton(
-      () => OrdersBloc(repo: sl(), internetConnection: sl()));
+  sl.registerLazySingleton(() => UserBloc(repo: sl()));
+  sl.registerLazySingleton(() => OrdersBloc(repo: sl(), internetConnection: sl()));
+  sl.registerLazySingleton(() => TeamsBloc(repo: sl(), internetConnection: sl()));
   sl.registerLazySingleton(() => ChatsBloc(repo: sl()));
 
   ///Log out

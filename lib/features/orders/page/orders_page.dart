@@ -16,7 +16,6 @@ class OrdersPage extends StatelessWidget {
     return Scaffold(
       appBar: MainAppBar(),
       body: SafeArea(
-        top: false,
         child: BlocBuilder<UserBloc, AppState>(
           builder: (context, state) {
             return sl<UserBloc>().isLogin

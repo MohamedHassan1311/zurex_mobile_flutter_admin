@@ -692,5 +692,6 @@
   "min_purchase_validation": "You can't complete the order, the minimum purchase value is",
   "driver": "Driver",
   "admin": "Admin",
-  "delivered": "Delivered"
+  "delivered": "Delivered",
+    "teams": "Teams"
 }

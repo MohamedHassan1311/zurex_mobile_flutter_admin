@@ -692,5 +692,6 @@
   "driver": "سائق",
   "admin": "مدير",
   "see_details": "عرض التفاصيل",
-  "delivered": "تم التوصيل"
+  "delivered": "تم التوصيل",
+    "teams": "الفرق"
 }
