@@ -129,5 +129,6 @@ class SvgImages {
   static const String saudiRiyalSymbol = 'assets/svgs/saudi_riyal_symbol.svg';
   static const String deliveryDate = 'assets/svgs/delivery_date.svg';
   static const String driver = 'assets/svgs/out_for_delivery.svg';
+  static const String barChart = 'assets/svgs/bar_chart.svg';
   static orderStatus(status) => 'assets/svgs/$status.svg';
 }

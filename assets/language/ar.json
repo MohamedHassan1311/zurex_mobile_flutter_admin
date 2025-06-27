@@ -693,6 +693,20 @@
   "admin": "مدير",
   "see_details": "عرض التفاصيل",
   "delivered": "تم التوصيل",
-    "teams": "الفرق",
-    "team_details": "تفاصيل الفريق"
+  "teams": "الفرق",
+  "team_details": "تفاصيل الفريق",
+  "team_statistics": "إحصائيات الفريق",
+  "total_orders": "إجمالي الطلبات",
+  "delivered_orders": "الطلبات المُسلّمة",
+  "accepted_orders": "الطلبات المقبولة",
+  "pending_orders": "الطلبات المعلقة",
+  "processing_orders": "الطلبات قيد المعالجة",
+  "cancelled_orders": "الطلبات الملغاة",
+  "payment_failed": "فشل في الدفع",
+  "supervisor": "المشرف",
+  "members": "الأعضاء",
+  "monthly_chart": "المخطط الشهري",
+  "annual_chart": "المخطط السنوي",
+  "year": "السنة",
+  "month": "الشهر"
 }

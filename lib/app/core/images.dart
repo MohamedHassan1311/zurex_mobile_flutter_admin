@@ -8,7 +8,6 @@ class Images {
   static const String onBoarding4 = 'assets/images/on_boarding_4.png';
   static const String appBarBG = 'assets/images/app_bar_bg.png';
   static const String authBG = 'assets/images/auth_bg.png';
-  static const String profileBGImage = 'assets/images/profile_bg.png';
   static const String cancelCircle = 'assets/images/cancel_circle.png';
   static const String arabic = 'assets/images/saudi-arabia.png';
   static const String artist = 'assets/images/artist.png';

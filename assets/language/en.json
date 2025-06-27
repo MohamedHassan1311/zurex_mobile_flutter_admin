@@ -693,6 +693,20 @@
   "driver": "Driver",
   "admin": "Admin",
   "delivered": "Delivered",
-    "teams": "Teams",
-    "team_details": "Team Details"
+  "teams": "Teams",
+  "team_details": "Team Details",
+  "team_statistics": "Team Statistics",
+  "total_orders": "Total Orders",
+  "delivered_orders": "Delivered Orders",
+  "accepted_orders": "Accepted Orders",
+  "pending_orders": "Pending Orders",
+  "processing_orders": "Processing Orders",
+  "cancelled_orders": "Cancelled Orders",
+  "payment_failed": "Payment Failed",
+  "supervisor": "Supervisor",
+  "members": "Members",
+  "monthly_chart":"Monthly Chart",
+  "annual_chart":"Annual Chart",
+  "year":"Year",
+  "month": "Month"
 }

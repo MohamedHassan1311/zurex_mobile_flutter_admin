@@ -6,6 +6,7 @@ import '../../../data/config/mapper.dart';
 class TeamModel extends SingleMapper {
   int? id;
   String? name;
+  int? numOfOrders;
   int? numOfOrdersAccepted;
   int? numOfOrdersCancelled;
   int? numOfOrdersDelivered;
@@ -21,6 +22,7 @@ class TeamModel extends SingleMapper {
   TeamModel(
       {this.id,
       this.name,
+      this.numOfOrders,
       this.numOfOrdersAccepted,
       this.numOfOrdersCancelled,
       this.numOfOrdersDelivered,
@@ -36,6 +38,7 @@ class TeamModel extends SingleMapper {
   TeamModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
+    numOfOrders = json['num_of_orders'];
     numOfOrdersAccepted = json['num_of_orders_accepted'];
     numOfOrdersCancelled = json['num_of_orders_cancelled'];
     numOfOrdersDelivered = json['num_of_orders_delivered'];
@@ -69,6 +72,7 @@ class TeamModel extends SingleMapper {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
+    data['num_of_orders'] = numOfOrders;
     data['num_of_orders_accepted'] = numOfOrdersAccepted;
     data['num_of_orders_cancelled'] = numOfOrdersCancelled;
     data['num_of_orders_delivered'] = numOfOrdersDelivered;

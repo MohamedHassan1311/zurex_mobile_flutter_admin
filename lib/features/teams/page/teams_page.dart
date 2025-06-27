@@ -17,6 +17,7 @@ class TeamsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        withBack: true,
         title: getTranslated("teams"),
       ),
       body: BlocBuilder<UserBloc, AppState>(

@@ -52,6 +52,7 @@ class LoginBody extends StatelessWidget {
                               context: context),
                           inputType: TextInputType.phone,
                           validate: Validations.phone,
+                          maxLength: 10,
                           // pSvgIcon: SvgImages.phoneCallIcon,
                           prefixWidget: Container(
                             padding: EdgeInsets.symmetric(

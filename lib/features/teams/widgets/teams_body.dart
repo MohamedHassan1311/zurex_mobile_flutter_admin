@@ -16,7 +16,7 @@ import '../../../data/config/di.dart';
 import '../../../main_models/search_engine.dart';
 import '../../team_details/model/team_model.dart';
 import '../bloc/teams_bloc.dart';
-import 'Team_card.dart';
+import 'team_card.dart';
 
 class TeamsBody extends StatelessWidget {
   const TeamsBody({super.key});
