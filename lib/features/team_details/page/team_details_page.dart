@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zurex_admin/app/core/extensions.dart';
 import 'package:zurex_admin/app/localization/language_constant.dart';
 import 'package:zurex_admin/components/custom_app_bar.dart';
+import 'package:zurex_admin/components/custom_loading.dart';
 import 'package:zurex_admin/components/grid_list_animator.dart';
-import 'package:zurex_admin/components/shimmer/custom_shimmer.dart';
 import 'package:zurex_admin/features/team_details/bloc/team_details_bloc.dart';
 import 'package:zurex_admin/features/team_details/model/team_model.dart';
 import 'package:zurex_admin/features/team_details/repo/team_details_repo.dart';
@@ -54,7 +53,7 @@ class TeamDetailsPage extends StatelessWidget {
                         Text(
                           model.name ?? "",
                           style: AppTextStyles.w700.copyWith(
-                              fontSize: 22, color: Styles.PRIMARY_COLOR),
+                              fontSize: 26, color: Styles.PRIMARY_COLOR),
                         ),
 
                         ///Team Zone
@@ -198,68 +197,7 @@ class TeamDetailsPage extends StatelessWidget {
                     );
                   }
                   if (state is Loading) {
-                    return ListAnimator(
-                      customPadding: EdgeInsets.symmetric(
-                        horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-                      ),
-                      data: [
-                        SizedBox(height: Dimensions.PADDING_SIZE_DEFAULT.h),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.paddingSizeMini.h),
-                          child: CustomShimmerContainer(
-                            height: 60.h,
-                            width: context.width,
-                            radius: 16.w,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.paddingSizeMini.h),
-                          child: CustomShimmerContainer(
-                            height: 150.h,
-                            width: context.width,
-                            radius: 16.w,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.paddingSizeMini.h),
-                          child: CustomShimmerContainer(
-                            height: 150.h,
-                            width: context.width,
-                            radius: 16.w,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.paddingSizeMini.h),
-                          child: CustomShimmerContainer(
-                            height: 160.h,
-                            width: context.width,
-                            radius: 16.w,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.paddingSizeMini.h),
-                          child: CustomShimmerContainer(
-                            height: 80.h,
-                            width: context.width,
-                            radius: 16.w,
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: Dimensions.paddingSizeMini.h),
-                          child: CustomShimmerContainer(
-                            height: 160.h,
-                            width: context.width,
-                            radius: 16.w,
-                          ),
-                        ),
-                      ],
-                    );
+                    return CustomLoading();
                   }
                   if (state is Error || state is Empty) {
                     return RefreshIndicator(
