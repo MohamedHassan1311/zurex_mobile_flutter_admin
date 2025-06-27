@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
 import 'package:zurex_admin/features/orders/bloc/orders_bloc.dart';
 import 'package:zurex_admin/main_models/search_engine.dart';
 import '../../../app/core/app_event.dart';
@@ -20,35 +21,32 @@ class OrderTabs extends StatelessWidget {
         return StreamBuilder<OrderMainStatus>(
             stream: sl<OrdersBloc>().selectTabStream,
             builder: (context, snapshot) {
-              return Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: Dimensions.paddingSizeExtraSmall.w,
-                    vertical: Dimensions.paddingSizeExtraSmall.h,
+              return SizedBox(
+                width: context.width,
+                child: CupertinoSlidingSegmentedControl<OrderMainStatus>(
+                  groupValue: snapshot.data,
+                  onValueChanged: (v) {
+                    if (state is! Loading && v != null) {
+                      sl<OrdersBloc>().updateSelectTab(v);
+                      sl<OrdersBloc>().add(Click(arguments: SearchEngine()));
+                    }
+                  },
+                  thumbColor: Styles.PRIMARY_COLOR,
+                  backgroundColor: Styles.FILL_COLOR,
+                  children: Map.fromIterable(
+                    OrderMainStatus.values,
+                    key: (item) => item as OrderMainStatus,
+                    value: (item) {
+                      final isSelected =
+                          (item as OrderMainStatus) == snapshot.data;
+                      return _TabButton(
+                        orderStatus: item,
+                        isSelect: isSelected,
+                      );
+                    },
                   ),
-                  decoration: BoxDecoration(
-                      color: Styles.FILL_COLOR,
-                      borderRadius: BorderRadius.circular(12.w)),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.min,
-                    children: List.generate(
-                      OrderMainStatus.values.length,
-                      (i) => Expanded(
-                        child: _TabButton(
-                          onSelect: (v) {
-                            if (state is! Loading) {
-                              sl<OrdersBloc>().updateSelectTab(v);
-                              sl<OrdersBloc>()
-                                  .add(Click(arguments: SearchEngine()));
-                            }
-                          },
-                          orderStatus: OrderMainStatus.values[i],
-                          isSelect: snapshot.data?.index == i,
-                        ),
-                      ),
-                    ),
-                  ));
+                ),
+              );
             });
       },
     );
@@ -56,39 +54,24 @@ class OrderTabs extends StatelessWidget {
 }
 
 class _TabButton extends StatelessWidget {
-  const _TabButton(
-      {required this.orderStatus, this.isSelect = false, this.onSelect});
+  const _TabButton({required this.orderStatus, this.isSelect = false});
 
   final OrderMainStatus orderStatus;
   final bool isSelect;
-  final Function(OrderMainStatus)? onSelect;
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => onSelect?.call(orderStatus),
-      splashColor: Colors.transparent,
-      focusColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      child: Container(
-        decoration: BoxDecoration(
-          color: isSelect ? Styles.PRIMARY_COLOR : Styles.WHITE_COLOR,
-          borderRadius: BorderRadius.circular(100),
-        ),
-        margin: EdgeInsets.symmetric(horizontal: Dimensions.paddingSizeMini.w),
-        padding: EdgeInsets.symmetric(
-            horizontal: Dimensions.paddingSizeMini.w,
-            vertical: Dimensions.paddingSizeExtraSmall.h),
-        child: Text(
-          getTranslated(orderStatus.name),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.center,
-          style: AppTextStyles.w600.copyWith(
-              fontSize: 16,
-              color: isSelect ? Styles.WHITE_COLOR : Styles.HEADER),
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+          horizontal: Dimensions.paddingSizeMini.w,
+          vertical: Dimensions.paddingSizeExtraSmall.h),
+      child: Text(
+        getTranslated(orderStatus.name),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        textAlign: TextAlign.center,
+        style: AppTextStyles.w600.copyWith(
+            fontSize: 16, color: isSelect ? Styles.WHITE_COLOR : Styles.HEADER),
       ),
     );
   }

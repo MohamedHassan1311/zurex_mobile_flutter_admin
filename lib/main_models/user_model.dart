@@ -1,4 +1,5 @@
 import 'package:zurex_admin/data/config/mapper.dart';
+import 'package:zurex_admin/main_blocs/user_bloc.dart';
 import 'package:zurex_admin/main_models/custom_field_model.dart';
 
 class UserModel extends SingleMapper {
@@ -8,7 +9,7 @@ class UserModel extends SingleMapper {
   String? countryCode;
   String? phone;
   String? email;
-  String? type;
+  UserType? userType;
   double? balance;
   CustomFieldModel? team;
 
@@ -20,7 +21,7 @@ class UserModel extends SingleMapper {
     this.countryCode,
     this.phone,
     this.email,
-    this.type,
+    this.userType,
     this.team,
   });
 
@@ -36,7 +37,8 @@ class UserModel extends SingleMapper {
     countryCode = json['country_code'];
     phone = json['phone_number'];
     email = json['email'];
-    type = json['type'];
+    userType = UserType.values.firstWhere(
+        (e) => e.name.toUpperCase() == json['type'].toString().toUpperCase());
   }
 
   @override
@@ -48,7 +50,7 @@ class UserModel extends SingleMapper {
     data['profile_image'] = profileImage;
     data['phone_number'] = phone;
     data['email'] = email;
-    data['type'] = type;
+    data['type'] = userType?.name;
     data['team'] = team?.toJson();
 
     return data;

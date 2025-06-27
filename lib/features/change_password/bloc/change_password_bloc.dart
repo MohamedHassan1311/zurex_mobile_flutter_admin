@@ -35,7 +35,7 @@ class ChangePasswordBloc extends Bloc<AppEvent, AppState> {
       Map<String, dynamic> data = {
         "current_password": currentPasswordTEC.text.trim(),
         "password": newPasswordTEC.text.trim(),
-        "type": UserBloc.instance.user?.type,
+        "type": UserBloc.instance.user?.userType,
       };
 
       Either<ServerFailure, Response> response =

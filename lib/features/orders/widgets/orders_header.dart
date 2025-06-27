@@ -4,16 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zurex_admin/app/core/dimensions.dart';
 import 'package:zurex_admin/app/core/extensions.dart';
-
-import '../../../app/core/app_event.dart';
+import 'package:zurex_admin/features/orders/widgets/order_tabs.dart';
 import '../../../app/core/app_state.dart';
-import '../../../app/core/svg_images.dart';
-import '../../../app/localization/language_constant.dart';
-import '../../../components/custom_text_form_field.dart';
 import '../../../data/config/di.dart';
-import '../../../main_models/search_engine.dart';
 import '../bloc/orders_bloc.dart';
-import 'order_tabs.dart';
 
 class OrdersHeader extends StatefulWidget {
   const OrdersHeader({super.key});
@@ -44,7 +38,7 @@ class _OrdersHeaderState extends State<OrdersHeader> {
                 top: Dimensions.paddingSizeExtraSmall.h,
                 bottom: Dimensions.paddingSizeExtraSmall.h,
               ),
-              child:  OrderTabs(),
+              child: OrderTabs(),
             ),
           );
         },
