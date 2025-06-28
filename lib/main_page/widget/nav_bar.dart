@@ -53,7 +53,6 @@ class NavBar extends StatelessWidget {
                           DashboardBloc.instance.updateSelectIndex(1);
                         }),
                   ),
-
                 Expanded(
                   child: BottomNavBarItem(
                     label: getTranslated("more", context: context),

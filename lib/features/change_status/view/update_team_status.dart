@@ -5,7 +5,6 @@ import 'package:flutter_swipe_button/flutter_swipe_button.dart';
 import 'package:zurex_admin/app/core/app_state.dart';
 import 'package:zurex_admin/app/core/text_styles.dart';
 import 'package:zurex_admin/features/change_status/repo/change_status_repo.dart';
-import 'package:zurex_admin/features/order_details/bloc/order_details_bloc.dart';
 import 'package:zurex_admin/features/order_details/model/order_details_model.dart';
 import 'package:zurex_admin/features/team_details/model/team_model.dart';
 import '../../../app/core/app_event.dart';
@@ -13,7 +12,7 @@ import '../../../app/core/dimensions.dart';
 import '../../../app/core/styles.dart';
 import '../../../app/localization/language_constant.dart';
 import '../../../data/config/di.dart';
-import '../bloc/change_order_status_bloc.dart';
+import '../bloc/change_team_status_bloc.dart';
 
 class UpdateTeamStatus extends StatelessWidget {
   const UpdateTeamStatus(
@@ -25,68 +24,50 @@ class UpdateTeamStatus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ChangeOrderStatusBloc(repo: sl<ChangeStatusRepo>()),
-      child: BlocBuilder<ChangeOrderStatusBloc, AppState>(
-        builder: (context, state) {
-          return Column(
-            children: [
-              // if (status == OrderStatus.out_for_delivery.name)
-              //   SafeArea(
-              //     top: false,
-              //     child: Padding(
-              //       padding: EdgeInsets.symmetric(
-              //         horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-              //         vertical: Dimensions.paddingSizeExtraSmall.w,
-              //       ),
-              //       child: SwipeButton(
-              //         thumbPadding: EdgeInsets.all(4.w),
-              //         borderRadius: BorderRadius.circular(12.w),
-              //         thumb: Icon(
-              //           Icons.arrow_forward,
-              //           color: Styles.PRIMARY_COLOR,
-              //           size: 24,
-              //         ),
-              //         activeTrackColor: Styles.PRIMARY_COLOR,
-              //         activeThumbColor: Styles.WHITE_COLOR,
-              //         inactiveThumbColor: Styles.WHITE_COLOR,
-              //         inactiveTrackColor: Styles.GREEN,
-              //         enabled: state is! Loading && state is! Done,
-              //         elevationThumb: 2,
-              //         elevationTrack: 2,
-              //         height: 60,
-              //         child: Text(
-              //           getTranslated("delivered"),
-              //           style: AppTextStyles.w700.copyWith(
-              //             color: Styles.WHITE_COLOR,
-              //             fontSize: 16,
-              //           ),
-              //         ),
-              //         onSwipe: () {
-              //           context.read<ChangeStatusBloc>().add(
-              //                 Click(
-              //                   arguments: {
-              //                     "id": id,
-              //                     "status": OrderStatus.delivered.name,
-              //                     "onSuccess": (v) =>
-              //                         context.read<OrderDetailsBloc>().add(
-              //                               Update(arguments: v),
-              //                             )
-              //                   },
-              //                 ),
-              //               );
-              //         },
-              //       ).animate(onPlay: (c) {
-              //         c.repeat();
-              //       }).shimmer(
-              //           color: Colors.white.withOpacity(0.4),
-              //           duration: 1500.ms),
-              //     ),
-              //   ),
-            ],
-          );
-        },
-      ),
-    );
+    int index = TeamStatus.values.indexWhere((v) => v == teamStatus);
+    if (index != -1 ) {
+      return BlocProvider(
+        create: (context) => ChangeTeamStatusBloc(repo: sl<ChangeStatusRepo>()),
+        child: BlocBuilder<ChangeTeamStatusBloc, AppState>(
+            builder: (context, state) {
+          return SwipeButton(
+            thumbPadding: EdgeInsets.all(4.w),
+            borderRadius: BorderRadius.circular(12.w),
+            thumb: Icon(
+              Icons.arrow_forward,
+              color: Styles.PRIMARY_COLOR,
+              size: 24,
+            ),
+            activeTrackColor: Styles.PRIMARY_COLOR,
+            activeThumbColor: Styles.WHITE_COLOR,
+            inactiveThumbColor: Styles.WHITE_COLOR,
+            inactiveTrackColor: Styles.GREEN,
+            enabled: state is! Loading,
+            elevationThumb: 2,
+            elevationTrack: 2,
+            height: 60,
+            child: Text(
+              getTranslated(TeamStatus.values[(index + 1)].name),
+              style: AppTextStyles.w700.copyWith(
+                color: Styles.WHITE_COLOR,
+                fontSize: 16,
+              ),
+            ),
+            onSwipe: () => context.read<ChangeTeamStatusBloc>().add(Click(
+                  arguments: {
+                    "id": id,
+                    "team_status": TeamStatus.values[(index + 1)].name,
+                    "onSuccess": (v) => onSuccess?.call(v),
+                  },
+                )),
+          ).animate(onPlay: (c) {
+            c.repeat();
+          }).shimmer(
+              color: Colors.white.withValues(alpha: 0.4), duration: 1500.ms);
+        }),
+      );
+    } else {
+      return const SizedBox();
+    }
   }
 }

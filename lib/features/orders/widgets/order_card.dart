@@ -35,7 +35,7 @@ class OrderCard extends StatelessWidget {
             color: Styles.WHITE_COLOR,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.06),
+                color: Colors.black.withValues(alpha: 0.06),
                 offset: Offset(1, 1),
                 blurRadius: 10,
                 spreadRadius: 1,
@@ -45,7 +45,7 @@ class OrderCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
            Text(
-              "ID: ${order.orderNum ?? 0000}",
+              "#${order.orderNum ?? 0000}",
               style: AppTextStyles.w500
                   .copyWith(fontSize: 14, color: Styles.DETAILS_COLOR),
             ),

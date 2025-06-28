@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zurex_admin/app/core/app_state.dart';
 import 'package:zurex_admin/components/animated_widget.dart';
 import '../../../app/core/app_event.dart';
-import '../../../app/core/styles.dart';
 import '../../../app/core/svg_images.dart';
 import '../../../data/config/di.dart';
 import '../../../main_blocs/user_bloc.dart';
@@ -65,9 +64,21 @@ class _MoreState extends State<More> {
                         builder: (context, state) {
                           return ListAnimator(
                             data: [
-
                               ///Buttons
                               if (UserBloc.instance.isLogin) ...[
+                                ///Team
+                                if (UserBloc.instance.user?.userType == UserType.driver &&
+                                    UserBloc.instance.user?.team != null)
+                                  MoreButton(
+                                    title: getTranslated("team_details",
+                                        context: context),
+                                    icon: SvgImages.users,
+                                    onTap: () => CustomNavigator.push(
+                                        Routes.teamDetails,
+                                        arguments:
+                                            UserBloc.instance.user?.team?.id),
+                                  ),
+
                                 ///Edit Profile
                                 MoreButton(
                                   title: getTranslated("edit_profile",
@@ -112,6 +123,7 @@ class _MoreState extends State<More> {
                                   ),
                                 ),
                               ],
+
                               ///Language
                               const LanguageButton(),
 

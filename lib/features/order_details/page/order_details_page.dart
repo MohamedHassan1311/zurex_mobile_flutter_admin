@@ -7,8 +7,6 @@ import 'package:zurex_admin/components/shimmer/custom_shimmer.dart';
 import 'package:zurex_admin/features/order_details/bloc/order_details_bloc.dart';
 import 'package:zurex_admin/features/order_details/model/order_details_model.dart';
 import 'package:zurex_admin/features/order_details/repo/order_details_repo.dart';
-import 'package:zurex_admin/features/teams/widgets/team_card.dart';
-
 import '../../../app/core/app_event.dart';
 import '../../../app/core/app_state.dart';
 import '../../../app/core/dimensions.dart';
@@ -23,6 +21,7 @@ import '../widgets/order_current_status.dart';
 import '../widgets/order_details_actions.dart';
 import '../widgets/order_products.dart';
 import '../widgets/order_status_list.dart';
+import '../widgets/order_team_card.dart';
 import '../widgets/order_user_card.dart';
 
 class OrderDetailsPage extends StatelessWidget {
@@ -46,7 +45,8 @@ class OrderDetailsPage extends StatelessWidget {
                 child: BlocBuilder<OrderDetailsBloc, AppState>(
                   builder: (context, state) {
                     if (state is Done) {
-                      OrderDetailsModel model = state.model as OrderDetailsModel;
+                      OrderDetailsModel model =
+                          state.model as OrderDetailsModel;
                       return Column(
                         children: [
                           ///Order Body
@@ -71,8 +71,10 @@ class OrderDetailsPage extends StatelessWidget {
                                 DeliveryLocation(address: model.address),
                                 OrderClientCard(user: model.user),
                                 if (model.team != null)
-                                  TeamCard(
-                                      team: model.team!, fromOrderDetails: true),
+                                  OrderTeamCard(
+                                    team: model.team!,
+                                    teamStatus: model.teamStatus,
+                                  ),
                                 OrderBillDetails(bill: model.bill),
                                 SizedBox(
                                     height: Dimensions.PADDING_SIZE_DEFAULT.h),
@@ -81,8 +83,7 @@ class OrderDetailsPage extends StatelessWidget {
                           ),
 
                           ///Order Actions
-                          if(model.availableStatus != null && model.availableStatus!.isNotEmpty)
-                          OrderDetailsActions(id: id, availableStatus: model.availableStatus??[]),
+                            OrderDetailsActions(model: model),
                         ],
                       );
                     }

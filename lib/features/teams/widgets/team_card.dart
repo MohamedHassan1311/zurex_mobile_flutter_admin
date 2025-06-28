@@ -10,10 +10,8 @@ import '../../../app/core/styles.dart';
 import '../../team_details/model/team_model.dart';
 
 class TeamCard extends StatelessWidget {
-  const TeamCard(
-      {super.key, required this.team, this.fromOrderDetails = false});
+  const TeamCard({super.key, required this.team});
   final TeamModel team;
-  final bool fromOrderDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -25,98 +23,73 @@ class TeamCard extends StatelessWidget {
       onTap: () =>
           CustomNavigator.push(Routes.teamDetails, arguments: team.id ?? 0),
       child: Container(
-        padding: EdgeInsets.symmetric(
-            horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
-            vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
-        margin:
-            EdgeInsets.symmetric(vertical: Dimensions.paddingSizeExtraSmall.h),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.w),
-            border: Border.all(color: Styles.LIGHT_BORDER_COLOR),
-            color: Styles.WHITE_COLOR,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.06),
-                offset: Offset(1, 1),
-                blurRadius: 10,
-                spreadRadius: 1,
-              )
-            ]),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: Dimensions.PADDING_SIZE_SMALL.h,
-          children: [
-            if (fromOrderDetails)
-              Row(
+          padding: EdgeInsets.symmetric(
+              horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+              vertical: Dimensions.PADDING_SIZE_DEFAULT.h),
+          margin: EdgeInsets.symmetric(
+              vertical: Dimensions.paddingSizeExtraSmall.h),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12.w),
+              border: Border.all(color: Styles.LIGHT_BORDER_COLOR),
+              color: Styles.WHITE_COLOR,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.06),
+                  offset: Offset(1, 1),
+                  blurRadius: 10,
+                  spreadRadius: 1,
+                )
+              ]),
+          child: Row(
+            children: [
+              Expanded(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 4.h,
                 children: [
-                  customImageIconSVG(
-                      imageName: SvgImages.users,
-                      color: Styles.HEADER,
-                      width: 18.w,
-                      height: 18.w),
-                  SizedBox(width: Dimensions.paddingSizeMini.w),
-                  Expanded(
-                    child: Text(
-                      getTranslated("team_details"),
-                      style: AppTextStyles.w700
-                          .copyWith(fontSize: 16, color: Styles.HEADER),
-                    ),
+                  Text(
+                    team.name ?? "",
+                    style: AppTextStyles.w700
+                        .copyWith(fontSize: 16, color: Styles.PRIMARY_COLOR),
                   ),
-                ],
-              ),
-            Row(
-              children: [
-                Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      team.name ?? "",
-                      style: AppTextStyles.w700
-                          .copyWith(fontSize: 16, color: Styles.PRIMARY_COLOR),
-                    ),
-                    SizedBox(height: 4.h),
-                    Row(
-                      spacing: 8.w,
-                      children: [
-                        customImageIconSVG(
-                          imageName: SvgImages.location,
-                          width: 18.w,
-                          height: 18.w,
-                          color: Styles.HEADER,
-                        ),
-                        Text(
-                          team.zone ?? "",
-                          style: AppTextStyles.w500
-                              .copyWith(fontSize: 14, color: Styles.HEADER),
-                        ),
-                      ],
-                    ),
-                  ],
-                )),
-                InkWell(
-                  onTap: () => CustomNavigator.push(Routes.teamDetails,
-                      arguments: team.id ?? 0),
-                  child: Row(
+                  Row(
+                    spacing: 8.w,
                     children: [
-                      Text(
-                        "${getTranslated("see_details")} ",
-                        style: AppTextStyles.w500
-                            .copyWith(fontSize: 14, color: Styles.ACCENT_COLOR),
+                      customImageIconSVG(
+                        imageName: SvgImages.location,
+                        width: 18.w,
+                        height: 18.w,
+                        color: Styles.HEADER,
                       ),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        size: 16,
-                        color: Styles.ACCENT_COLOR,
+                      Text(
+                        team.zone ?? "",
+                        style: AppTextStyles.w500
+                            .copyWith(fontSize: 14, color: Styles.HEADER),
                       ),
                     ],
                   ),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
+                ],
+              )),
+              InkWell(
+                onTap: () => CustomNavigator.push(Routes.teamDetails,
+                    arguments: team.id ?? 0),
+                child: Row(
+                  children: [
+                    Text(
+                      "${getTranslated("see_details")} ",
+                      style: AppTextStyles.w500
+                          .copyWith(fontSize: 14, color: Styles.ACCENT_COLOR),
+                    ),
+                    Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      size: 16,
+                      color: Styles.ACCENT_COLOR,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )),
     );
   }
 }

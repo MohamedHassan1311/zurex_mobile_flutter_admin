@@ -19,6 +19,7 @@ class OrderDetailsModel extends SingleMapper {
   AddressModel? address;
   UserModel? user;
   TeamModel? team;
+  TeamStatus? teamStatus;
   DateTime? createdAt;
 
   OrderDetailsModel({
@@ -35,6 +36,7 @@ class OrderDetailsModel extends SingleMapper {
     this.statusCode,
     this.user,
     this.team,
+    this.teamStatus,
     this.createdAt,
   });
 
@@ -48,17 +50,12 @@ class OrderDetailsModel extends SingleMapper {
         "delivery_time": deliveryTime?.toJson(),
         "user": user?.toJson(),
         "team": team?.toJson(),
+        "team_status": teamStatus?.name,
         "bill": bill?.toJson(),
         "address": address?.toJson(),
-        "status_list": statuses != null
-            ? List<dynamic>.from(statuses!.map((x) => x.toJson()))
-            : [],
-        "available_status": availableStatus != null
-            ? List<dynamic>.from(availableStatus!.map((x) => x.toJson()))
-            : [],
-        "products": products != null
-            ? List<dynamic>.from(products!.map((x) => x.toJson()))
-            : [],
+        "status_list": statuses != null ? List<dynamic>.from(statuses!.map((x) => x.toJson())) : [],
+        "available_status": availableStatus != null ? List<dynamic>.from(availableStatus!.map((x) => x.toJson())) : [],
+        "products": products != null ? List<dynamic>.from(products!.map((x) => x.toJson())) : [],
         "created_at": createdAt?.toIso8601String(),
       };
 
@@ -68,14 +65,12 @@ class OrderDetailsModel extends SingleMapper {
     status = json['status'];
     statusCode = json['status_code'];
     deliveryDate = json['delivery_date'];
-    deliveryTime = json['delivery_time'] != null
-        ? CustomFieldModel.fromJson(json['delivery_time'])
-        : null;
+    deliveryTime = json['delivery_time'] != null ? CustomFieldModel.fromJson(json['delivery_time']) : null;
     user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
     team = json['team'] != null ? TeamModel.fromJson(json['team']) : null;
+    teamStatus = TeamStatus.values.firstWhere((e) => e.name.toUpperCase() == json['team_status'].toString().toUpperCase());
     bill = json['bill'] != null ? BillModel.fromJson(json['bill']) : null;
-    address =
-        json['address'] != null ? AddressModel.fromJson(json['address']) : null;
+    address = json['address'] != null ? AddressModel.fromJson(json['address']) : null;
     if (json['status_list'] != null) {
       statuses = [];
       json['status_list'].forEach((v) {
@@ -94,8 +89,7 @@ class OrderDetailsModel extends SingleMapper {
         products!.add(PurchasedProductModel.fromJson(v));
       });
     }
-    createdAt =
-        json['created_at'] != null ? DateTime.parse(json['created_at']) : null;
+    createdAt = json['created_at'] != null ? DateTime.parse(json['created_at']) : null;
   }
 
   @override

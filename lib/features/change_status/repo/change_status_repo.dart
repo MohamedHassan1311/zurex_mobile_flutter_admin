@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:zurex_admin/features/change_status/entity/order_status_entity.dart';
-import 'package:zurex_admin/features/change_status/entity/team_status_entity.dart';
 import '../../../data/api/end_points.dart';
 import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
@@ -29,11 +28,11 @@ class ChangeStatusRepo extends BaseRepo {
   }
 
   Future<Either<ServerFailure, Response>> changeTeamStatus(
-      TeamStatusEntity entity) async {
+      Map<String, dynamic> data) async {
     try {
-      Response response = await dioClient.put(
-        uri: EndPoints.changeTeamStatus(entity.id),
-        data: entity.toJson(),
+      Response response = await dioClient.post(
+        uri: EndPoints.changeTeamStatus(data["id"]),
+        data: {"team_status": data["team_status"]},
       );
       if (response.statusCode == 200) {
         return Right(response);
