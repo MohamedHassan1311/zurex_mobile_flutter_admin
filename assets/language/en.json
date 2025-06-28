@@ -719,5 +719,8 @@
   "select_order_status": "Select order status",
   "team": "Team",
   "select_team": "Select team",
-  "oops_you_have_to_fill_all_inputs": "Oops, you have to fill all inputs"
+  "oops_you_have_to_fill_all_inputs": "Oops, you have to fill all inputs",
+  "pending": "Pending",
+  "picked_up": "Picked up",
+  "arrived_start_work": "Arrived & Start work"
 }

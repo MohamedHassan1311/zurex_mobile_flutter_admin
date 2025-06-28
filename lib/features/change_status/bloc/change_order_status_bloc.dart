@@ -17,10 +17,10 @@ import '../../orders/bloc/orders_bloc.dart';
 import '../entity/order_status_entity.dart';
 import '../repo/change_status_repo.dart';
 
-class ChangeStatusBloc extends Bloc<AppEvent, AppState> {
+class ChangeOrderStatusBloc extends Bloc<AppEvent, AppState> {
   final ChangeStatusRepo repo;
 
-  ChangeStatusBloc({required this.repo}) : super(Start()) {
+  ChangeOrderStatusBloc({required this.repo}) : super(Start()) {
     updateEntity(OrderStatusEntity());
     on<Click>(onClick);
   }
@@ -38,7 +38,7 @@ class ChangeStatusBloc extends Bloc<AppEvent, AppState> {
       loadingDialog();
       entity.valueOrNull?.copyWith(id: (event.arguments as Map)["id"]);
       Either<ServerFailure, Response> response =
-          await repo.changeStatus(entity.valueOrNull!);
+          await repo.changeOrderStatus(entity.valueOrNull!);
 
       ///To Close Loading Dialog
       CustomNavigator.pop();

@@ -98,3 +98,5 @@ class TeamModel extends SingleMapper {
     return TeamModel.fromJson(json);
   }
 }
+
+enum TeamStatus{pending, picked_up, arrived_start_work, delivered}

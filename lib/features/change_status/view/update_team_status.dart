@@ -7,25 +7,27 @@ import 'package:zurex_admin/app/core/text_styles.dart';
 import 'package:zurex_admin/features/change_status/repo/change_status_repo.dart';
 import 'package:zurex_admin/features/order_details/bloc/order_details_bloc.dart';
 import 'package:zurex_admin/features/order_details/model/order_details_model.dart';
+import 'package:zurex_admin/features/team_details/model/team_model.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/core/dimensions.dart';
 import '../../../app/core/styles.dart';
 import '../../../app/localization/language_constant.dart';
 import '../../../data/config/di.dart';
-import '../bloc/change_status_bloc.dart';
+import '../bloc/change_order_status_bloc.dart';
 
-class DriverOrderDetailsActions extends StatelessWidget {
-  const DriverOrderDetailsActions(
-      {super.key, required this.id, required this.availableStatus});
+class UpdateTeamStatus extends StatelessWidget {
+  const UpdateTeamStatus(
+      {super.key, required this.id, this.teamStatus, this.onSuccess});
 
   final int id;
-  final List<StatusModel> availableStatus;
+  final TeamStatus? teamStatus;
+  final Function(OrderDetailsModel)? onSuccess;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ChangeStatusBloc(repo: sl<ChangeStatusRepo>()),
-      child: BlocBuilder<ChangeStatusBloc, AppState>(
+      create: (context) => ChangeOrderStatusBloc(repo: sl<ChangeStatusRepo>()),
+      child: BlocBuilder<ChangeOrderStatusBloc, AppState>(
         builder: (context, state) {
           return Column(
             children: [

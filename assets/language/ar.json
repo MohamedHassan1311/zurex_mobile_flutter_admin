@@ -719,5 +719,8 @@
   "select_order_status": "اختر حالة الطلب",
   "team": "الفريق",
   "select_team": "اختر الفريق",
-  "oops_you_have_to_fill_all_inputs": "عذرًا، يجب ملئ جميع البيانات"
+  "oops_you_have_to_fill_all_inputs": "عذرًا، يجب ملئ جميع البيانات",
+  "pending": "قيد الانتظار",
+  "picked_up": "تم الاستلام",
+  "arrived_start_work": "تم الوصول وبدء العمل"
 }

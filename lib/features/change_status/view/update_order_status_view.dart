@@ -19,12 +19,12 @@ import '../../../data/config/di.dart';
 import '../../../navigation/custom_navigation.dart';
 import '../../order_details/model/order_details_model.dart';
 import '../../teams/page/teams_selection_view.dart';
-import '../bloc/change_status_bloc.dart';
+import '../bloc/change_order_status_bloc.dart';
 import '../repo/change_status_repo.dart';
 import '../widgets/order_status_selection.dart';
 
-class AdminUpdateOrderStatusView extends StatelessWidget {
-  const AdminUpdateOrderStatusView(
+class UpdateOrderStatusView extends StatelessWidget {
+  const UpdateOrderStatusView(
       {super.key,
       required this.id,
       required this.availableStatus,
@@ -36,13 +36,13 @@ class AdminUpdateOrderStatusView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ChangeStatusBloc(repo: sl<ChangeStatusRepo>()),
-      child: BlocBuilder<ChangeStatusBloc, AppState>(
+      create: (context) => ChangeOrderStatusBloc(repo: sl<ChangeStatusRepo>()),
+      child: BlocBuilder<ChangeOrderStatusBloc, AppState>(
         builder: (context, state) {
           return SafeArea(
             top: false,
             child: Form(
-              key: context.read<ChangeStatusBloc>().key,
+              key: context.read<ChangeOrderStatusBloc>().key,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -98,7 +98,7 @@ class AdminUpdateOrderStatusView extends StatelessWidget {
                   ///Body
                   Flexible(
                     child: StreamBuilder<OrderStatusEntity?>(
-                      stream: context.read<ChangeStatusBloc>().entityStream,
+                      stream: context.read<ChangeOrderStatusBloc>().entityStream,
                       builder: (context, snapshot) {
                         return ListAnimator(
                           customPadding: EdgeInsets.symmetric(
@@ -113,7 +113,7 @@ class AdminUpdateOrderStatusView extends StatelessWidget {
                                     initialValue:
                                         snapshot.data?.status?.statusCode,
                                     onConfirm: (v) => context
-                                        .read<ChangeStatusBloc>()
+                                        .read<ChangeOrderStatusBloc>()
                                         .updateEntity(
                                             snapshot.data?.copyWith(status: v)),
                                     list: availableStatus,
@@ -143,7 +143,7 @@ class AdminUpdateOrderStatusView extends StatelessWidget {
                                     onConfirm: (v) {
                                       log("Team ${v.toJson()}");
                                       context
-                                          .read<ChangeStatusBloc>()
+                                          .read<ChangeOrderStatusBloc>()
                                           .updateEntity(
                                               snapshot.data?.copyWith(team: v));
                                       log("Selected Team ${snapshot.data?.team?.toJson()}");
@@ -179,11 +179,11 @@ class AdminUpdateOrderStatusView extends StatelessWidget {
                       text: getTranslated("confirm"),
                       onTap: () {
                         if (context
-                            .read<ChangeStatusBloc>()
+                            .read<ChangeOrderStatusBloc>()
                             .key
                             .currentState!
                             .validate()) {
-                          context.read<ChangeStatusBloc>().add(Click(
+                          context.read<ChangeOrderStatusBloc>().add(Click(
                                   arguments: {
                                     "id": id,
                                     "onSuccess": (v) => onSuccess?.call(v)
