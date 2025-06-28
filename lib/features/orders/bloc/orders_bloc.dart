@@ -6,8 +6,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:zurex_admin/features/order_details/model/order_details_model.dart';
-
 import '../../../../../app/core/app_core.dart';
 import '../../../../../app/core/app_event.dart';
 import '../../../../../app/core/app_notification.dart';
@@ -76,9 +74,7 @@ class OrdersBloc extends HydratedBloc<AppEvent, AppState> {
           emit(Done(data: _model, loading: true));
         }
         _engine.data = {
-          "status": selectTab.value.name == OrderMainStatus.current.name
-              ? OrderStatus.out_for_delivery.name
-              : selectTab.value.name,
+          "status": selectTab.value.name,
           // if (searchTEC?.text.trim() != "") "keyword": searchTEC?.text.trim(),
         };
 
@@ -156,4 +152,4 @@ class OrdersBloc extends HydratedBloc<AppEvent, AppState> {
   Map<String, dynamic>? toJson(AppState? state) => state?.toJson();
 }
 
-enum OrderMainStatus { current, completed }
+enum OrderMainStatus { current, completed, cancelled }

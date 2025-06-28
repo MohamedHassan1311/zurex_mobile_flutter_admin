@@ -6,6 +6,7 @@ import '../../../../../data/api/end_points.dart';
 import '../../../../../data/error/api_error_handler.dart';
 import '../../../../../data/error/failures.dart';
 import '../../../../../main_repos/base_repo.dart';
+import '../../../main_blocs/user_bloc.dart';
 
 class OrdersRepo extends BaseRepo {
   OrdersRepo({required super.dioClient, required super.sharedPreferences});
@@ -17,7 +18,10 @@ class OrdersRepo extends BaseRepo {
         queryParameters: {
           "page": data.currentPage! + 1,
           "limit": data.limit,
-          "deliveryByMe": true,
+          if (UserBloc.instance.user?.userType == UserType.driver)
+            "deliveryByMyTeam": true,
+          if (UserBloc.instance.user?.userType == UserType.admin)
+            "managedByMe": true,
         }..addAll(data.data),
       );
       if (response.statusCode == 200) {

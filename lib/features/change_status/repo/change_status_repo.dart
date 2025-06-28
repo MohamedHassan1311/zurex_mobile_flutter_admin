@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:zurex_admin/features/change_status/entity/order_status_entity.dart';
 import '../../../data/api/end_points.dart';
 import '../../../data/error/api_error_handler.dart';
 import '../../../data/error/failures.dart';
@@ -10,11 +11,12 @@ class ChangeStatusRepo extends BaseRepo {
       {required super.dioClient, required super.sharedPreferences});
 
   Future<Either<ServerFailure, Response>> changeStatus(
-      Map<String, dynamic> body) async {
+      OrderStatusEntity entity) async {
     try {
       Response response = await dioClient.put(
-          uri: EndPoints.changeOrderStatus(body["id"]),
-          data: {"status": body["status"]});
+        uri: EndPoints.changeOrderStatus(entity.id),
+        data: entity.toJson(),
+      );
       if (response.statusCode == 200) {
         return Right(response);
       } else {

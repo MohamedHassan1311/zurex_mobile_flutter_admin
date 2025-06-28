@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zurex_admin/app/core/extensions.dart';
 import '../../../app/core/dimensions.dart';
 import '../../../app/core/styles.dart';
 import '../../../app/core/text_styles.dart';
@@ -20,31 +21,36 @@ class OrderCurrentStatus extends StatelessWidget {
           border: Border.all(
             color: Styles.LIGHT_BORDER_COLOR,
           )),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
+        spacing: Dimensions.paddingSizeMini.h,
         children: [
-          Expanded(
-            child: Text(
-              "#${orderNum ?? 0}",
-              style: AppTextStyles.w500
-                  .copyWith(fontSize: 16, color: Styles.DETAILS_COLOR),
-            ),
+          Text(
+            "#${orderNum ?? 0}",
+            style: AppTextStyles.w500
+                .copyWith(fontSize: 16, color: Styles.DETAILS_COLOR),
           ),
-          // Container(
-          //     width: 8.w,
-          //     height: 8.w,
-          //     margin: EdgeInsets.symmetric(horizontal: 4.w),
-          //     decoration: BoxDecoration(
-          //       color: Styles.PRIMARY_COLOR,
-          //       borderRadius: BorderRadius.circular(2.w),
-          //     ),
-          //     child: SizedBox()),
-          // Text(
-          //   status?.capitalize() ?? "",
-          //   style: AppTextStyles.w600.copyWith(
-          //       fontSize: 14, color: Styles.PRIMARY_COLOR, height: 1.5),
-          // ),
+          Row(
+            children: [
+              Container(
+                  width: 8.w,
+                  height: 8.w,
+                  margin: EdgeInsets.symmetric(horizontal: 4.w),
+                  decoration: BoxDecoration(
+                    color: Styles.PRIMARY_COLOR,
+                    borderRadius: BorderRadius.circular(2.w),
+                  ),
+                  child: SizedBox()),
+              Expanded(
+                child: Text(
+                  status?.capitalize() ?? "",
+                  style: AppTextStyles.w600.copyWith(
+                      fontSize: 14, color: Styles.PRIMARY_COLOR, height: 1.5),
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

@@ -25,9 +25,9 @@ class ChooseUserType extends StatelessWidget {
           }
         },
         thumbColor: Styles.PRIMARY_COLOR,
-        backgroundColor: Styles.FILL_COLOR,
+        backgroundColor: Styles.PRIMARY_COLOR.withValues(alpha: 0.08),
         children: Map.fromIterable(
-          UserType.values,
+          [UserType.admin, UserType.driver],
           key: (item) => item as UserType,
           value: (item) {
             final userType = item as UserType;

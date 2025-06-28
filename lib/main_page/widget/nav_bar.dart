@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zurex_admin/app/core/dimensions.dart';
 import 'package:zurex_admin/app/core/extensions.dart';
 import 'package:zurex_admin/app/localization/language_constant.dart';
+import 'package:zurex_admin/main_blocs/user_bloc.dart';
 import '../../app/core/styles.dart';
 import '../../app/core/svg_images.dart';
 import '../bloc/dashboard_bloc.dart';
@@ -42,15 +43,17 @@ class NavBar extends StatelessWidget {
                         DashboardBloc.instance.updateSelectIndex(0);
                       }),
                 ),
-                Expanded(
-                  child: BottomNavBarItem(
-                      label: getTranslated("teams", context: context),
-                      svgIcon: SvgImages.users,
-                      isSelected: (snapshot.data ?? 0) == 1,
-                      onTap: () {
-                        DashboardBloc.instance.updateSelectIndex(1);
-                      }),
-                ),
+                if (UserBloc.instance.user?.userType == UserType.admin)
+                  Expanded(
+                    child: BottomNavBarItem(
+                        label: getTranslated("teams", context: context),
+                        svgIcon: SvgImages.users,
+                        isSelected: (snapshot.data ?? 0) == 1,
+                        onTap: () {
+                          DashboardBloc.instance.updateSelectIndex(1);
+                        }),
+                  ),
+
                 Expanded(
                   child: BottomNavBarItem(
                     label: getTranslated("more", context: context),

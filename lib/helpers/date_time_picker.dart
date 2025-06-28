@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:zurex_admin/app/core/dimensions.dart';
 import '../../navigation/custom_navigation.dart';
 import '../app/core/styles.dart';
 import '../app/core/text_styles.dart';
 import '../app/localization/language_constant.dart';
+import '../components/animated_widget.dart';
 import '../components/custom_button.dart';
 
 class DateTimePicker extends StatefulWidget {
@@ -47,67 +49,95 @@ class _DateTimePickerState extends State<DateTimePicker> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 340.h,
-      decoration: const BoxDecoration(
-          color: Styles.WHITE_COLOR,
-          borderRadius: BorderRadius.only(
-              topRight: Radius.circular(20), topLeft: Radius.circular(20))),
+      decoration: BoxDecoration(
+        color: Styles.WHITE_COLOR,
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(30.w),
+          topLeft: Radius.circular(30.w),
+        ),
+      ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
-              child: Container(
-                height: 5.h,
-                width: 36.w,
-                decoration: BoxDecoration(
-                    color: const Color(0xFF3C3C43).withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(100)),
-                child: const SizedBox(),
-              ),
+          Container(
+            width: 60.w,
+            height: 4.h,
+            margin: EdgeInsets.only(
+              left: Dimensions.PADDING_SIZE_DEFAULT.w,
+              right: Dimensions.PADDING_SIZE_DEFAULT.w,
+              top: Dimensions.paddingSizeMini.h,
+              bottom: Dimensions.PADDING_SIZE_DEFAULT.h,
+            ),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+                color: Styles.HINT_COLOR,
+                borderRadius: BorderRadius.circular(100)),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  widget.label,
+                  style: AppTextStyles.w700.copyWith(
+                    fontSize: 18,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    CustomNavigator.pop();
+                  },
+                  child: const Icon(
+                    Icons.clear,
+                    size: 24,
+                    color: Styles.DISABLED,
+                  ),
+                )
+              ],
             ),
           ),
-          SizedBox(height: 10.h),
-          Text(
-            widget.label,
-            style: AppTextStyles.w500.copyWith(
-              fontSize: 18,
+          Padding(
+            padding: EdgeInsets.symmetric(
+                vertical: 8.h, horizontal: Dimensions.PADDING_SIZE_DEFAULT.w),
+            child: const Divider(
+              color: Styles.BORDER_COLOR,
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(30.0, 0.0, 30.0, 20.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  SizedBox(height: 16.h),
-                  Expanded(
-                      child: CupertinoDatePicker(
-                          mode: widget.mode ?? CupertinoDatePickerMode.date,
-                          onDateTimeChanged: (value) => date = value,
-                          initialDateTime:
-                              date ?? widget.startDateTime ?? DateTime.now(),
-                          minimumDate: widget.minDateTime != null
-                              ? DateTime(
-                                  widget.minDateTime!.year,
-                                  widget.minDateTime!.month,
-                                  widget.minDateTime!.day)
-                              : widget.startDateTime != null
-                                  ? DateTime(
-                                      widget.startDateTime!.year,
-                                      widget.startDateTime!.month,
-                                      widget.startDateTime!.day)
-                                  : DateTime(1900),
-                          maximumDate: DateTime(2100)))
-                ],
-              ),
-            ),
-          ),
+          Flexible(
+              child: ListAnimator(
+            controller: ScrollController(),
+            customPadding: EdgeInsets.symmetric(
+                horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+                vertical: Dimensions.paddingSizeMini.h),
+            data: [
+              SizedBox(
+                height: 250.h,
+                child: CupertinoDatePicker(
+                    mode: widget.mode ?? CupertinoDatePickerMode.date,
+                    onDateTimeChanged: (value) => date = value,
+                    initialDateTime:
+                        date ?? widget.startDateTime ?? DateTime.now(),
+                    minimumDate: widget.minDateTime != null
+                        ? DateTime(widget.minDateTime!.year,
+                            widget.minDateTime!.month, widget.minDateTime!.day)
+                        : widget.startDateTime != null
+                            ? DateTime(
+                                widget.startDateTime!.year,
+                                widget.startDateTime!.month,
+                                widget.startDateTime!.day)
+                            : DateTime(1900),
+                    maximumDate: DateTime(2100)),
+              )
+            ],
+          )),
           SafeArea(
+            top: false,
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: Dimensions.PADDING_SIZE_DEFAULT,
-              ),
+              padding: EdgeInsets.symmetric(
+                  horizontal: Dimensions.PADDING_SIZE_DEFAULT.w,
+                  vertical: Dimensions.paddingSizeExtraSmall.h),
               child: CustomButton(
                 text: getTranslated('confirm'),
                 onTap: () {
@@ -125,7 +155,6 @@ class _DateTimePickerState extends State<DateTimePicker> {
               ),
             ),
           ),
-          SizedBox(height: 16.h),
         ],
       ),
     );

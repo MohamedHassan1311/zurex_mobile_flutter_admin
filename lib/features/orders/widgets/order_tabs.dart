@@ -32,7 +32,7 @@ class OrderTabs extends StatelessWidget {
                     }
                   },
                   thumbColor: Styles.PRIMARY_COLOR,
-                  backgroundColor: Styles.FILL_COLOR,
+                  backgroundColor: Styles.PRIMARY_COLOR.withValues(alpha: 0.08),
                   children: Map.fromIterable(
                     OrderMainStatus.values,
                     key: (item) => item as OrderMainStatus,

@@ -10,8 +10,10 @@ import '../../../app/core/styles.dart';
 import '../../team_details/model/team_model.dart';
 
 class TeamCard extends StatelessWidget {
-  const TeamCard({super.key, required this.team});
+  const TeamCard(
+      {super.key, required this.team, this.fromOrderDetails = false});
   final TeamModel team;
+  final bool fromOrderDetails;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,26 @@ class TeamCard extends StatelessWidget {
             ]),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: Dimensions.PADDING_SIZE_SMALL.h,
           children: [
+            if (fromOrderDetails)
+              Row(
+                children: [
+                  customImageIconSVG(
+                      imageName: SvgImages.users,
+                      color: Styles.HEADER,
+                      width: 18.w,
+                      height: 18.w),
+                  SizedBox(width: Dimensions.paddingSizeMini.w),
+                  Expanded(
+                    child: Text(
+                      getTranslated("team_details"),
+                      style: AppTextStyles.w700
+                          .copyWith(fontSize: 16, color: Styles.HEADER),
+                    ),
+                  ),
+                ],
+              ),
             Row(
               children: [
                 Expanded(

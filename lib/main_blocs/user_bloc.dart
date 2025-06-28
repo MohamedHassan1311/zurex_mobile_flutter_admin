@@ -70,4 +70,4 @@ class UserBloc extends Bloc<AppEvent, AppState> {
 }
 
 
-enum UserType {driver,admin}
+enum UserType {driver,admin,user}

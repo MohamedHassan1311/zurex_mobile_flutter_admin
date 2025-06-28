@@ -1,3 +1,4 @@
+import 'package:zurex_admin/features/team_details/model/team_model.dart';
 import 'package:zurex_admin/main_models/custom_field_model.dart';
 import 'package:zurex_admin/main_models/user_model.dart';
 
@@ -13,9 +14,11 @@ class OrderDetailsModel extends SingleMapper {
   BillModel? bill;
   List<PurchasedProductModel>? products;
   List<StatusModel>? statuses;
+  List<StatusModel>? availableStatus;
   String? status, statusCode;
   AddressModel? address;
   UserModel? user;
+  TeamModel? team;
   DateTime? createdAt;
 
   OrderDetailsModel({
@@ -26,10 +29,12 @@ class OrderDetailsModel extends SingleMapper {
     this.bill,
     this.products,
     this.statuses,
+    this.availableStatus,
     this.address,
     this.status,
     this.statusCode,
     this.user,
+    this.team,
     this.createdAt,
   });
 
@@ -42,10 +47,14 @@ class OrderDetailsModel extends SingleMapper {
         "delivery_date": deliveryDate,
         "delivery_time": deliveryTime?.toJson(),
         "user": user?.toJson(),
+        "team": team?.toJson(),
         "bill": bill?.toJson(),
         "address": address?.toJson(),
         "status_list": statuses != null
             ? List<dynamic>.from(statuses!.map((x) => x.toJson()))
+            : [],
+        "available_status": availableStatus != null
+            ? List<dynamic>.from(availableStatus!.map((x) => x.toJson()))
             : [],
         "products": products != null
             ? List<dynamic>.from(products!.map((x) => x.toJson()))
@@ -63,6 +72,7 @@ class OrderDetailsModel extends SingleMapper {
         ? CustomFieldModel.fromJson(json['delivery_time'])
         : null;
     user = json['user'] != null ? UserModel.fromJson(json['user']) : null;
+    team = json['team'] != null ? TeamModel.fromJson(json['team']) : null;
     bill = json['bill'] != null ? BillModel.fromJson(json['bill']) : null;
     address =
         json['address'] != null ? AddressModel.fromJson(json['address']) : null;
@@ -70,6 +80,12 @@ class OrderDetailsModel extends SingleMapper {
       statuses = [];
       json['status_list'].forEach((v) {
         statuses!.add(StatusModel.fromJson(v));
+      });
+    }
+    if (json['available_status'] != null) {
+      availableStatus = [];
+      json['available_status'].forEach((v) {
+        availableStatus!.add(StatusModel.fromJson(v));
       });
     }
     if (json['products'] != null) {
@@ -157,20 +173,28 @@ class BillModel extends SingleMapper {
   double? subTotal;
   double? tax;
   double? taxPercentage;
-  double? fees;
+  double? installationCharges;
   double? feesPercentage;
+  double? deliveryCharges;
+  double? deliveryChargesPercentage;
   double? discount;
+  double? paidFromWallet;
   double? totalPrice;
+  double? actualTotalPrice;
   String? currency;
 
   BillModel(
       {this.subTotal,
       this.taxPercentage,
       this.tax,
-      this.fees,
+      this.installationCharges,
       this.feesPercentage,
+      this.deliveryCharges,
+      this.deliveryChargesPercentage,
       this.discount,
       this.totalPrice,
+      this.paidFromWallet,
+      this.actualTotalPrice,
       this.currency});
 
   BillModel.fromJson(Map<String, dynamic> json) {
@@ -186,17 +210,27 @@ class BillModel extends SingleMapper {
     feesPercentage = json['fees_percentage'] != null
         ? double.parse(json['fees_percentage'].toString())
         : null;
-    fees = json['fees_value'] != null
+    installationCharges = json['fees_value'] != null
         ? double.parse(json['fees_value'].toString())
+        : null;
+    deliveryChargesPercentage = json['delivery_charge_percentage'] != null
+        ? double.parse(json['delivery_charge_percentage'].toString())
+        : null;
+    deliveryCharges = json['delivery_charge_value'] != null
+        ? double.parse(json['delivery_charge_value'].toString())
         : null;
     discount = json['discount'] != null
         ? double.parse(json['discount'].toString())
-        : json['discount'] != null
-            ? double.parse(json['discount'].toString())
-            : null;
+        : null;
+    paidFromWallet = json['paid_from_wallet'] != null
+        ? double.parse(json['paid_from_wallet'].toString())
+        : null;
 
     totalPrice = json['total_price'] != null
         ? double.parse(json['total_price'].toString())
+        : null;
+    actualTotalPrice = json['actual_total_price'] != null
+        ? double.parse(json['actual_total_price'].toString())
         : null;
 
     currency = json['currency'] ?? getTranslated("sar");
@@ -209,9 +243,13 @@ class BillModel extends SingleMapper {
     data['tax_percentage'] = taxPercentage;
     data['tax_value'] = tax;
     data['fees_percentage'] = feesPercentage;
-    data['fees_value'] = fees;
+    data['fees_value'] = installationCharges;
+    data['delivery_charge_percentage'] = deliveryChargesPercentage;
+    data['delivery_charge_value'] = deliveryCharges;
     data['discount'] = discount;
     data['total_price'] = totalPrice;
+    data['paid_from_wallet'] = paidFromWallet;
+    data['actual_total_price'] = actualTotalPrice;
     data['currency'] = currency;
     return data;
   }
