@@ -83,7 +83,7 @@ class OrderDetailsPage extends StatelessWidget {
                           ),
 
                           ///Order Actions
-                            OrderDetailsActions(model: model),
+                          OrderDetailsActions(model: model),
                         ],
                       );
                     }
@@ -98,9 +98,32 @@ class OrderDetailsPage extends StatelessWidget {
                             padding: EdgeInsets.symmetric(
                                 vertical: Dimensions.paddingSizeMini.h),
                             child: CustomShimmerContainer(
-                              height: 80.h,
+                              height: 60.h,
                               width: context.width,
                               radius: 16.w,
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: Dimensions.paddingSizeMini.h),
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                children: List.generate(
+                                    5,
+                                    (i) => Row(
+                                          children: [
+                                            CustomShimmerCircleImage(
+                                              diameter: 50.w,
+                                            ),
+                                            if (i != 4)
+                                              CustomShimmerContainer(
+                                                height: 4.h,
+                                                width: 40.w,
+                                              )
+                                          ],
+                                        )),
+                              ),
                             ),
                           ),
                           Padding(
