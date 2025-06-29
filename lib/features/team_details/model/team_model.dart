@@ -2,7 +2,6 @@ import 'package:zurex_admin/main_models/user_model.dart';
 
 import '../../../data/config/mapper.dart';
 
-
 class TeamModel extends SingleMapper {
   int? id;
   String? name;
@@ -99,4 +98,4 @@ class TeamModel extends SingleMapper {
   }
 }
 
-enum TeamStatus{pending, picked_up, arrived_start_work, delivered}
+enum TeamStatus { pending, picked_up, arrived_start_work, delivered }

@@ -100,26 +100,26 @@ class TeamDetailsPage extends StatelessWidget {
                                       fontSize: 18, color: Styles.HEADER),
                                 ),
                               ),
-                              InkWell(
-                                onTap: () => CustomNavigator.push(
-                                    Routes.teamDetails,
-                                    arguments: model.id ?? 0),
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "${getTranslated("see_details")} ",
-                                      style: AppTextStyles.w500.copyWith(
-                                          fontSize: 14,
-                                          color: Styles.ACCENT_COLOR),
-                                    ),
-                                    Icon(
-                                      Icons.arrow_forward_ios_rounded,
-                                      size: 16,
-                                      color: Styles.ACCENT_COLOR,
-                                    ),
-                                  ],
-                                ),
-                              )
+                              // InkWell(
+                              //   onTap: () => CustomNavigator.push(
+                              //       Routes.teamDetails,
+                              //       arguments: model.id ?? 0),
+                              //   child: Row(
+                              //     children: [
+                              //       Text(
+                              //         "${getTranslated("see_details")} ",
+                              //         style: AppTextStyles.w500.copyWith(
+                              //             fontSize: 14,
+                              //             color: Styles.ACCENT_COLOR),
+                              //       ),
+                              //       Icon(
+                              //         Icons.arrow_forward_ios_rounded,
+                              //         size: 16,
+                              //         color: Styles.ACCENT_COLOR,
+                              //       ),
+                              //     ],
+                              //   ),
+                              // )
                             ],
                           ),
                         ),
