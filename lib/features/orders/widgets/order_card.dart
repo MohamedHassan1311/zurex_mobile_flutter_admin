@@ -44,10 +44,30 @@ class OrderCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           Text(
-              "#${order.orderNum ?? 0000}",
-              style: AppTextStyles.w500
-                  .copyWith(fontSize: 14, color: Styles.DETAILS_COLOR),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    "ID: ${order.orderNum ?? 0000}",
+                    style: AppTextStyles.w500
+                        .copyWith(fontSize: 14, color: Styles.DETAILS_COLOR),
+                  ),
+                ),
+                Container(
+                    width: 8.w,
+                    height: 8.w,
+                    margin: EdgeInsets.symmetric(horizontal: 4.w),
+                    decoration: BoxDecoration(
+                      color: Styles.PRIMARY_COLOR,
+                      borderRadius: BorderRadius.circular(2.w),
+                    ),
+                    child: SizedBox()),
+                Text(
+                  order.status?.capitalize() ?? "",
+                  style: AppTextStyles.w600.copyWith(
+                      fontSize: 14, color: Styles.PRIMARY_COLOR, height: 1.5),
+                ),
+              ],
             ),
             Divider(color: Styles.LIGHT_BORDER_COLOR, height: 24.h),
             Row(

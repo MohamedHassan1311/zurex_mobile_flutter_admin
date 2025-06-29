@@ -21,35 +21,39 @@ class OrderCurrentStatus extends StatelessWidget {
           border: Border.all(
             color: Styles.LIGHT_BORDER_COLOR,
           )),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         spacing: Dimensions.paddingSizeMini.h,
         children: [
-          Text(
-            "#${orderNum ?? 0}",
-            style: AppTextStyles.w500
-                .copyWith(fontSize: 16, color: Styles.DETAILS_COLOR),
+          Expanded(
+            child: Text(
+              "#${orderNum ?? 0}",
+              style: AppTextStyles.w500
+                  .copyWith(fontSize: 16, color: Styles.DETAILS_COLOR),
+            ),
           ),
-          Row(
-            children: [
-              Container(
-                  width: 8.w,
-                  height: 8.w,
-                  margin: EdgeInsets.symmetric(horizontal: 4.w),
-                  decoration: BoxDecoration(
-                    color: Styles.PRIMARY_COLOR,
-                    borderRadius: BorderRadius.circular(2.w),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                    width: 8.w,
+                    height: 8.w,
+                    margin: EdgeInsets.symmetric(horizontal: 4.w),
+                    decoration: BoxDecoration(
+                      color: Styles.PRIMARY_COLOR,
+                      borderRadius: BorderRadius.circular(2.w),
+                    ),
+                    child: SizedBox()),
+                Expanded(
+                  child: Text(
+                    status?.capitalize() ?? "",
+                    style: AppTextStyles.w600.copyWith(
+                        fontSize: 14, color: Styles.PRIMARY_COLOR, height: 1.5),
                   ),
-                  child: SizedBox()),
-              Expanded(
-                child: Text(
-                  status?.capitalize() ?? "",
-                  style: AppTextStyles.w600.copyWith(
-                      fontSize: 14, color: Styles.PRIMARY_COLOR, height: 1.5),
                 ),
-              ),
-            ],
+              ],
+            ),
           )
         ],
       ),
