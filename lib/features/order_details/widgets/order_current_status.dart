@@ -23,7 +23,6 @@ class OrderCurrentStatus extends StatelessWidget {
           )),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        spacing: Dimensions.paddingSizeMini.h,
         children: [
           Expanded(
             child: Text(
@@ -32,29 +31,20 @@ class OrderCurrentStatus extends StatelessWidget {
                   .copyWith(fontSize: 16, color: Styles.DETAILS_COLOR),
             ),
           ),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                    width: 8.w,
-                    height: 8.w,
-                    margin: EdgeInsets.symmetric(horizontal: 4.w),
-                    decoration: BoxDecoration(
-                      color: Styles.PRIMARY_COLOR,
-                      borderRadius: BorderRadius.circular(2.w),
-                    ),
-                    child: SizedBox()),
-                Expanded(
-                  child: Text(
-                    status?.capitalize() ?? "",
-                    style: AppTextStyles.w600.copyWith(
-                        fontSize: 14, color: Styles.PRIMARY_COLOR, height: 1.5),
-                  ),
-                ),
-              ],
-            ),
-          )
+          Container(
+              width: 8.w,
+              height: 8.w,
+              margin: EdgeInsets.symmetric(horizontal: 4.w),
+              decoration: BoxDecoration(
+                color: Styles.PRIMARY_COLOR,
+                borderRadius: BorderRadius.circular(2.w),
+              ),
+              child: SizedBox()),
+          Text(
+            status?.capitalize() ?? "",
+            style: AppTextStyles.w600.copyWith(
+                fontSize: 14, color: Styles.PRIMARY_COLOR, height: 1.5),
+          ),
         ],
       ),
     );
