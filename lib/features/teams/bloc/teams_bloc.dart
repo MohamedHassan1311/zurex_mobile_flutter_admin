@@ -70,7 +70,7 @@ class TeamsBloc extends HydratedBloc<AppEvent, AppState> {
           emit(Done(data: _model, loading: true));
         }
 
-        _engine.data = {"text": searchTEC?.text.trim()};
+        _engine.data = {"keyword": searchTEC?.text.trim()};
 
         Either<ServerFailure, Response> response = await repo.getTeams(_engine);
 
