@@ -17,6 +17,7 @@ import '../../language/page/language_button.dart';
 import '../../notifications/bloc/turn_notification_bloc.dart';
 import '../../notifications/repo/notifications_repo.dart';
 import '../../profile/bloc/profile_bloc.dart';
+import '../../profile/enums/user_types_enum.dart';
 import '../widgets/more_button.dart';
 import '../widgets/profile_card.dart';
 import '../widgets/turn_button.dart';

@@ -7,7 +7,7 @@ import '../../../../app/core/images.dart';
 import '../../../../app/core/styles.dart';
 import '../../../../app/core/text_styles.dart';
 import '../../../../app/localization/language_constant.dart';
-import '../../../../main_blocs/user_bloc.dart';
+import '../../../profile/enums/user_types_enum.dart';
 import '../bloc/login_bloc.dart';
 import 'choose_user_type.dart';
 

@@ -11,6 +11,7 @@ import 'package:zurex_admin/main_blocs/user_bloc.dart';
 import '../../../app/core/app_event.dart';
 import '../../../app/localization/language_constant.dart';
 import '../../change_status/view/update_team_status.dart';
+import '../../profile/enums/user_types_enum.dart';
 
 class OrderDetailsActions extends StatelessWidget {
   const OrderDetailsActions({super.key, required this.model});

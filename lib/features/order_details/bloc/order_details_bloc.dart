@@ -21,19 +21,13 @@ class OrderDetailsBloc extends Bloc<AppEvent, AppState> {
   }
 
   Future<void> onClick(Click event, Emitter<AppState> emit) async {
-    try {
+    // try {
       emit(Loading());
 
       Either<ServerFailure, Response> response =
           await repo.getOrderDetails(event.arguments as int);
 
       response.fold((fail) {
-        AppCore.showSnackBar(
-            notification: AppNotification(
-                message: fail.error,
-                isFloating: true,
-                backgroundColor: Styles.IN_ACTIVE,
-                borderColor: Colors.red));
         emit(Error());
       }, (success) {
         if (success.data["data"] != null) {
@@ -44,15 +38,10 @@ class OrderDetailsBloc extends Bloc<AppEvent, AppState> {
           emit(Error());
         }
       });
-    } catch (e) {
-      AppCore.showSnackBar(
-          notification: AppNotification(
-        message: e.toString(),
-        backgroundColor: Styles.IN_ACTIVE,
-        borderColor: Styles.RED_COLOR,
-      ));
-      emit(Error());
-    }
+    // } catch (e) {
+    //
+    //   emit(Error());
+    // }
   }
 
   Future<void> onUpdate(Update event, Emitter<AppState> emit) async {

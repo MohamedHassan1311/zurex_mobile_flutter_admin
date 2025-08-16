@@ -5,6 +5,7 @@ import 'package:zurex_admin/app/localization/language_constant.dart';
 import 'package:zurex_admin/main_blocs/user_bloc.dart';
 import '../../app/core/styles.dart';
 import '../../app/core/svg_images.dart';
+import '../../features/profile/enums/user_types_enum.dart';
 import '../bloc/dashboard_bloc.dart';
 import 'nav_bar_item.dart';
 
