@@ -20,7 +20,7 @@ class OrdersRepo extends BaseRepo {
           "page": data.currentPage! + 1,
           "limit": data.limit,
           if (UserBloc.instance.user?.userType == UserType.driver)
-            "deliveryByMyTeam": true,
+            "DeliveryByMyTeam": true,
           if (UserBloc.instance.user?.userType == UserType.admin)
             "managedByMe": true,
         }..addAll(data.data),
