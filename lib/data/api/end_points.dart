@@ -3,9 +3,9 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 class EndPoints {
   static const bool isProductionEnv = false;
   static String domain =
-      dotenv.env['DOMAIN_${isProductionEnv ? "PRO" : "DEV"}'] ?? "";
+      dotenv.env['DOMAIN_${isProductionEnv ? "PRO" : "STAGE"}'] ?? "";
   static String baseUrl =
-      dotenv.env['BASE_URL_${isProductionEnv ? "PRO" : "DEV"}'] ?? "";
+      dotenv.env['BASE_URL_${isProductionEnv ? "PRO" : "STAGE"}'] ?? "";
   static String apiKey = dotenv.env['API_KEY'] ?? "";
   static chatPort(id) => '${dotenv.env['CHAT_PORT']}$id';
   static String googleMapsBaseUrl = dotenv.env['GOOGLE_MAPS_BASE_URL'] ?? "";

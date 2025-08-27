@@ -71,7 +71,7 @@ class OrdersBloc extends HydratedBloc<AppEvent, AppState> {
             emit(Loading());
           }
         } else {
-          emit(Done(data: _model, loading: true));
+          emit(Done(list: _model, loading: true));
         }
         _engine.data = {
           "status": selectTab.value.name,
